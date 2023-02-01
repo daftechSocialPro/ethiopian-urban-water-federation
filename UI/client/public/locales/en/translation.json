@@ -1,0 +1,52 @@
+{
+    "address":{
+        "1":"Haile G/Silassie Road, ADDIS ABABA, ETHIOIA"
+    },
+    "english":{
+        "1":"English"
+    },
+    "amharic":{
+        "1":"Amharic"
+    },
+    "home": {
+        "1": "Home"
+    },
+    "aboutus":{
+        "1":"About Us"
+    },
+    "news":{
+        "1":"News"
+    },
+    "memberutilites":{
+        "1":"Member Utilities"
+    },
+    "contactus":{
+        "1":"Contact Us"
+    },
+    "others":{
+        "1":"Others"
+    },
+    "vaccancy":{
+        "1":"Vaccancy"
+    },
+    "publication":{
+        "1":"Publication"
+    },
+    "ethiopianurbanwater": {
+        "1": "Ethiopian Urban Water"
+    },
+    "federation": {
+        "1": "Federation"
+    },
+    "whoweare": {
+        "1": "WHO WE ARE"
+    },
+    "welcome":{
+        "1":"Welcome to Ethiopian Urban Water Federation",
+        "2":"The Ethiopian Water Federation (EWF) was established on April 13, 2018 and registered as a legal entity by the Ministry of Water and Energy under the authority granted to it by Article 8(1) (A) of Proclamation Number 197/1992 of the Ethiopian Law",
+        "3":"The Federation's mandate is to provide a platform for all Ethiopia utilities to advocate for issues relating to their development and sustainability, as well as capacity building and support for utilities.",
+        "4":"DISCOVER MORE",
+        "5":"Years of work experiance"
+    }
+
+}

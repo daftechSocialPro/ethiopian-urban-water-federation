@@ -1,0 +1,108 @@
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\appsettings.Development.json
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\appsettings.json
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\DAFwebAPI.exe
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\DAFwebAPI.deps.json
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\DAFwebAPI.runtimeconfig.json
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\DAFwebAPI.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\DAFwebAPI.pdb
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\BCrypt.Net-Next.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Humanizer.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\MailKit.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Microsoft.EntityFrameworkCore.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Microsoft.Extensions.Caching.Memory.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Microsoft.Extensions.DependencyInjection.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Microsoft.IdentityModel.Abstractions.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Microsoft.IdentityModel.Logging.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Microsoft.IdentityModel.Tokens.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Microsoft.OpenApi.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\MimeKit.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\MlkPwgen.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Newtonsoft.Json.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Newtonsoft.Json.Bson.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Newtonsoft.Json.Schema.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Npgsql.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\BouncyCastle.Crypto.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\bin\Release\net6.0\System.IdentityModel.Tokens.Jwt.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\DAFwebAPI.csproj.AssemblyReference.cache
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\DAFwebAPI.GeneratedMSBuildEditorConfig.editorconfig
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\DAFwebAPI.AssemblyInfoInputs.cache
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\DAFwebAPI.AssemblyInfo.cs
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\DAFwebAPI.csproj.CoreCompileInputs.cache
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\DAFwebAPI.MvcApplicationPartsAssemblyInfo.cs
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\DAFwebAPI.MvcApplicationPartsAssemblyInfo.cache
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\staticwebassets\msbuild.DAFwebAPI.Microsoft.AspNetCore.StaticWebAssets.props
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\staticwebassets\msbuild.build.DAFwebAPI.props
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\staticwebassets\msbuild.buildMultiTargeting.DAFwebAPI.props
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\staticwebassets\msbuild.buildTransitive.DAFwebAPI.props
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\staticwebassets.pack.json
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\staticwebassets.build.json
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\staticwebassets.development.json
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\scopedcss\bundle\DAFwebAPI.styles.css
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\DAFwebAPI.csproj.CopyComplete
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\DAFwebAPI.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\refint\DAFwebAPI.dll
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\DAFwebAPI.pdb
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\DAFwebAPI.genruntimeconfig.cache
+E:\kirubel\Office Projects\DAFTech Socail\Water Federation\DAFwebAPI\obj\Release\net6.0\ref\DAFwebAPI.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\appsettings.Development.json
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\appsettings.json
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\DAFwebAPI.exe
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\DAFwebAPI.deps.json
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\DAFwebAPI.runtimeconfig.json
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\DAFwebAPI.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\DAFwebAPI.pdb
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\BCrypt.Net-Next.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Humanizer.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\MailKit.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Microsoft.EntityFrameworkCore.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Microsoft.Extensions.Caching.Memory.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Microsoft.Extensions.DependencyInjection.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Microsoft.IdentityModel.Abstractions.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Microsoft.IdentityModel.Logging.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Microsoft.IdentityModel.Tokens.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Microsoft.OpenApi.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\MimeKit.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\MlkPwgen.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Newtonsoft.Json.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Newtonsoft.Json.Bson.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Newtonsoft.Json.Schema.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Npgsql.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\BouncyCastle.Crypto.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\bin\Release\net6.0\System.IdentityModel.Tokens.Jwt.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\DAFwebAPI.csproj.AssemblyReference.cache
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\DAFwebAPI.GeneratedMSBuildEditorConfig.editorconfig
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\DAFwebAPI.AssemblyInfoInputs.cache
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\DAFwebAPI.AssemblyInfo.cs
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\DAFwebAPI.csproj.CoreCompileInputs.cache
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\DAFwebAPI.MvcApplicationPartsAssemblyInfo.cs
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\DAFwebAPI.MvcApplicationPartsAssemblyInfo.cache
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\staticwebassets\msbuild.DAFwebAPI.Microsoft.AspNetCore.StaticWebAssets.props
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\staticwebassets\msbuild.build.DAFwebAPI.props
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\staticwebassets\msbuild.buildMultiTargeting.DAFwebAPI.props
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\staticwebassets\msbuild.buildTransitive.DAFwebAPI.props
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\staticwebassets.pack.json
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\staticwebassets.build.json
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\staticwebassets.development.json
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\scopedcss\bundle\DAFwebAPI.styles.css
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\DAFwebAPI.csproj.CopyComplete
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\DAFwebAPI.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\refint\DAFwebAPI.dll
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\DAFwebAPI.pdb
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\DAFwebAPI.genruntimeconfig.cache
+E:\kirubel\Office Projects\DAFTech Socail\Ethiopian Urban Water Federation\ethiopian-urban-water-federation\API\obj\Release\net6.0\ref\DAFwebAPI.dll

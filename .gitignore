@@ -1,0 +1,4 @@
+UI/client/node_modules/
+UI/admin/node_modules/
+API/bin/
+API/.vs
