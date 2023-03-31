@@ -179,7 +179,7 @@ useEffect(()=>{
                 </div>
                 <div className="sidebar__single sidebar__single--posts">
                   <h3 className="sidebar__title">Recent posts</h3>
-                  <ul className="list-unstyled sidebar__post">
+                  {/* <ul className="list-unstyled sidebar__post">
                     {filterdList.slice(0, 4).map((item, index) => (
                       <li>
                         <a onClick={()=>setNews(item)}>
@@ -196,7 +196,7 @@ useEffect(()=>{
                         </a>
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
                 </div>
               </div>
             </div>
