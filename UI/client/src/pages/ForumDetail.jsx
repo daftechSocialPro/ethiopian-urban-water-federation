@@ -11,12 +11,12 @@ function ForumDetail() {
   const  [searchParm,setSearchParam]= useState('')
 
 
-useEffect(()=>{
+// useEffect(()=>{
 
-  setfilterdnewsList(
-  forumList.filter(forum => forum.title.toLowerCase().includes(searchParm.toLowerCase()))
-)
-},[searchParm])
+//   setfilterdforumsList(
+//   forumList.filter(forum => forum.title.toLowerCase().includes(searchParm.toLowerCase()))
+// )
+// },[searchParm])
 
 
 
