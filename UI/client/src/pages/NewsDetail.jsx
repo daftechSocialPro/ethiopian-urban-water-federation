@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import axios from "axios";
 import { useLocation } from "react-router-dom";
-import { assetUrl } from "../endpoints";
+import { assetUrl, urlSponsor } from "../endpoints";
 import dateformat from "dateformat";
 function NewsDetail() {
   const location = useLocation();
@@ -10,6 +11,7 @@ function NewsDetail() {
   const [newsList, setNewsList] = useState(
     location.state.newsList && location.state.newsList
   );
+  const [sponser, setSponser]=useState([])
   const  [searchParm,setSearchParam]= useState('')
 
 
@@ -21,7 +23,11 @@ useEffect(()=>{
 },[searchParm])
 
 
-
+useEffect(()=>{
+  axios.get(urlSponsor + "/bySupportType?supportType=0").then((res) => {
+    setSponser(res.data)
+  })
+}, [])
 
 
 
@@ -78,105 +84,7 @@ useEffect(()=>{
                   ></div>
                 </p>
               </div>
-              <div className="blog-details__bottom">
-                <div className="blog-details__social">
-                  <a href="#">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a href="#">
-                    <i className="fab fa-facebook"></i>
-                  </a>
-                  <a href="#">
-                    <i className="fab fa-pinterest"></i>
-                  </a>
-                  <a href="#">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                </div>
-              </div>
-              <div className="blog-details__author clearfix">
-                <img src="/assets/images/blog/blog-a-1.jpg" alt="" />
-                <h3 className="blog-details__author__name">Kevin martin</h3>
-                <p className="blog-details__author__bio">
-                  Cursus massa at urnaaculis estie. Sed aliquamellus vitae ultrs
-                  condmentum lightly believable. If you are going to use a of
-                  you need to be sure there isn't anything embarrassing.
-                </p>
-              </div>
-              <div className="blog-details__comments">
-                <h3 className="blog-details__sec__title">02 Comments</h3>
-                <ul className="list-unstyled blog-details__comments__list">
-                  <li>
-                    <img src="/assets/images/blog/blog-c-1.jpg" alt="" />
-                    <div className="blog-details__comments__meta">
-                      <h3 className="blog-details__comments__name">
-                        Christine Eve{" "}
-                      </h3>
-                      <p className="blog-details__comments__date">20 Aug, 2022</p>
-                    </div>
-                    <p className="blog-details__comments__text">
-                      Sending love. My nephews Nick and Anthony Salaber are your
-                      teammates, so I know the caliber person you are. Our whole
-                      family is sending our best to you and your family.
-                    </p>
-
-                    <a href="#" className="thm-btn blog-details__comments__btn">
-                      <span>Reply</span>
-                    </a>
-                  </li>
-                  <li>
-                    <img src="/assets/images/blog/blog-c-2.jpg" alt="" />
-                    <div className="blog-details__comments__meta">
-                      <h3 className="blog-details__comments__name">
-                        Christine Eve{" "}
-                      </h3>
-
-                      <p className="blog-details__comments__date">20 Aug, 2022</p>
-                    </div>
-                    <p className="blog-details__comments__text">
-                      Sending love. My nephews Nick and Anthony Salaber are your
-                      teammates, so I know the caliber person you are. Our whole
-                      family is sending our best to you and your family.
-                    </p>
-
-                    <a href="#" className="thm-btn blog-details__comments__btn">
-                      <span>Reply</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="blog-details__form">
-                <h3 className="blog-details__sec__title">Leave a comment</h3>
-                <form
-                  action="https://paroti-html.vercel.app/assets/inc/sendemail.php"
-                  className="contact-one__form contact-form-validated"
-                >
-                  <div className="row">
-                    <div className="col-md-6">
-                      <input type="text" placeholder="Your name" name="name" />
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        type="text"
-                        placeholder="Email address"
-                        name="email"
-                      />
-                    </div>
-                    <div className="col-md-12">
-                      <textarea
-                        name="message"
-                        placeholder="Write a message"
-                      ></textarea>
-                    </div>
-                    <div className="col-md-12">
-                      <button type="submit" className="thm-btn contact-one__btn">
-                        <span>Submit comment</span>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-                <div className="result"></div>
-              </div>
+      
             </div>
             <div className="col-lg-4">
               <div className="sidebar">
@@ -210,6 +118,14 @@ useEffect(()=>{
                   </ul>
                 </div>
               </div>
+
+              {sponser.map((item, index) => {
+              return (
+                <div className="item" style={{marginLeft:"25%"}}  >
+                  <img style={{height:"200px", width:"200px"}} src={getImage(item.logo)} alt="" />
+                </div>
+              )
+            })}
             </div>
           </div>
         </div>

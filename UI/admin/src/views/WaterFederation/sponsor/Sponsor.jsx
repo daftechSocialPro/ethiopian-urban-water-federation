@@ -36,12 +36,14 @@ function Sponsor({ user }) {
   const [sponsor, setSponsor] = useState({})
 
   const SponsorLevels = ['Platinum', 'Diamond', 'Gold', 'Silver']
-
+  const Types=["Sponser", "Partnership"]
   const naviagate = useNavigate()
 
   useEffect(() => {
     axios.get(urlSponsor).then((res) => {
+      console.log(res.data)
       setSponsors(res.data)
+      
     })
   }, [])
 
@@ -101,13 +103,6 @@ function Sponsor({ user }) {
                       style={{ width: '280px', borderRadius: '20px', border: 'solid #fff' }}
                       fluid
                     />
-
-                    {/* <div className="d-flex justify-content-center mb-10">
-                        <CCol md={4}>
-                          <CFormLabel htmlFor="formFileLg">Photo</CFormLabel>
-                          <CFormInput type="file" size="sm" accept='image/*' onChange={photoInputHandler} required id="formFileLg" />
-                        </CCol>
-                      </div> */}
                   </MDBCardBody>
                 </MDBCard>
               </MDBCol>
@@ -133,6 +128,18 @@ function Sponsor({ user }) {
                       <MDBCol sm="9">
                         <MDBCardText className="text-muted">
                           {sponsor && sponsor.amharicCompanyName}
+                        </MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                    <hr />
+
+                    <MDBRow>
+                      <MDBCol sm="3">
+                        <MDBCardText>Suport Type</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="9">
+                        <MDBCardText className="text-muted">
+                          {sponsor && Types[sponsor.supportType]}
                         </MDBCardText>
                       </MDBCol>
                     </MDBRow>
@@ -195,6 +202,7 @@ function Sponsor({ user }) {
                       <CIcon icon={cilPeople} />
                     </CTableHeaderCell>
                     <CTableHeaderCell>Company Name</CTableHeaderCell>
+                    <CTableHeaderCell>Suport Type</CTableHeaderCell>
 
                     <CTableHeaderCell>Sponsor Level</CTableHeaderCell>
 
@@ -219,6 +227,9 @@ function Sponsor({ user }) {
                           <span>{getDate(item.createdAt) < 5 ? 'New' : 'Recurring'}</span> |
                           Registered: {dateformat(item.createdAt)}
                         </div>
+                      </CTableDataCell>
+                      <CTableDataCell>
+                        <div>{Types[item.supportType]}</div>
                       </CTableDataCell>
                       <CTableDataCell>
                         <div>{SponsorLevels[item.sponcerLevel]}</div>

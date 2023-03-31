@@ -19,7 +19,7 @@ import {
   CButton,
   CFormInput,
   CFormLabel,
-  CFormSelect ,
+  CFormSelect,
   CForm,
 } from '@coreui/react'
 import { assetUrl, urlboardmember, urlSponsor } from '../../../endpoints'
@@ -29,7 +29,7 @@ function SponsorUpdate({ user, setIsLodding }) {
 
   const sponsor = location.state.sponsor
 
-  console.log("sponser",sponsor)
+  console.log("sponser", sponsor)
 
   //bordMember)
 
@@ -38,9 +38,10 @@ function SponsorUpdate({ user, setIsLodding }) {
   const [companyName, setCompanyName] = useState(sponsor.companyName)
   const [amharicCompanyName, setAmharicCompanyName] = useState(sponsor.amharicCompanyName)
   const [sponcerLevel, setSponcerLevel] = useState(sponsor.sponcerLevel)
+  const [type, setType] = useState(sponsor.supportType)
 
   const SponsorLevels = ['Platinum', 'Diamond', 'Gold', 'Silver']
-
+  const Types = ["Sponser", "Partnership"]
   const navigate = useNavigate()
 
   const photoInputHandler = (event) => {
@@ -57,8 +58,9 @@ function SponsorUpdate({ user, setIsLodding }) {
     formData.set('companyName', companyName)
     formData.set('amharicCompanyName', amharicCompanyName)
     formData.set('sponcerLevel', sponcerLevel)
-    formData.set('Description',description)
+    formData.set('Description', description)
     formData.set('ID', sponsor.id)
+    formData.set('SupportType', type)
 
     const form = event.currentTarget
     if (form.checkValidity() === false) {
@@ -202,6 +204,27 @@ function SponsorUpdate({ user, setIsLodding }) {
                       <hr />
                       <MDBRow>
                         <MDBCol sm="3">
+                          <MDBCardText>Type </MDBCardText>
+                        </MDBCol>
+                        <MDBCol sm="9">
+                          <CFormSelect
+                            required
+                            value={type}
+                            onChange={(e) => setType(e.target.value)}
+                          >
+                            <option>--- Select Type ---</option>
+
+                            {Types.map((item, index) => (
+                              <option value={index} key={index}>
+                                {item}
+                              </option>
+                            ))}
+                          </CFormSelect>
+                        </MDBCol>
+                      </MDBRow>
+                      <hr />
+                      <MDBRow>
+                        <MDBCol sm="3">
                           <MDBCardText>Sponsor Level </MDBCardText>
                         </MDBCol>
                         <MDBCol sm="9">
@@ -220,6 +243,7 @@ function SponsorUpdate({ user, setIsLodding }) {
                           </CFormSelect>
                         </MDBCol>
                       </MDBRow>
+
 
                       <hr />
 
