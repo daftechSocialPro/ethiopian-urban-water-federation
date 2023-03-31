@@ -2637,7 +2637,7 @@ h6 {
 }
 
 .blog-card__meta li + li {
-  margin-left: 5px;
+ /* // margin-left: 5px; */
 }
 
 .blog-card__meta a {

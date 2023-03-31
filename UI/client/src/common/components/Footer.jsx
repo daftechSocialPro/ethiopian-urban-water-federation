@@ -57,8 +57,7 @@ function Footer() {
         <div className="site-footer__bottom__inner">
           <p className="site-footer__bottom__text">© Copyright <span className="dynamic-year"></span> by
             Layerdrops.com</p>
-            <p className="site-footer__bottom__text">Developed By <span className="dynamic-year"></span> by
-            Kirubel Gizaw</p>
+            <p className="site-footer__bottom__text">Developed By <span className="dynamic-year"></span> DAFTech Social ICT Solution</p>
           <div className="site-footer__social">
             <a href="#"><i className="fab fa-twitter"></i></a>
             <a href="#"><i className="fab fa-facebook"></i></a>

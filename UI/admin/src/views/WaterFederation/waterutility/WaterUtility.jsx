@@ -97,7 +97,7 @@ function WaterUtility({ user }) {
                     <MDBCardImage
                       src={getImage(waterUtility.logo)}
                       alt="avatar"
-                      style={{ width: '280px', borderRadius: '20px', border: 'solid #fff' }}
+                      style={{ width: '240px', borderRadius: '20px', border: 'solid #fff' }}
                       fluid
                     />
 
@@ -145,20 +145,136 @@ function WaterUtility({ user }) {
                         </MDBCardText>
                       </MDBCol>
                     </MDBRow>
-                    <hr />
+                    <hr /> 
                     <MDBRow>
                       <MDBCol sm="3">
-                        <MDBCardText>Regional Association</MDBCardText>
+                        <MDBCardText>KM from AA</MDBCardText>
                       </MDBCol>
                       <MDBCol sm="9">
+                        <MDBCardText className="text-muted">
+                          {waterUtility && waterUtility.kmfromaa}
+                        </MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                    <hr/>
+                    <MDBRow>
+                      <MDBCol sm="3">
+                        <MDBCardText>Distribution on KM</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="9">
+                        <MDBCardText className="text-muted">
+                          {waterUtility && waterUtility.distributionkm}
+                        </MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                    </MDBCardBody>
+                    </MDBCard>
+                    </MDBCol>
+
+                    <MDBCol >
+                    <MDBCard className='mb-4'>
+                      <div className="card1" style={{display:"flex", justifyContent:"space-between"}}>
+                      <MDBCardBody className='row'>
+                      <div className="col-6">
+                      <MDBRow>
+                      <MDBCol sm="5">
+                        <MDBCardText>Main Pressure</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="7">
+                        <MDBCardText className="text-muted">
+                          {waterUtility && waterUtility.mainpresure}
+                        </MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                  <hr/>
+                    <MDBRow>
+                      <MDBCol sm="5">
+                        <MDBCardText>Reserve Wire Capacity </MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="7">
+                        <MDBCardText className="text-muted">
+                          {waterUtility && waterUtility.reservwire}
+                        </MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                    <hr/>
+                    <MDBRow>
+                      <MDBCol sm="5">
+                        <MDBCardText>Established Date </MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="7">
+                        <MDBCardText className="text-muted">
+                          {waterUtility && waterUtility.establisheddate}
+                        </MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                    <hr/>
+                    <MDBRow>
+                      <MDBCol sm="5">
+                        <MDBCardText>Production Capacity</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="7">
+                        <MDBCardText className="text-muted">
+                          {waterUtility && waterUtility.prodcapa}
+                        </MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                      </div>
+              <div className="col-6">
+            
+                    <MDBRow>
+                      <MDBCol sm="5">
+                        <MDBCardText> Purification</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="7">
+                        <MDBCardText className="text-muted">
+                          {waterUtility && waterUtility.purification}
+                        </MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                    <hr/>
+                    <MDBRow>
+                      <MDBCol sm="5">
+                        <MDBCardText> No of Employees</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="7">
+                        <MDBCardText className="text-muted">
+                          {waterUtility && waterUtility.noemployees}
+                        </MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                    <hr/>
+                   
+                    <MDBRow>
+                      <MDBCol sm="5">
+                        <MDBCardText>Regional Association</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="7">
                         <MDBCardText className="text-muted">
                         <div>{waterUtility.regionalWaterFederation&&waterUtility.regionalWaterFederation.name}</div>
                         </MDBCardText>
                       </MDBCol>
                     </MDBRow>
                  
+
                     <hr />
+                          
+                    <MDBRow>
+                      <MDBCol sm="5">
+                        <MDBCardText>Source</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="7">
+                        <MDBCardText className="text-muted">
+                        <div>{waterUtility.source}</div>
+                        </MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+
+              </div>
+                
                   </MDBCardBody>
+                      </div>
+                  
                 </MDBCard>
               </MDBCol>
               <MDBCol lg="12">
@@ -171,6 +287,7 @@ function WaterUtility({ user }) {
             </MDBRow>
           </CCardBody>
         </CModalBody>
+     
       </CModal>
 
       <CRow>

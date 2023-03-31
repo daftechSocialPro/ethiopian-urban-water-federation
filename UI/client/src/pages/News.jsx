@@ -7,6 +7,7 @@ import dateformat from 'dateformat'
 function News() {
   const [news, setNews] = useState([]);
   const navigate = useNavigate()
+  // eyanagerkeng nberawo lmn dnnew  react-reduc x yatenahut  ena mn yeshalal 
 
   const getImage = (item) => {
     return `${assetUrl}/${item}`;

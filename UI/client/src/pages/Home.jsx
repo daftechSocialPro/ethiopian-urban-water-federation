@@ -8,12 +8,48 @@ import { assetUrl, urlForum, urlNews } from "../endpoints";
 import dateformat from "dateformat";
 import { useEffect } from "react";
 import DOMPurify from "dompurify";
-import {useTranslation} from 'react-i18next'
-
+import { useTranslation } from 'react-i18next'
+import {useNavigate} from 'react-router-dom'
 function Home() {
 
-  const {t}  = useTranslation()
 
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+
+  const navigateAboutPage =()=>{
+
+    navigate('about',{
+      state :{
+        
+      }
+    }
+    )
+  }
+
+  const navigateNewsDetial =(item)=>{
+
+    navigate('news/detail',{
+      state :{
+        news: item,
+        newsList:news
+      }
+    }
+    )
+    
+      }
+
+      const navigateForumDetial=(item, itemList)=>{
+
+        navigate('forum',{
+          state :{
+            forum: item,
+            forumList: itemList
+            
+          }
+        }
+        )
+      }
+    
 
   const option3 = {
     items: 1,
@@ -41,7 +77,7 @@ function Home() {
     gutter: 0,
     mouseDrag: true,
     touch: "true",
-    nav: true,
+    nav: false,
 
     controls: false,
     responsive: {
@@ -54,11 +90,11 @@ function Home() {
         gutter: 0,
       },
       768: {
-        items: 2,
+        items: 3,
         gutter: 30,
       },
       992: {
-        items: 2,
+        items: 3,
         //"gutter": 30,
         margin: 30,
       },
@@ -124,9 +160,15 @@ function Home() {
   useEffect(() => {
     axios
       .get(urlForum)
-      .then((res) => setForum(res.data))
+      .then((res) => {
+
+        console.log("forum", res.data)
+        setForum(res.data)
+      })
       .catch((err) => console.error(err));
   }, []);
+
+
 
   const getImage = (item) => {
     return `${assetUrl}/${item}`;
@@ -167,7 +209,7 @@ function Home() {
 
                 <h2 className="slider-one__title">Federation</h2>
                 <div className="slider-one__btns">
-                  <a href="about.html" className="thm-btn slider-one__btn">
+                  <a href="" className="thm-btn slider-one__btn" onClick={()=>navigateAboutPage()}>
                     <span>{t("welcome.4")}</span>
                   </a>
                 </div>
@@ -188,7 +230,7 @@ function Home() {
 
                 <h2 className="slider-one__title">Federation</h2>
                 <div className="slider-one__btns">
-                  <a href="about.html" className="thm-btn slider-one__btn">
+                  <a href="" onClick={()=>navigateAboutPage()} className="thm-btn slider-one__btn">
                     <span>{t("welcome.4")}</span>
                   </a>
                 </div>
@@ -210,7 +252,7 @@ function Home() {
 
                 <h2 className="slider-one__title">Federation</h2>
                 <div className="slider-one__btns">
-                  <a href="about.html" className="thm-btn slider-one__btn">
+                  <a href=""  className="thm-btn slider-one__btn" onClick={()=>navigateAboutPage()}>
                     <span>{t("welcome.4")}</span>
                   </a>
                 </div>
@@ -224,7 +266,7 @@ function Home() {
         <img
           src="/assets/images/shapes/about-4-1.png"
           className="about-two__shape-1 float-bob-x"
-          alt=""
+          alt="about image"
         />
         <div className="container">
           <div className="row gutter-y-60">
@@ -237,7 +279,7 @@ function Home() {
                   src="/assets/images/resources/4.png"
                   className="wow fadeInLeft"
                   data-wow-duration="1500ms"
-                  alt=""
+                  alt="about image"
                 />
                 <div className="about-two__image__caption">
                   <h3 className="about-two__image__caption__count count-box">
@@ -249,7 +291,7 @@ function Home() {
                     +100
                   </h3>
                   <p className="about-two__image__caption__text">
-                  {t("welcome.5")}
+                    {t("welcome.5")}
                   </p>
                 </div>
               </div>
@@ -258,19 +300,19 @@ function Home() {
               <div className="about-two__content">
                 <div className="sec-title">
                   <p className="sec-title__tagline">
-                  {t("welcome.1")}
+                    {t("welcome.1")}
                   </p>
                   <h2 className="sec-title__title">{t("whoweare.1")}</h2>
                 </div>
                 <p className="about-two__text">
-                 {t("welcome.2")}
+                  {t("welcome.2")}
                 </p>
                 <p className="about-two__text mt-3">
-                {t("welcome.3")}
+                  {t("welcome.3")}
                 </p>
 
                 <div className="about-two__btns mt-4">
-                  <a href="about.html" className="thm-btn about-two__btn">
+                  <a href="" onClick={()=>navigateAboutPage()} className="thm-btn about-two__btn">
                     <span> {t("welcome.4")}</span>
                   </a>
                 </div>
@@ -398,44 +440,53 @@ function Home() {
             <p className="sec-title__tagline">Ethiopian Water Federation</p>
             <h2 className="sec-title__title">Events & Forums</h2>
           </div>
+          {/* {forum.map((item, index) => ( <h1>hello</h1>
+              ))}  */}
 
           <div className="donations-carousel">
-            <OwlCarousel className="owl-theme " {...option4}>
-              {forum.map((item, index) => (
-                <div className="item" key={index}>
-                  <div className="donations-card">
-                    <div className="donations-card__image">
-                      <img src={getImage(item.img)} alt="" />
-                      <div className="donations-card__category">
-                        <a href="#">
-                          {item.isForumEvent === 1 ? "Events" : "Forums"}
-                        </a>
+
+            {forum.length && <OwlCarousel className="owl-theme" {...option4}>
+              {forum.map((item, index) => {
+                return (
+                  <div className="item" key={index}>
+                    <div className="donations-card">
+                      <div className="donations-card__image">
+                        <img src={getImage(item.img)} alt="" />
+                        <div className="donations-card__category">
+                          <a href="#">
+                            {item.isForumEvent === 1 ? "Events" : "Forums"}
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                    <div className="donations-card__content">
-                      <h3 className="donations-card__title">
-                        <a href="donations-details.html">{item.title}</a>
-                      </h3>
-                      <p className="donations-card__text"
+                      <div className="donations-card__content">
+                        <h3 className="donations-card__title">
+                          <a onClick={()=>navigateForumDetial(item)}>{item.title}</a>
+                        </h3>
+                        <p className="donations-card__text"
                           dangerouslySetInnerHTML={{
                             __html: `${DOMPurify.sanitize(
                               item.description
                             ).slice(0, 100)}...`,
                           }}
                         >
-                      </p>
-
-                      <div className="donations-card__amount">
-                        <p>
-                          <span>{dateformat(item.createdAt, "mmm dS")}</span>
                         </p>
-                        <p></p>
+
+                        <div className="donations-card__amount">
+                          <p>
+                            <span>{dateformat(item.createdAt, "mmm dS")}</span>
+                          </p>
+                          <p></p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </OwlCarousel>
+                )
+              }
+
+              )}
+            </OwlCarousel>}
+
+
           </div>
         </div>
       </section>
@@ -477,14 +528,14 @@ function Home() {
             <h2 className="sec-title__title">Latest news & articles</h2>
           </div>
           <div className="blog-carousel">
-            <OwlCarousel className="owl-theme" {...option4}>
-              {news.map((item, index) => (
-                <div key={index} className="item">
+            {news.length && <OwlCarousel className="owl-theme" {...option4}>
+              {news.map((item, index) => {
+                return (<div key={index} className="item">
                   <div className="blog-card">
                     <div className="blog-card__image">
                       <img src={getImage(item.img)} alt="" />
                       <div className="blog-card__date">
-                      <span>{dateformat(item.createdAt,"d")}</span>{dateformat(item.createdAt,"mmm")}
+                        <span>{dateformat(item.createdAt, "d")}</span>{dateformat(item.createdAt, "mmm")}
                       </div>
                     </div>
                     <div className="blog-card__content">
@@ -501,23 +552,23 @@ function Home() {
                       <h3 className="blog-card__title">
                         <a href="blog-details.html">{item.title}</a>
                       </h3>
-                        <p className="donations-card__text"
-                          dangerouslySetInnerHTML={{
-                            __html: `${DOMPurify.sanitize(
-                              item.description
-                            ).slice(0, 100)}...`,
-                          }}
-                        >
+                      <p className="donations-card__text"
+                        dangerouslySetInnerHTML={{
+                          __html: `${DOMPurify.sanitize(
+                            item.description
+                          ).slice(0, 100)}...`,
+                        }}
+                      >
                       </p>
-                      <a href="blog-details.html" className="blog-card__links">
+                      <a onClick={()=>navigateNewsDetial(item)} className="blog-card__links">
                         <i className="fa fa-angle-double-right"></i>
                         Read More
                       </a>
                     </div>
                   </div>
-                </div>
-              ))}
-            </OwlCarousel>
+                </div>)
+              })}
+            </OwlCarousel>}
           </div>
         </div>
       </section>

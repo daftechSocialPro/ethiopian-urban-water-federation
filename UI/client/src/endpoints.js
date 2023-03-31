@@ -4,6 +4,7 @@ export const urlNews = `${baseURL}/api/news`;
 export const urlContact = `${baseURL}/api/contact`;
 export const urlboardmember = `${baseURL}/api/bord_member`; 
 export const urlresearch = `${baseURL}/api/research`; 
-export const urlForum = `${baseURL}/api/forum`
+export const urlForum = `${baseURL}/api/forum`;
+export const urlWaterUtility = `${baseURL}/api/waterutility`;
 
 export const assetUrl = baseURL;

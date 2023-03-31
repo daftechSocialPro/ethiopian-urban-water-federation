@@ -34,8 +34,21 @@ function WaterUtilityUpdate({ user, setIsLodding }) {
   const [name, setName] = useState(waterutility.name)
   const [email, setEmail] = useState(waterutility.email)
   const [phone, setPhone] = useState(waterutility.phone)
+  const [kmfromaa, setKm] = useState(waterutility.kmfromaa)
+  const [establisheddate, setDate]= useState(waterutility.establisheddate)
+  const [source, setSource]=useState(waterutility.source)
+  const [noemployees, setNoemployees] =useState(waterutility.noemployees)
+  const [distributionkm, setDistrbutionkm]= useState(waterutility.distributionkm)
+  const [mainpresure, setMainpresure]= useState(waterutility.mainpresure)
+  const [reservwire, setReservewire]= useState(waterutility.reservwire)
+  const [purification, setpurifications]= useState(waterutility.purification)
+  const [prodcapa, setProdcap]= useState(waterutility.prodcapa)
   const [regionalWaterFederationId, setRegionalWaterFederationId] = useState(waterutility.regionalWaterFederationId)
   const [regionalFederations, setRegionalFederations] = useState([])
+
+
+  
+  const sources =["Surface","Spring","Settel"]
 
   useEffect(() => {
     axios
@@ -71,7 +84,15 @@ function WaterUtilityUpdate({ user, setIsLodding }) {
     formData.set('description', description)
     formData.set('regionalWaterFederationId', regionalWaterFederationId)
     formData.set('ID', waterutility.id)
-
+    formData.set('kmfromaa', kmfromaa)
+    formData.set('establisheddate', establisheddate)
+    formData.set('source',source)
+    formData.set('noemployees',noemployees)
+    formData.set('distributionkm',distributionkm)
+    formData.set('mainpresure',mainpresure)
+    formData.set('reservwire',reservwire)
+    formData.set('Purification',purification)
+    formData.set('prodcapa', prodcapa)
     const form = event.currentTarget
     if (form.checkValidity() === false) {
       event.stopPropagation()
@@ -233,7 +254,136 @@ function WaterUtilityUpdate({ user, setIsLodding }) {
                           />
                         </MDBCol>
                       </MDBRow>
+                      <hr />
+                      <MDBRow>
+                        <MDBCol sm="3">
+                          <MDBCardText>Number of Employees</MDBCardText>
+                        </MDBCol>
+                        <MDBCol sm="9">
+                          <CFormInput
+                            type="number"
+                            placeholder="Number of Employees ..."
+                            required
+                            value={noemployees}
+                            onChange={(e) => setNoemployees(e.target.value)}
+                          />
+                        </MDBCol>
+                      </MDBRow>
+                      <hr />
+                      <MDBRow>
+                        <MDBCol sm="3">
+                          <MDBCardText>Purification</MDBCardText>
+                        </MDBCol>
+                        <MDBCol sm="9">
+                          <CFormInput
+                            type="text"
+                            placeholder="purification ..."
+                            required
+                            value={purification}
+                            onChange={(e) => setpurifications(e.target.value)}
+                          />
+                        </MDBCol>
+                      </MDBRow>
+                      <hr />
+                      <MDBRow>
+                        <MDBCol sm="3">
+                          <MDBCardText>Production Capacity</MDBCardText>
+                        </MDBCol>
+                        <MDBCol sm="9">
+                          <CFormInput
+                            type="number"
+                            placeholder="production capacity ..."
+                            required
+                            value={prodcapa}
+                            onChange={(e) => setProdcap(e.target.value)}
+                          />
+                        </MDBCol>
+                      </MDBRow>
+                      <hr />
+                      <MDBRow>
+                        <MDBCol sm="3" className='mb-2'>
+                          <MDBCardText>Main System Contains </MDBCardText>
+                        </MDBCol>
+                        <hr/>
+                        <MDBCol sm="4">
+                          <CFormInput
+                            type="number"
+                            placeholder="Distribution KM ..."
+                            required
+                            value={distributionkm}
+                            onChange={(e) => setDistrbutionkm(e.target.value)}
+                          />
+                        </MDBCol>
+                        <MDBCol sm="4">
+                          <CFormInput
+                            type="number"
+                            placeholder="main pressure ..."
+                            required
+                            value={mainpresure}
+                            onChange={(e) => setMainpresure(e.target.value)}
+                          />
+                        </MDBCol>
+                        <MDBCol sm="4">
+                          <CFormInput
+                            type="number"
+                            placeholder="reserve wire capacity ..."
+                            required
+                            value={reservwire}
+                            onChange={(e) => setReservewire(e.target.value)}
+                          />
+                        </MDBCol>
+                      </MDBRow>
+                      <hr />
+                      <MDBRow>
+                        <MDBCol sm="3">
+                          <MDBCardText>Source</MDBCardText>
+                        </MDBCol>
+                        <MDBCol sm="9">
+                          <CFormSelect
+                            type="text"
+                            required
+                            value={source}
+                            onChange={(e) => setSource(e.target.value)}
+                          >
+                            <option>--- Select Source ----</option>
 
+                            {sources.map((item, index) => (
+                              <option key={index} value={item}>
+                                {item}
+                              </option>
+                            ))}
+                          </CFormSelect>
+                        </MDBCol>
+                      </MDBRow>
+                      <hr />
+                      <MDBRow>
+                        <MDBCol sm="3">
+                          <MDBCardText>Established Date</MDBCardText>
+                        </MDBCol>
+                        <MDBCol sm="9">
+                          <CFormInput
+                            type="date"
+                            required
+                            value={establisheddate}
+                            onChange={(e) => setDate(e.target.value)}
+                          />
+                        </MDBCol>
+                      </MDBRow>
+                      <hr />
+                      <MDBRow>
+                        <MDBCol sm="3">
+                          <MDBCardText>KM from AA</MDBCardText>
+                        </MDBCol>
+                        <MDBCol sm="9">
+                          <CFormInput
+                            type="number"
+                            placeholder="killo meter from Addis Abeba ..."
+                            required
+                            value={kmfromaa}
+                            onChange={(e) => setKm(e.target.value)}
+                          />
+                        </MDBCol>
+                      </MDBRow>
                       <hr />
                       <MDBRow>
                         <MDBCol sm="3">

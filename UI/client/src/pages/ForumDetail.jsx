@@ -1,24 +1,24 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { assetUrl } from "../endpoints";
+import { assetUrl} from "../endpoints";
 import dateformat from "dateformat";
-function NewsDetail() {
+function ForumDetail() {
   const location = useLocation();
-  const [news, setNews] = useState(location.state.news && location.state.news);
-  const [filterdList, setfilterdnewsList] =useState(location.state.newsList && location.state.newsList);
-  const [newsList, setNewsList] = useState(
-    location.state.newsList && location.state.newsList
-  );
+  const [forum, setForum] = useState(location.state.forum && location.state.forum);
+  const [filterdList, setfilterdforumsList] =useState(location.state.forum && location.state.forum);
+  const [forumList, setForumList] = useState(location.state.forum && location.state.forum);
   const  [searchParm,setSearchParam]= useState('')
 
 
 useEffect(()=>{
 
   setfilterdnewsList(
-  newsList.filter(news => news.title.toLowerCase().includes(searchParm.toLowerCase()))
+  forumList.filter(forum => forum.title.toLowerCase().includes(searchParm.toLowerCase()))
 )
 },[searchParm])
+
+
 
 
 
@@ -28,6 +28,7 @@ useEffect(()=>{
   const getImage = (item) => {
     return `${assetUrl}/${item}`;
   };
+
 
   return (
     <>
@@ -41,11 +42,11 @@ useEffect(()=>{
               <a href="index.html">Home</a>
             </li>
             <li>
-              <span>News Detail</span>
+              <span>Forums Detail</span>
             </li>
           </ul>
 
-          <h2 className="page-header__title">News Detail</h2>
+          <h2 className="page-header__title">Forums Detail</h2>
         </div>
       </section>
       <section className="sec-pad-top sec-pad-bottom blog-details">
@@ -54,27 +55,15 @@ useEffect(()=>{
             <div className="col-lg-8">
               <div className="blog-details__content clearfix">
                 <div className="blog-details__image">
-                  <img src={getImage(news.img)} alt="" />
-                  <div className="blog-card__date">
-                    <span>{dateformat(news.createdAt, "d")}</span>
-                    {dateformat(news.createdAt, "mmm")}
-                  </div>
+                  <img src={getImage(forum.img)} alt="" />
+                
                 </div>
-                <ul className="blog-card__meta list-unstyled">
-                  <li>
-                    <i className="fa fa-user"></i>
-                    <a href="#">by {news.waterFederation.fullName}</a>
-                  </li>
-                  <li>
-                    <i className="fa fa-comments"></i>
-                    <a href="#">02 comments</a>
-                  </li>
-                </ul>
-                <h3 className="blog-card__title">{news.title}</h3>
+             
+                <h3 className="blog-card__title">{forum.title}</h3>
                 <p>
                   {" "}
                   <div
-                    dangerouslySetInnerHTML={{ __html: news.description }}
+                    dangerouslySetInnerHTML={{ __html: forum.description }}
                   ></div>
                 </p>
               </div>
@@ -218,4 +207,4 @@ useEffect(()=>{
   );
 }
 
-export default NewsDetail;
+export default ForumDetail;

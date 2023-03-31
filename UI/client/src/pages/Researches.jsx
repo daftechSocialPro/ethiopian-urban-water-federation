@@ -29,11 +29,11 @@ function Researches() {
               <a href="index.html">Home</a>
             </li>
             <li>
-              <span>Publications</span>
+              <span>Portable Libraries </span>
             </li>
           </ul>
 
-          <h2 className="page-header__title">Publications</h2>
+          <h2 className="page-header__title">Portable Libraries </h2>
         </div>
       </section>
 

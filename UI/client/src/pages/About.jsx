@@ -1,6 +1,6 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import OwlCarousel from "react-owl-carousel";
-import {useTranslation} from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import { urlContact } from "../endpoints";
 import axios from "axios";
 function About() {
@@ -11,12 +11,13 @@ function About() {
       .get(urlContact)
       .then((res) => {
         console.log(res.data)
-        setContact(res.data)})
+        setContact(res.data)
+      })
       .catch((err) => console.log(err))
   }, [])
 
 
-  const{t} =useTranslation()
+  const { t } = useTranslation()
   const option3 = {
     items: 1,
     margin: 0,
@@ -151,13 +152,13 @@ function About() {
                   </li>
                 </ul> */}
                 <div className="about-one__tagline">
-                {t("welcome.2")}
+                  {t("welcome.2")}
                 </div>
                 <p className="about-one__text">
-                 {t("welcome.3")}
+                  {t("welcome.3")}
                 </p>
                 <div className="about-one__meta clearfix">
-                  <img src="/assets/images/testimonals/muktar.png" style={{height:'91px'}} alt="" />
+                  <img src="/assets/images/testimonals/muktar.png" style={{ height: '91px' }} alt="" />
                   <h3 className="about-one__name"> Muktar Ahmed</h3>
 
                   <p className="about-one__designation"> Director General of EUWF</p>
@@ -313,27 +314,27 @@ function About() {
         <div className="testimonials-one__gallery">
           <img
             src="/assets/images/resources/UserProfile.png"
-            
+
             className="float-bob-x"
             alt=""
           />
           <img
-           src="/assets/images/resources/UserProfile.png"
+            src="/assets/images/resources/UserProfile.png"
             className="float-bob-y"
             alt=""
           />
           <img
-           src="/assets/images/resources/UserProfile.png"
+            src="/assets/images/resources/UserProfile.png"
             className="float-bob-x"
             alt=""
           />
           <img
-             src="/assets/images/resources/UserProfile.png"
+            src="/assets/images/resources/UserProfile.png"
             className="float-bob-y"
             alt=""
           />
           <img
-             src="/assets/images/resources/UserProfile.png"
+            src="/assets/images/resources/UserProfile.png"
             className="float-bob-x"
             alt=""
           />
@@ -359,42 +360,45 @@ function About() {
               </div>
             </div>
             <div className="col-lg-7">
-              <OwlCarousel
+              {contact.length && <OwlCarousel
                 className="thm-tns__carousel"
                 id="testimonials-one-carousel-1"
                 {...option7}
               >
-                {contact.map((item,index)=>
-                  <div key={index} className="item">
-                  <div className="testimonials-card">
-                    <i className="paroti-icon-quote testimonials-card__icon"></i>
-                    <img
-                    //  src="/assets/images/resources/UserProfile.png"
-                      style={{maxWidth:'20px'}}
-                      className="testimonials-card__bg"
-                      alt=""
-                    />
-                    <p className="testimonials-card__text">
-                      {item.message}
-                    </p>
-                    <div className="testimonials-card__meta clearfix">
-                      <img src="/assets/images/resources/testi-1-1.png" alt="" />
-                      <h3 className="testimonials-card__name">{item.name}</h3>
+                {contact.map((item, index) => {
+                  return (<div key={index} className="item">
+                    <div className="testimonials-card">
+                      <i className="paroti-icon-quote testimonials-card__icon"></i>
+                      {/* <img
+                        //  src="/assets/images/resources/UserProfile.png"
+                        style={{ maxWidth: '2px' }}
+                        className="testimonials-card__bg"
+                        alt=""
+                      /> */}
+                      <p className="testimonials-card__text">
+                        {item.message}
+                      </p>
+                      <div className="testimonials-card__meta clearfix" >
+                        <img src="/assets/images/resources/testi-1-1.png" style={{"maxWidth": "50px"}} alt="" />
+                        <h3 className="testimonials-card__name">{item.name}</h3>
 
-                      <p className="testimonials-card__designation">{item.subject}</p>
+                        <p className="testimonials-card__designation">{item.subject}</p>
+                      </div>
                     </div>
-                  </div>
-                </div>
-             
+                  </div>)
+
+                }
+
+
                 )}
-              
-              </OwlCarousel>
+
+              </OwlCarousel>}
             </div>
           </div>
         </div>
       </section>
 
-      
+
       <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
         <div className="container">
           <OwlCarousel className="owl-theme " {...option6}>
