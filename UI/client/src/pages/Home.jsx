@@ -205,9 +205,9 @@ function Home() {
               ></div>
 
               <div className="container">
-                <p className="slider-one__text"> Ethiopian Urban Water </p>
+                <p className="slider-one__text"> {t("ethiopianurbanwater.1")} </p>
 
-                <h2 className="slider-one__title">Federation</h2>
+                <h2 className="slider-one__title">{t("federation.1")}</h2>
                 <div className="slider-one__btns">
                   <a href="" className="thm-btn slider-one__btn" onClick={()=>navigateAboutPage()}>
                     <span>{t("welcome.4")}</span>
@@ -226,9 +226,9 @@ function Home() {
               ></div>
 
               <div className="container">
-                <p className="slider-one__text">    Ethiopian Urban Water </p>
+                <p className="slider-one__text">  {t("ethiopianurbanwater.1")} </p>
 
-                <h2 className="slider-one__title">Federation</h2>
+                <h2 className="slider-one__title">{t("federation.1")}</h2>
                 <div className="slider-one__btns">
                   <a href="" onClick={()=>navigateAboutPage()} className="thm-btn slider-one__btn">
                     <span>{t("welcome.4")}</span>
@@ -248,9 +248,9 @@ function Home() {
               ></div>
 
               <div className="container">
-                <p className="slider-one__text">Ethiopian Urban Water </p>
+                <p className="slider-one__text">{t("ethiopianurbanwater.1")} </p>
 
-                <h2 className="slider-one__title">Federation</h2>
+                <h2 className="slider-one__title">{t("federation.1")}</h2>
                 <div className="slider-one__btns">
                   <a href=""  className="thm-btn slider-one__btn" onClick={()=>navigateAboutPage()}>
                     <span>{t("welcome.4")}</span>
@@ -327,15 +327,11 @@ function Home() {
           <div className="row gutter-y-60">
             <div className="col-md-12 col-lg-4">
               <div className="sec-title">
-                <p className="sec-title__tagline">Change everything</p>
-                <h2 className="sec-title__title">OUR VISSION</h2>
+                <p className="sec-title__tagline">{t("vision.1")}</p>
+                <h2 className="sec-title__title">{t("vision.2")}</h2>
               </div>
               <p className="donation-two__text">
-                To become the first and competent association in east Africa by
-                providing support for water supply and Sanitation Utilities
-                through capacity building and provide training on new
-                technologies that will lead Water utilities for an outstanding
-                performance.
+              {t("vision.3")}
               </p>
             </div>
             <div className="col-md-12 col-lg-8">
@@ -344,21 +340,21 @@ function Home() {
                   <div className="donation-card-two">
                     <div className="donation-card-two__bg"></div>
                     <h3 className="donation-card-two__title">
-                      <a href="donation-details.html">Core Values</a>
+                      <a href="donation-details.html">{t("vision.1")}</a>
                     </h3>
 
                     <ul className="list-unstyled about-two__list donation-card-two__title ">
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        Act with Integrity.
+                        {t("corevalues.2")}  
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        Strive for Excellence.
+                        {t("corevalues.3")}
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        Move for Innovations.
+                        {t("corevalues.4")}
                       </li>
                     </ul>
 
@@ -376,23 +372,21 @@ function Home() {
                   >
                     <div className="donation-card-two__bg"></div>
                     <h3 className="donation-card-two__title">
-                      <a href="donation-details.html">Objectives</a>
+                      <a href="donation-details.html">{t("objectives.1")}</a>
                     </h3>
 
                     <ul className="list-unstyled about-two__list">
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        Enhance the capacity of the EWF.
+                        {t("objectives.2")}
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        Ensure the financial sustainability of the Ethiopian
-                        Water Federation.
+                        {t("objectives.3")}
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        Promote members’ interests and create opportunities for
-                        their development.
+                        {t("objectives.4")}
                       </li>
                     </ul>
 
@@ -421,15 +415,15 @@ function Home() {
         <div className="container  text-center">
           <div className="sec-title">
             <p className="sec-title__tagline">
-              We’re here to support poor people
+            {t("donating.1")}
             </p>
             <h2 className="sec-title__title">
-              Fundraising for the people and <br />
-              <span>causes</span> you care about
+            {t("donating.2")}<br />
+              <span>{t("donating.3")}</span> {t("donating.4")}
             </h2>
           </div>
           <a href="donations.html" className="thm-btn cta-one__btn">
-            <span>Start donating them</span>
+            <span>{t("donating.5")}</span>
           </a>
         </div>
       </section>
@@ -437,8 +431,8 @@ function Home() {
       <section className="sec-pad-top sec-pad-bottom">
         <div className="container">
           <div className="sec-title ">
-            <p className="sec-title__tagline">Ethiopian Water Federation</p>
-            <h2 className="sec-title__title">Events & Forums</h2>
+            <p className="sec-title__tagline">{t("Events.1")}</p>
+            <h2 className="sec-title__title">{t("Events.2")}</h2>
           </div>
           {/* {forum.map((item, index) => ( <h1>hello</h1>
               ))}  */}
@@ -503,16 +497,16 @@ function Home() {
             <div className="col-lg-7">
               <div className="sec-title">
                 <p className="sec-title__tagline">
-                  Ethiopain Urban Water Federation
+                {t("Subscibe.1")}
                 </p>
                 <h2 className="sec-title__title">
-                  Subscibe to our <br /> News letter
+                {t("Subscibe.3")} <br /> {t("Subscibe.2")}
                 </h2>
               </div>
               <form action="#" className="mc-form newsletter-one__form">
                 <input type="email" placeholder="Your email" />
                 <button type="submit" className="newsletter-one__form__btn">
-                  Subscribe
+                  {t("Subscibe.4")}
                 </button>
               </form>
               <div className="mc-response"></div>
@@ -524,8 +518,8 @@ function Home() {
       <section className="sec-pad-top sec-pad-bottom">
         <div className="container">
           <div className="sec-title text-center">
-            <p className="sec-title__tagline">Watch our latest blogs</p>
-            <h2 className="sec-title__title">Latest news & articles</h2>
+            <p className="sec-title__tagline">{t("blog.1")}</p>
+            <h2 className="sec-title__title">{t("blog.2")}</h2>
           </div>
           <div className="blog-carousel">
             {news.length && <OwlCarousel className="owl-theme" {...option4}>

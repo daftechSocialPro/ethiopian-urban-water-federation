@@ -47,6 +47,45 @@
         "3":"The Federation's mandate is to provide a platform for all Ethiopia utilities to advocate for issues relating to their development and sustainability, as well as capacity building and support for utilities.",
         "4":"DISCOVER MORE",
         "5":"Years of work experiance"
+    },
+    "vision": {
+        "1": "Change everything",
+        "2": "OUR VISSION",
+        "3": "To become the first and competent association in east Africa by providing support for water supply and Sanitation Utilities through capacity building and provide training on new technologies that will lead Water utilities for an outstanding performance."
+    },
+    
+    "corevalues": {
+        "1": "Core Values",
+        "2":"Act with Integrity.",
+        "3":"Strive for Excellence.",
+        "4":"Move for Innovations."
+    },
+    "objectives": {
+        "1": "Objectives",
+        "2":" Enhance the capacity of the EWF.",
+        "3":" Ensure the financial sustainability of the Ethiopian Water Federation.",
+        "4":"Promote members’ interests and create opportunities for their development."
+    },
+    "donating": {
+        "1": "We’re here to support poor people",
+        "2":"Fundraising for the people and",
+        "3":" causes",
+        "4":"you care about Start donating them",
+        "5":"Start donating them"
+    },
+    "Events":{
+        "1":"Ethiopian Water Federation",
+        "2":"Events & Forums"
+    },
+    "Subscibe":{
+        "1":"Ethiopain Urban Water Federation",
+        "3":" Subscibe to our ",
+        "2":"News letter",
+        "4":"Subscribe"
+    },
+    "blog":{
+        "1":"Watch our latest blogs",
+        "2":"Latest news & articles"
     }
 
 }
