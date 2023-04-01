@@ -95,7 +95,7 @@ function Header() {
               <Link to="/news">{t("news.1")}</Link>
             </li>
             <li className={location.pathname === "/team" ? "current" : ""}>
-              <Link to="/team">{t("memberutilites.1")}</Link>
+              <Link to="/waterutility">{t("memberutilites.1")}</Link>
             </li>
             <li className={location.pathname === "/contact" ? "current" : ""}>
               <Link to="/contact">{t("contactus.1")}</Link>

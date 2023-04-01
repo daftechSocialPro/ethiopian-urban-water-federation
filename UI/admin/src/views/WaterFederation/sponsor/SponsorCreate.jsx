@@ -29,7 +29,8 @@ export default function SponsorCreate({ user, setIsLodding }) {
   const [companyName, setCompanyName] = useState('')
   const [amharicCompanyName, setAmharicCompanyName] = useState('')
   const [sponcerLevel, setSponcerLevel] = useState('')
-
+  const [sponcerType, setSponcerType] = useState('')
+  const [type, setType]= useState('')
   const SponsorLevels = ['Platinum', 'Diamond', 'Gold', 'Silver']
 
   const navigate = useNavigate()
@@ -49,6 +50,10 @@ export default function SponsorCreate({ user, setIsLodding }) {
     formData.set('amharicCompanyName', amharicCompanyName)
     formData.set('sponcerLevel', sponcerLevel)
     formData.set('Description', description)
+    formData.set('SupportType', type)
+
+
+    console.log(formData)
     const form = event.currentTarget
     if (form.checkValidity() === false) {
       event.stopPropagation()
@@ -92,6 +97,8 @@ export default function SponsorCreate({ user, setIsLodding }) {
       modules: ['Resize', 'DisplaySize'],
     },
   }
+
+  const Types=["Sponser", "Partnership"]
 
   const formats = [
     'header',
@@ -191,6 +198,27 @@ export default function SponsorCreate({ user, setIsLodding }) {
                       <hr />
                       <MDBRow>
                         <MDBCol sm="3">
+                          <MDBCardText>Type </MDBCardText>
+                        </MDBCol>
+                        <MDBCol sm="9">
+                          <CFormSelect
+                            required
+                            value={type}
+                            onChange={(e) => setType(e.target.value)}
+                          >
+                            <option>--- Select Type ---</option>
+
+                            {Types.map((item, index) => (
+                              <option value={index} key={index}>
+                                {item}
+                              </option>
+                            ))}
+                          </CFormSelect>
+                        </MDBCol>
+                      </MDBRow>
+                  <hr />
+                      <MDBRow>
+                        <MDBCol sm="3">
                           <MDBCardText>Sponsor Level </MDBCardText>
                         </MDBCol>
                         <MDBCol sm="9">
@@ -209,7 +237,8 @@ export default function SponsorCreate({ user, setIsLodding }) {
                           </CFormSelect>
                         </MDBCol>
                       </MDBRow>
-
+                      
+                            
                       <hr />
 
                       <MDBRow>

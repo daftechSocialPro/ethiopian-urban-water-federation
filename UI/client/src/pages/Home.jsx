@@ -4,27 +4,27 @@ import "owl.carousel/dist/assets/owl.carousel.min.css";
 import "owl.carousel/dist/assets/owl.theme.default.min.css";
 import axios from "axios";
 import { useState } from "react";
-import { assetUrl, urlForum, urlNews } from "../endpoints";
+import { assetUrl, urlForum, urlNews, urlSponsor } from "../endpoints";
 import dateformat from "dateformat";
 import { useEffect } from "react";
 import DOMPurify from "dompurify";
 import { useTranslation } from 'react-i18next'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 function Home() {
-
+  
 
   const { t } = useTranslation()
   const navigate = useNavigate()
 
-  const navigateAboutPage =()=>{
+  const [partenerShip,setPartnerShip] = useState([])
 
-    navigate('about',{
-      state :{
-        
-      }
-    }
-    )
-  }
+  useEffect(()=>{
+
+    axios.get(urlSponsor+"/bySupportType?supportType=1").then((res)=>{
+      setPartnerShip(res.data)
+    })
+  },[])
+
 
   const navigateNewsDetial =(item)=>{
 
@@ -37,6 +37,7 @@ function Home() {
     )
     
       }
+
 
       const navigateForumDetial=(item, itemList)=>{
 
@@ -209,9 +210,9 @@ function Home() {
 
                 <h2 className="slider-one__title">{t("federation.1")}</h2>
                 <div className="slider-one__btns">
-                  <a href="" className="thm-btn slider-one__btn" onClick={()=>navigateAboutPage()}>
+                  <Link to="about" className="thm-btn slider-one__btn" >
                     <span>{t("welcome.4")}</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -230,9 +231,9 @@ function Home() {
 
                 <h2 className="slider-one__title">{t("federation.1")}</h2>
                 <div className="slider-one__btns">
-                  <a href="" onClick={()=>navigateAboutPage()} className="thm-btn slider-one__btn">
+                  <Link to="about" className="thm-btn slider-one__btn">
                     <span>{t("welcome.4")}</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -252,9 +253,9 @@ function Home() {
 
                 <h2 className="slider-one__title">{t("federation.1")}</h2>
                 <div className="slider-one__btns">
-                  <a href=""  className="thm-btn slider-one__btn" onClick={()=>navigateAboutPage()}>
+                  <Link to="about" className="thm-btn slider-one__btn" >
                     <span>{t("welcome.4")}</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -312,9 +313,9 @@ function Home() {
                 </p>
 
                 <div className="about-two__btns mt-4">
-                  <a href="" onClick={()=>navigateAboutPage()} className="thm-btn about-two__btn">
+                  <Link to="about" className="thm-btn about-two__btn">
                     <span> {t("welcome.4")}</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -422,9 +423,9 @@ function Home() {
               <span>{t("donating.3")}</span> {t("donating.4")}
             </h2>
           </div>
-          <a href="donations.html" className="thm-btn cta-one__btn">
-            <span>{t("donating.5")}</span>
-          </a>
+          <Link to="waterutility" className="thm-btn cta-one__btn">
+            <span>Water Utilities</span>
+          </Link>
         </div>
       </section>
 
@@ -454,7 +455,7 @@ function Home() {
                       </div>
                       <div className="donations-card__content">
                         <h3 className="donations-card__title">
-                          <a onClick={()=>navigateForumDetial(item)}>{item.title}</a>
+                          <a onClick={()=>navigateForumDetial(item,forum)}>{item.title}</a>
                         </h3>
                         <p className="donations-card__text"
                           dangerouslySetInnerHTML={{
@@ -671,6 +672,39 @@ function Home() {
                     <i className="paroti-icon-quote testimonials-two__card__icon"></i>
                   </div>
                 </div>
+                <div className="swiper-slide">
+                  <div className="testimonials-two__card">
+                    <div className="testimonials-two__card__image">
+                      <img
+                        src="/assets/images/testimonals/daniel.png"
+                        style={{
+                          borderRadius: "50%",
+                          width: "200px",
+                          height: "200px",
+                        }}
+                        alt=""
+                      />
+                    </div>
+                    <div className="testimonials-two__card__content">
+                      <p className="testimonials-two__card__text">
+                        VEI implements peer supported partnerships between water
+                        operators worldwide, aiming to share knowledge and
+                        skills to make the utilities stronger, healthier, and
+                        more resilient. We believe that everybody in the world
+                        deserves proper, adequate, and sustainable water
+                        services delivery.
+                      </p>
+                      <h3 className="testimonials-two__card__title">
+                           Petros
+                      </h3>
+
+                      <span className="testimonials-two__card__designation">
+                        Founder
+                      </span>
+                    </div>
+                    <i className="paroti-icon-quote testimonials-two__card__icon"></i>
+                  </div>
+                </div>
               </OwlCarousel>
             </div>
             <div id="testimonials-two__carousel-pagination"></div>
@@ -681,7 +715,15 @@ function Home() {
       <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
         <div className="container">
           <OwlCarousel className="owl-theme " {...option6}>
-            <div className="item">
+
+            {partenerShip.map((item,index)=>{
+              return(
+                <div className="item">
+                <img src={getImage(item.logo)} alt="" />
+              </div>
+              )
+            })}
+            {/* <div className="item">
               <img src="/assets/images/partner/s1.png" alt="" />
             </div>
             <div className="item">
@@ -722,7 +764,7 @@ function Home() {
             </div>{" "}
             <div className="item">
               <img src="/assets/images/partner/s14.png" alt="" />
-            </div>
+            </div> */}
           </OwlCarousel>
         </div>
       </section>
