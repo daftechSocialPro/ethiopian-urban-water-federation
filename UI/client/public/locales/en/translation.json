@@ -67,11 +67,11 @@
         "4":"Promote members’ interests and create opportunities for their development."
     },
     "donating": {
-        "1": "We’re here to support poor people",
-        "2":"Fundraising for the people and",
-        "3":" causes",
-        "4":"you care about Start donating them",
-        "5":"Start donating them"
+        "1": "",
+        "2":"",
+        "3":" ",
+        "4":"",
+        "5":"Water Utilities"
     },
     "Events":{
         "1":"Ethiopian Water Federation",
@@ -81,11 +81,21 @@
         "1":"Ethiopain Urban Water Federation",
         "3":" Subscibe to our ",
         "2":"News letter",
-        "4":"Subscribe"
+        "4":"Subscribe",
+        "5":"Enter your Email"
     },
     "blog":{
         "1":"Watch our latest blogs",
         "2":"Latest news & articles"
+    },
+    "testimonials":{
+        "1":"It is an honor to support and empower Ethiopian water supply and sanitation enterprises in their efforts to improve water supply and sanitation services. We are committed to providing exceptional assistance to Ethiopia's water utilities as they strive to provide sustainable, efficient, and effective water supply andsanitation services and become competent utilities inEast Africa. We will do this through capacity building,networking, and creating a platform for sharing best practices among the utilities.",
+        "2":" Muktar Ahmed",
+        "3":"  Director General of EUWF",
+        "4":"VEI implements peer supported partnerships between wateroperators worldwide, aiming to share knowledge andskills to make the utilities stronger, healthier, andmore resilient. We believe that everybody in the worlddeserves proper, adequate, and sustainable waterservices delivery.",
+        "5":"Daniel Truneh",
+        "6":" VEI REGIONAL DIRECTOR , EAST AND NORHERN AFRICA"
+
     }
 
 }
