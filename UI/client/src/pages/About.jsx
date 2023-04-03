@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import OwlCarousel from "react-owl-carousel";
+import "primereact/resources/themes/lara-light-indigo/theme.css";     
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";   
+import { OrganizationChart } from 'primereact/organizationchart'   
 import { useTranslation } from 'react-i18next'
 import { urlContact } from "../endpoints";
 import axios from "axios";
@@ -75,7 +79,39 @@ function About() {
       },
     },
   };
-
+  const [data] = useState([
+    {
+        label: 'Argentina',
+        expanded: true,
+        children: [
+            {
+                label: 'Argentina',
+                expanded: true,
+                children: [
+                    {
+                        label: 'Argentina'
+                    },
+                    {
+                        label: 'Croatia'
+                    }
+                ]
+            },
+            {
+                label: 'France',
+                expanded: true,
+                children: [
+                    {
+                        label: 'France'
+                    },
+                    {
+                        label: 'Morocco'
+                    }
+                ]
+            }
+        ]
+    }
+]);
+  
   const option7 = {
     container: "#testimonials-one-carousel-1",
     loop: true,
@@ -167,6 +203,42 @@ function About() {
             </div>
           </div>
         </div>
+      </section>
+      <section className="sec-pad-top sec-pad-bottom testimonials-one my-5" > 
+      <div
+          className="testimonials-one__bg"
+          style={{
+            backgroundImage:
+              "url(/assets/images/backgrounds/testimonials-1-bg.jpg)",
+          }}
+        ></div>
+        <div className="container">
+        <div className="row gutter-y-60">
+            <div className="col-lg-5">
+              <div className="testimonials-one__content">
+                <div className="sec-title">
+                  <p className="sec-title__tagline">Our Organizational Structure</p>
+                  <h2 className="sec-title__title">
+                    Organizational <br />
+                   Structure
+                  </h2>
+                </div>
+                <p className="testimonials-one__text">
+                  Proin a lacus arcu. Nullam id dui eu orci maximus. <br />
+                  Cras at auctor lectus, pretium tellus.
+                </p>
+               
+              </div>
+            </div>
+            <div className="col-lg-7">
+            <div className=" overflow-x-auto">
+            <OrganizationChart value={data} />
+        </div>
+            </div>
+          </div>
+     
+        </div>
+     
       </section>
 
       <section className="sec-pad-top sec-pad-bottom donation-two">
@@ -354,9 +426,7 @@ function About() {
                   Proin a lacus arcu. Nullam id dui eu orci maximus. <br />
                   Cras at auctor lectus, pretium tellus.
                 </p>
-                <a href="#" className="thm-btn testimonials-one__btn">
-                  <span>View all feedbacks</span>
-                </a>
+               
               </div>
             </div>
             <div className="col-lg-7">

@@ -4,7 +4,14 @@ import { assetUrl, urlresearch } from "../endpoints";
 import dateFormat from "dateformat";
 function Researches() {
   const [research, setresearch] = useState([]);
+  const [filterdList, setfilterdreserchsList] =useState([]);
+  const  [searchParm,setSearchParam]= useState('')
+  useEffect(()=>{
 
+    setfilterdreserchsList(
+    research.filter(research => research.title.toLowerCase().includes(searchParm.toLowerCase()))
+  )
+  },[searchParm])
   const getImage = (item) => {
     return `${assetUrl}/${item}`;
   };
@@ -14,6 +21,7 @@ function Researches() {
       .get(urlresearch)
       .then((res) => {
         setresearch(res.data);
+setfilterdreserchsList(res.data)
       })
       .catch((err) => console.error(err));
   }, []);
@@ -82,7 +90,7 @@ function Researches() {
               <div className="sidebar">
                 <div className="sidebar__single sidebar__single--search">
                   <form action="#">
-                    <input type="text" placeholder="Search here.." />
+                    <input type="text" value={searchParm} onChange={(e)=>setSearchParam(e.target.value)} placeholder="Search here.." />
                     <button type="submit">
                       <i className="paroti-icon-magnifying-glass"></i>
                     </button>
@@ -91,7 +99,7 @@ function Researches() {
                 <div className="sidebar__single sidebar__single--posts">
                   <h3 className="sidebar__title">Recent posts</h3>
                   <ul className="list-unstyled sidebar__post">
-                    {research.slice(0, 4).map((item, index) => (
+                    {filterdList.slice(0, 4).map((item, index) => (
                       <li key={index}>
                         <a href="#">
                           <img
