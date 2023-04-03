@@ -1,7 +1,7 @@
 import React from "react";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.min.css";
-import "owl.carousel/dist/assets/owl.theme.default.min.css";
+import "owl.carousel/dist/assets/owl.theme.default.min.css";  
 import axios from "axios";
 import { useState } from "react";
 import { assetUrl, urlForum, urlNews, urlSponsor } from "../endpoints";
@@ -11,7 +11,8 @@ import DOMPurify from "dompurify";
 import { useTranslation } from 'react-i18next'
 import {Link, useNavigate} from 'react-router-dom'
 function Home() {
-  
+
+ 
 
   const { t } = useTranslation()
   const navigate = useNavigate()

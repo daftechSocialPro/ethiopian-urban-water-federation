@@ -100,8 +100,11 @@ function Header() {
             <li className={location.pathname === "/contact" ? "current" : ""}>
               <Link to="/contact">{t("contactus.1")}</Link>
             </li>
+            <li className={location.pathname === "/researches" ? "current" : ""}>
+              <Link to="/researches">{t("publication.1")}</Link>
+            </li>
 
-            <li
+            {/* <li
               className={
                 location.pathname === "/vaccancy" ||
                 location.pathname === "/researches"
@@ -129,7 +132,7 @@ function Header() {
                   </Link>
                 </li>
               </ul>
-            </li>
+            </li> */}
           </ul>
 
           {/* <div className="main-menu__right">
