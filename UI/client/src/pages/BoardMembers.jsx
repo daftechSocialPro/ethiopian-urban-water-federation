@@ -1,9 +1,13 @@
 import React,{useEffect,useState} from "react";
 import axios from 'axios'
 import { assetUrl, urlboardmember } from "../endpoints";
+import { useTranslation } from 'react-i18next'
 
-function BoardMembers() {
 
+
+function BoardMembers() { 
+
+  const { t } = useTranslation()
   const [boardMember,setBoardMember]= useState([])
 
 
@@ -28,18 +32,18 @@ function BoardMembers() {
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
             <li>
-              <a href="index.html">Home</a>
+              <a href="index.html">{t("home.1")}</a>
             </li>
             <li>
-              <span>Member Utilities</span>
+              <span>{t("memberutilites.1")}</span>
             </li>
           </ul>
 
-          <h2 className="page-header__title">Member Utilities</h2>
+          <h2 className="page-header__title">{t("memberutilites.1")}</h2>
         </div>
       </section>
 
-      Member Utilities
+      {t("memberutilites.1")}
     {/* <main id="main">
       <section className="breadcrumbs">
         <div className="container">

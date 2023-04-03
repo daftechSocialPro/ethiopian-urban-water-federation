@@ -5,12 +5,13 @@ import "owl.carousel/dist/assets/owl.theme.default.min.css";
 import axios from "axios";
 import { Link } from 'react-router-dom'
 import { assetUrl, urlNews, urlSponsor } from "../endpoints";
-import { useNavigate } from 'react-router-dom'
-import dateformat from 'dateformat'
+import { useNavigate } from 'react-router-dom';
+import dateformat from 'dateformat';
+import { useTranslation } from 'react-i18next';
 function News() {
   const [news, setNews] = useState([]);
   const [sponser, setSponser] = useState([])
-  
+  const { t } = useTranslation()
 
   const navigate = useNavigate()
   // eyanagerkeng nberawo lmn dnnew  react-reduc x yatenahut  ena mn yeshalal 
@@ -112,14 +113,14 @@ function News() {
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">{t("home.1")}</Link>
             </li>
             <li>
-              <span>News</span>
+              <span> {t("news.1")}</span>
             </li>
           </ul>
 
-          <h2 className="page-header__title">News</h2>
+          <h2 className="page-header__title">{t("news.1")}</h2>
         </div>
       </section>
       <section className="sec-pad-top sec-pad-bottom">

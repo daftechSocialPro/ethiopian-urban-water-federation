@@ -5,8 +5,11 @@ import { useState } from "react";
 import { urlContact } from "../endpoints";
 
 import { customToast } from "../components/customToast";
+import { useTranslation } from 'react-i18next'
+
 
 function Contact() {
+  const { t } = useTranslation()
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
@@ -14,6 +17,7 @@ function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
 
     const formData = new FormData();
 
@@ -58,13 +62,13 @@ function Contact() {
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
             <li>
-              <a href="index.html">Home</a>
+              <a href="index.html">{t("home.1")}</a>
             </li>
             <li>
-              <span>Contact</span>
+              <span>{t("contactus.1")}</span>
             </li>
           </ul>
-          <h2 className="page-header__title">Contact us</h2>
+          <h2 className="page-header__title">{t("contactus.1")}</h2>
         </div>
       </section>
       <section className="contact-info">
@@ -98,8 +102,8 @@ function Contact() {
                     <i className="fa fa-map"></i>
                   </div>
                   <p className="contact-info__text">
-                    Haile G/Silassie Road <br />
-                    ADDIS ABABA, ETHIOIA
+                  {t("address.1")} <br />
+      
                   </p>
                 </div>
               </div>
