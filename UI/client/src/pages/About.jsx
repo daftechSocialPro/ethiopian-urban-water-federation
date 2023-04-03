@@ -421,9 +421,7 @@ function About() {
                   Cras at auctor lectus, pretium tellus.
                 </p>
                
-                <a href="#" className="thm-btn testimonials-one__btn">
-                  <span>{t("feedbacks.5")}</span>
-                </a>
+               
               </div>
             </div>
             <div className="col-lg-7">
