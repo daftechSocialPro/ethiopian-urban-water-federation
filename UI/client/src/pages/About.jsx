@@ -97,14 +97,14 @@ function About() {
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
             <li>
-              <a href="index.html">Home</a>
+              <a href="index.html"> {t("home.1")}</a>
             </li>
             <li>
-              <span>About Us</span>
+              <span>{t("aboutus.1")}</span>
             </li>
           </ul>
 
-          <h2 className="page-header__title">About Us</h2>
+          <h2 className="page-header__title">{t("aboutus.1")}</h2>
         </div>
       </section>
       <section className="sec-pad-top sec-pad-bottom about-one">
@@ -159,9 +159,9 @@ function About() {
                 </p>
                 <div className="about-one__meta clearfix">
                   <img src="/assets/images/testimonals/muktar.png" style={{ height: '91px' }} alt="" />
-                  <h3 className="about-one__name"> Muktar Ahmed</h3>
+                  <h3 className="about-one__name"> {t("testimonials.2")}</h3>
 
-                  <p className="about-one__designation"> Director General of EUWF</p>
+                  <p className="about-one__designation">{t("testimonials.3")}</p>
                 </div>
               </div>
             </div>
@@ -174,15 +174,11 @@ function About() {
           <div className="row gutter-y-60">
             <div className="col-md-12 col-lg-4">
               <div className="sec-title">
-                <p className="sec-title__tagline">Change everything</p>
-                <h2 className="sec-title__title">OUR VISSION</h2>
+                <p className="sec-title__tagline">{t("vision.1")}</p>
+                <h2 className="sec-title__title">{t("vision.2")}</h2>
               </div>
               <p className="donation-two__text">
-                To become the first and competent association in east Africa by
-                providing support for water supply and Sanitation Utilities
-                through capacity building and provide training on new
-                technologies that will lead Water utilities for an outstanding
-                performance.
+              {t("vision.3")}
               </p>
             </div>
             <div className="col-md-12 col-lg-8">
@@ -191,21 +187,21 @@ function About() {
                   <div className="donation-card-two">
                     <div className="donation-card-two__bg"></div>
                     <h3 className="donation-card-two__title">
-                      <a href="donation-details.html">Core Values</a>
+                      <a href="donation-details.html">{t("corevalues.1")}</a>
                     </h3>
 
                     <ul className="list-unstyled about-two__list donation-card-two__title ">
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        Act with Integrity.
+                        {t("corevalues.2")}
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        Strive for Excellence.
+                        {t("corevalues.3")}
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        Move for Innovations.
+                        {t("corevalues.4")} 
                       </li>
                     </ul>
 
@@ -223,23 +219,21 @@ function About() {
                   >
                     <div className="donation-card-two__bg"></div>
                     <h3 className="donation-card-two__title">
-                      <a href="donation-details.html">Objectives</a>
+                      <a href="donation-details.html">{t("objectives.1")}</a>
                     </h3>
 
                     <ul className="list-unstyled about-two__list">
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        Enhance the capacity of the EWF.
+                        {t("objectives.2")}
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        Ensure the financial sustainability of the Ethiopian
-                        Water Federation.
+                        {t("objectives.3")}
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        Promote members’ interests and create opportunities for
-                        their development.
+                        {t("objectives.4")}
                       </li>
                     </ul>
 
@@ -266,7 +260,7 @@ function About() {
                   className="count-text"
                 ></span>
               </h3>
-              <p className="funfact-one__text">Total Campaigns</p>
+              <p className="funfact-one__text">{t("total.1")}</p>
             </div>
             <div className="funfact-one__item">
               <h3 className="count-box funfact-one__title">
@@ -276,7 +270,7 @@ function About() {
                   className="count-text"
                 ></span>
               </h3>
-              <p className="funfact-one__text">Raised Funds</p>
+              <p className="funfact-one__text">{t("total.2")}</p>
             </div>
             <div className="funfact-one__item">
               <h3 className="count-box funfact-one__title">
@@ -286,7 +280,7 @@ function About() {
                   className="count-text"
                 ></span>
               </h3>
-              <p className="funfact-one__text">Satisfied Donors</p>
+              <p className="funfact-one__text">{t("total.3")}</p>
             </div>
             <div className="funfact-one__item">
               <h3 className="count-box funfact-one__title">
@@ -296,7 +290,7 @@ function About() {
                   className="count-text"
                 ></span>
               </h3>
-              <p className="funfact-one__text">Happy Volunteers</p>
+              <p className="funfact-one__text">{t("total.4")}</p>
             </div>
           </div>
         </div>
@@ -344,10 +338,10 @@ function About() {
             <div className="col-lg-5">
               <div className="testimonials-one__content">
                 <div className="sec-title">
-                  <p className="sec-title__tagline">Our feedbacks</p>
+                  <p className="sec-title__tagline">{t("feedbacks.1")}</p>
                   <h2 className="sec-title__title">
-                    What they’re <br />
-                    talking about us
+                  {t("feedbacks.2")} <br />
+                  {t("feedbacks.3")}
                   </h2>
                 </div>
                 <p className="testimonials-one__text">
@@ -355,7 +349,7 @@ function About() {
                   Cras at auctor lectus, pretium tellus.
                 </p>
                 <a href="#" className="thm-btn testimonials-one__btn">
-                  <span>View all feedbacks</span>
+                  <span>{t("feedbacks.5")}</span>
                 </a>
               </div>
             </div>

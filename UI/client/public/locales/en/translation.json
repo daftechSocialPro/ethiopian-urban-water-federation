@@ -96,6 +96,19 @@
         "5":"Daniel Truneh",
         "6":" VEI REGIONAL DIRECTOR , EAST AND NORHERN AFRICA"
 
+    },
+    "total":{
+        "1":"Total Campaigns ",
+        "2":"Raised Funds",
+        "3":"Satisfied Donors",
+        "4":"Happy Volunteers"
+    },
+    "feedbacks":{
+        "1":"Our feedbacks",
+        "2":"What they’re",
+        "3":"talking about us",
+        "4":"",
+        "5":"View all feedbacks"
     }
 
 }
