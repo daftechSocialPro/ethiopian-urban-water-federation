@@ -425,7 +425,7 @@ function Home() {
             </h2>
           </div>
           <Link to="waterutility" className="thm-btn cta-one__btn">
-            <span>Water Utilities</span>
+            <span> {t("donating.5")}</span>
           </Link>
         </div>
       </section>
@@ -506,7 +506,7 @@ function Home() {
                 </h2>
               </div>
               <form action="#" className="mc-form newsletter-one__form">
-                <input type="email" placeholder="Your email" />
+                <input type="email" placeholder= {t("Subscibe.5")} />
                 <button type="submit" className="newsletter-one__form__btn">
                   {t("Subscibe.4")}
                 </button>
@@ -618,23 +618,14 @@ function Home() {
                     </div>
                     <div className="testimonials-two__card__content">
                       <p className="testimonials-two__card__text">
-                        It is an honor to support and empower Ethiopian water
-                        supply and sanitation enterprises in their efforts to
-                        improve water supply and sanitation services. We are
-                        committed to providing exceptional assistance to
-                        Ethiopia's water utilities as they strive to provide
-                        sustainable, efficient, and effective water supply and
-                        sanitation services and become competent utilities in
-                        East Africa. We will do this through capacity building,
-                        networking, and creating a platform for sharing best
-                        practices among the utilities.
+                      {t("testimonials.1")}
                       </p>
                       <h3 className="testimonials-two__card__title">
-                        Muktar Ahmed
+                      {t("testimonials.2")}
                       </h3>
 
                       <span className="testimonials-two__card__designation">
-                        Director General of EUWF
+                      {t("testimonials.3")}
                       </span>
                     </div>
                     <i className="paroti-icon-quote testimonials-two__card__icon"></i>
@@ -655,19 +646,14 @@ function Home() {
                     </div>
                     <div className="testimonials-two__card__content">
                       <p className="testimonials-two__card__text">
-                        VEI implements peer supported partnerships between water
-                        operators worldwide, aiming to share knowledge and
-                        skills to make the utilities stronger, healthier, and
-                        more resilient. We believe that everybody in the world
-                        deserves proper, adequate, and sustainable water
-                        services delivery.
+                      {t("testimonials.4")}
                       </p>
                       <h3 className="testimonials-two__card__title">
-                        Daniel Truneh
+                      {t("testimonials.5")}
                       </h3>
 
                       <span className="testimonials-two__card__designation">
-                        VEI REGIONAL DIRECTOR , EAST AND NORHERN AFRICA
+                      {t("testimonials.6")}
                       </span>
                     </div>
                     <i className="paroti-icon-quote testimonials-two__card__icon"></i>
