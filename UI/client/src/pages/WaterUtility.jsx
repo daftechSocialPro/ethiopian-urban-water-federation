@@ -14,10 +14,12 @@ import TableRow from '@mui/material/TableRow';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { urlWaterUtility } from '../endpoints';
 import Button from '@mui/material/Button';
+import { useTranslation } from "react-i18next";
 
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: "#183763",
         color: theme.palette.common.white,
@@ -38,6 +40,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 export default function WaterUtilitys() {
+    const { t } = useTranslation()
+
     
     const navigate = useNavigate()
     const getImage = (item) => {
@@ -153,14 +157,14 @@ export default function WaterUtilitys() {
                 <div className="container">
                     <ul className="list-unstyled breadcrumb-one">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="index.html">{t("home.1")}</a>
                         </li>
                         <li>
-                            <span>Member Utilities</span>
+                            <span>{t("memberutilites.1")}</span>
                         </li>
                     </ul>
 
-                    <h2 className="page-header__title">Member Utilities</h2>
+                    <h2 className="page-header__title">{t("memberutilites.1")}</h2>
                 </div>
             </section>
             <div className="m-2 py-5" style={{ paddingLeft: "50px", paddingRight: "50px" }} >

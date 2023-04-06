@@ -1,6 +1,9 @@
 {
     "address":{
-        "1":"Haile G/Silassie Road, ADDIS ABABA, ETHIOIA"
+        "1":"Haile G/Silassie Road, ADDIS ABABA, Ethiopia"
+    },
+    "head":{
+        "1":" Ministry of Water &Energy Head Office "
     },
     "english":{
         "1":"English"
@@ -14,6 +17,9 @@
     "aboutus":{
         "1":"About Us"
     },
+    "service":{
+        "1":"Services"
+    },
     "news":{
         "1":"News"
     },
@@ -23,15 +29,46 @@
     "contactus":{
         "1":"Contact Us"
     },
+    "contactus1":{
+        "1":"Contact with us"
+    },
+    "love":{
+        "1":"Love to hear from you"
+    },
+    "name":{
+        "1":"Your Name"
+    },
+    "email":{
+        "1":"Email Address"
+    },"subject":{
+        "1":"Subject"
+    },
+    "message":{
+        "1":"Write Message"
+    },
+    "send":{
+        "1":"Send message"
+    },
     "others":{
         "1":"Others"
     },
+    
     "vaccancy":{
         "1":"Vaccancy"
     },
     "publication":{
         "1":"Portable Libraries "
     },
+    "publication1":{
+        "1":"Publication "
+    },
+    "search":{
+     "1":"Search here..."
+    },
+    "recent":{
+        "1":"Recent posts"
+       },
+    
     "ethiopianurbanwater": {
         "1": "Ethiopian Urban Water"
     },
