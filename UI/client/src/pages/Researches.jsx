@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { assetUrl, urlresearch } from "../endpoints";
 import dateFormat from "dateformat";
+import { useTranslation } from "react-i18next";
 function Researches() {
+  const { t } = useTranslation()
   const [research, setresearch] = useState([]);
   const [filterdList, setfilterdreserchsList] =useState([]);
   const  [searchParm,setSearchParam]= useState('')
@@ -34,14 +36,14 @@ setfilterdreserchsList(res.data)
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
             <li>
-              <a href="index.html">Home</a>
+              <a href="index.html">{t("home.1")}</a>
             </li>
             <li>
-              <span>Portable Libraries </span>
+              <span>{t("publication.1")} </span>
             </li>
           </ul>
 
-          <h2 className="page-header__title">Portable Libraries </h2>
+          <h2 className="page-header__title">{t("publication.1")} </h2>
         </div>
       </section>
 
@@ -51,7 +53,7 @@ setfilterdreserchsList(res.data)
             <div className="col-lg-8">
               <div className="blog-details__comments">
                 <h3 className="blog-details__sec__title">
-                  {research.length} Publications
+                  {research.length}{t("publication1.1")}
                 </h3>
                 <ul className="list-unstyled blog-details__comments__list">
                   {research.map((item, index) => (
@@ -90,14 +92,14 @@ setfilterdreserchsList(res.data)
               <div className="sidebar">
                 <div className="sidebar__single sidebar__single--search">
                   <form action="#">
-                    <input type="text" value={searchParm} onChange={(e)=>setSearchParam(e.target.value)} placeholder="Search here.." />
+                    <input type="text" value={searchParm} onChange={(e)=>setSearchParam(e.target.value)} placeholder={t("search.1")} />
                     <button type="submit">
                       <i className="paroti-icon-magnifying-glass"></i>
                     </button>
                   </form>
                 </div>
                 <div className="sidebar__single sidebar__single--posts">
-                  <h3 className="sidebar__title">Recent posts</h3>
+                  <h3 className="sidebar__title">{t("recent.1")} </h3>
                   <ul className="list-unstyled sidebar__post">
                     {filterdList.slice(0, 4).map((item, index) => (
                       <li key={index}>

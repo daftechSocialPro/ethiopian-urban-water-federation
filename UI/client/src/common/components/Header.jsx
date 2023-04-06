@@ -29,7 +29,7 @@ function Header() {
               </li>
               <li>
                 <i className="fa fa-mobile"></i>
-                <a href="tel:+1(307)776-0608">+(251) 940-506-880</a>
+                <a href="tel:+1(307)776-0608">+(251)940-506-880</a>
               </li>
             </ul>
             <div className="topbar__social">
