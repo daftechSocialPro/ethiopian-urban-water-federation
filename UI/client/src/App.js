@@ -13,6 +13,10 @@ import Vaccancy from "./pages/Vaccancy";
 import NewsDetail from "./pages/NewsDetail";
 import WaterUtilityDetail from "./pages/WaterUtilityDetail";
 import ForumDetail from "./pages/ForumDetail";
+
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
 function App() {
   return (
     <BrowserRouter>

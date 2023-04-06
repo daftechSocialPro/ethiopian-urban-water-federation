@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import OwlCarousel from "react-owl-carousel";
-import "primereact/resources/themes/lara-light-indigo/theme.css";     
-import "primereact/resources/primereact.min.css";
-import "primeicons/primeicons.css";   
-import { OrganizationChart } from 'primereact/organizationchart'   
+
+import { OrganizationChart } from 'primereact/organizationchart'
 import { useTranslation } from 'react-i18next'
 import { urlContact } from "../endpoints";
 import axios from "axios";
+
+import './about.css'
 function About() {
   const [contact, setContact] = useState([])
 
@@ -81,37 +81,75 @@ function About() {
   };
   const [data] = useState([
     {
-        label: 'Argentina',
-        expanded: true,
-        children: [
+      label: 'General Council',
+      expanded: true,
+      children: [
+
+        {
+          label: 'Directors’ Board',
+          expanded: true,
+          children: [
             {
-                label: 'Argentina',
-                expanded: true,
-                children: [
+              label: 'Managing Director',
+              expanded: true,
+              children: [
+                {
+                  label: 'Finance and Administration'
+                },
+                {
+                  label: 'Vice Manager',
+                  expanded: true,
+                  children: [
                     {
-                        label: 'Argentina'
+                      label: 'IWRM Team '
                     },
                     {
-                        label: 'Croatia'
-                    }
-                ]
-            },
-            {
-                label: 'France',
-                expanded: true,
-                children: [
-                    {
-                        label: 'France'
+                      label: 'Research Training & monitoring and Evaluation Team '
                     },
                     {
-                        label: 'Morocco'
+                      label: 'ITC Team '
+                    },
+                    {
+                      label: 'PR & Communications Team'
+                    },
+                    {
+                      label: 'Water Supply Team'
+                    },
+                    {
+                      label: 'Sanitation Team'
                     }
-                ]
+                  ]
+                },
+                {
+                  label: 'Legal Advisor'
+                }
+              ]
             }
-        ]
+
+          ]
+        },
+        {
+          label: 'Audit Committee ',
+
+        },
+
+
+      ]
     }
-]);
-  
+  ]);
+  // {
+  //   label: 'Directors’ Board',
+  //   expanded: true,
+  //   children: [
+  //       {
+  //           label: 'France'
+  //       },
+  //       {
+  //           label: 'Morocco'
+  //       }
+  //   ]
+  // },
+
   const option7 = {
     container: "#testimonials-one-carousel-1",
     loop: true,
@@ -124,6 +162,8 @@ function About() {
     autoplaybuttonoutput: 'false',
     controls: false,
   };
+
+
   return (
     <>
       <section
@@ -204,41 +244,32 @@ function About() {
           </div>
         </div>
       </section>
-      <section className="sec-pad-top sec-pad-bottom testimonials-one my-5" > 
-      <div
+      <section className="sec-pad-top sec-pad-bottom testimonials-one " >
+        <div
           className="testimonials-one__bg"
           style={{
             backgroundImage:
               "url(/assets/images/backgrounds/testimonials-1-bg.jpg)",
           }}
         ></div>
-        <div className="container">
-        <div className="row gutter-y-60">
-            <div className="col-lg-5">
-              <div className="testimonials-one__content">
-                <div className="sec-title">
-                  <p className="sec-title__tagline">Our Organizational Structure</p>
-                  <h2 className="sec-title__title">
-                    Organizational <br />
-                   Structure
-                  </h2>
-                </div>
-                <p className="testimonials-one__text">
-                  Proin a lacus arcu. Nullam id dui eu orci maximus. <br />
-                  Cras at auctor lectus, pretium tellus.
-                </p>
-               
-              </div>
-            </div>
-            <div className="col-lg-7">
-            <div className=" overflow-x-auto">
-            <OrganizationChart value={data} />
-        </div>
-            </div>
+        <div className="testimonials-one__content">
+          <div className="sec-title text-center ">
+           
+            <h3 className="sec-title__title">
+              Organizational Structure
+            </h3>
+            <p className="sec-title__tagline">Our Organizational Structure</p>
           </div>
-     
+
+
         </div>
-     
+
+
+        <OrganizationChart value={data} />
+
+
+
+
       </section>
 
       <section className="sec-pad-top sec-pad-bottom donation-two">
@@ -250,7 +281,7 @@ function About() {
                 <h2 className="sec-title__title">{t("vision.2")}</h2>
               </div>
               <p className="donation-two__text">
-              {t("vision.3")}
+                {t("vision.3")}
               </p>
             </div>
             <div className="col-md-12 col-lg-8">
@@ -273,7 +304,7 @@ function About() {
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        {t("corevalues.4")} 
+                        {t("corevalues.4")}
                       </li>
                     </ul>
 
@@ -412,16 +443,16 @@ function About() {
                 <div className="sec-title">
                   <p className="sec-title__tagline">{t("feedbacks.1")}</p>
                   <h2 className="sec-title__title">
-                  {t("feedbacks.2")} <br />
-                  {t("feedbacks.3")}
+                    {t("feedbacks.2")} <br />
+                    {t("feedbacks.3")}
                   </h2>
                 </div>
                 <p className="testimonials-one__text">
                   Proin a lacus arcu. Nullam id dui eu orci maximus. <br />
                   Cras at auctor lectus, pretium tellus.
                 </p>
-               
-               
+
+
               </div>
             </div>
             <div className="col-lg-7">
@@ -444,7 +475,7 @@ function About() {
                         {item.message}
                       </p>
                       <div className="testimonials-card__meta clearfix" >
-                        <img src="/assets/images/resources/testi-1-1.png" style={{"maxWidth": "50px"}} alt="" />
+                        <img src="/assets/images/resources/testi-1-1.png" style={{ "maxWidth": "50px" }} alt="" />
                         <h3 className="testimonials-card__name">{item.name}</h3>
 
                         <p className="testimonials-card__designation">{item.subject}</p>
@@ -512,6 +543,10 @@ function About() {
           </OwlCarousel>
         </div>
       </section>
+
+
+
+
     </>
   );
 }
