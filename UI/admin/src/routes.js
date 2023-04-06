@@ -50,6 +50,7 @@ const Questioner = React.lazy(() => import('./views/WaterFederation/questioner/Q
 
 const Question = React.lazy(() => import('./views/WaterFederation/questioner/Question'))
 
+
 const Answer = React.lazy(() => import('./views/WaterFederation/questioner/Answer'))
 
 const SubmitAnswer = React.lazy(() => import('./views/WaterFederation/answer/SubmitAnswer'))
@@ -150,6 +151,7 @@ const routes = [
     name: 'Question',
     element: Question,
   },
+
 
   //Answer
   {

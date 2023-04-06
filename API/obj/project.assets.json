@@ -137,6 +137,18 @@
           }
         }
       },
+      "Microsoft.EntityFrameworkCore.Tools/6.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "6.0.10"
+        },
+        "compile": {
+          "lib/net6.0/_._": {}
+        },
+        "runtime": {
+          "lib/net6.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
         "type": "package",
         "build": {
@@ -2189,6 +2201,31 @@
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.xml",
         "microsoft.entityframeworkcore.relational.6.0.10.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Tools/6.0.10": {
+      "sha512": "LWQvCb3lmTxkcnzO8H0ib0Ot/Pow9Kubt2iqvhhAHEbhs7SS1ygB938EpmuD9o1yyyliAg6FHln5o6jVfEkdyQ==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.tools/6.0.10",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/_._",
+        "microsoft.entityframeworkcore.tools.6.0.10.nupkg.sha512",
+        "microsoft.entityframeworkcore.tools.nuspec",
+        "tools/EntityFrameworkCore.PS2.psd1",
+        "tools/EntityFrameworkCore.PS2.psm1",
+        "tools/EntityFrameworkCore.psd1",
+        "tools/EntityFrameworkCore.psm1",
+        "tools/about_EntityFrameworkCore.help.txt",
+        "tools/init.ps1",
+        "tools/net461/any/ef.exe",
+        "tools/net461/win-arm64/ef.exe",
+        "tools/net461/win-x86/ef.exe",
+        "tools/netcoreapp2.0/any/ef.dll",
+        "tools/netcoreapp2.0/any/ef.runtimeconfig.json"
       ]
     },
     "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
@@ -6331,6 +6368,7 @@
       "MailKit >= 3.4.3",
       "Microsoft.EntityFrameworkCore >= 6.0.10",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.10",
+      "Microsoft.EntityFrameworkCore.Tools >= 6.0.10",
       "MlkPwgen >= 0.3.0",
       "Newtonsoft.Json.Bson >= 1.0.2",
       "Newtonsoft.Json.Schema >= 3.0.14",
@@ -6340,26 +6378,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Naol\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\lilis\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\kirubel\\Office Projects\\DAFTech Socail\\Ethiopian Urban Water Federation\\ethiopian-urban-water-federation\\API\\DAFwebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\lilis\\OneDrive\\Documents\\ethiopian-urban-water-federation\\API\\DAFwebAPI.csproj",
       "projectName": "DAFwebAPI",
-      "projectPath": "E:\\kirubel\\Office Projects\\DAFTech Socail\\Ethiopian Urban Water Federation\\ethiopian-urban-water-federation\\API\\DAFwebAPI.csproj",
-      "packagesPath": "C:\\Users\\Naol\\.nuget\\packages\\",
-      "outputPath": "E:\\kirubel\\Office Projects\\DAFTech Socail\\Ethiopian Urban Water Federation\\ethiopian-urban-water-federation\\API\\obj\\",
+      "projectPath": "C:\\Users\\lilis\\OneDrive\\Documents\\ethiopian-urban-water-federation\\API\\DAFwebAPI.csproj",
+      "packagesPath": "C:\\Users\\lilis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lilis\\OneDrive\\Documents\\ethiopian-urban-water-federation\\API\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Naol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\lilis\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6398,6 +6429,12 @@
             "version": "[6.0.10, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[6.0.10, )"
+          },
+          "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
@@ -6447,7 +6484,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

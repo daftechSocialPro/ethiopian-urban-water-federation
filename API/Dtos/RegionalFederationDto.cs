@@ -43,6 +43,32 @@ namespace DAFwebAPI.Dtos
 
         public string? Description { get; set; }
 
+        public string? Prodcapa { get; set; }
+
+        public string? Purification { get; set; }
+
+        public string? Reservwire { get; set; }
+
+        public string? Mainpresure { get; set; }
+
+        public string? Distributionkm { get; set; }
+
+        public string? Noemployees { get; set; }
+
+        public string? Source { get; set; }
+
+        public string? Establisheddate { get; set; }
+
+        public string? Kmfromaa { get; set; }
+
+
+
+
+
+
+
+
+
         public Guid regionalWaterFederationId { get; set; }
 
         public Guid UserId { get; set; }

@@ -95,6 +95,17 @@ namespace DAFwebAPI.Controllers
                 regionalWater.createdBy = userId;
                 regionalWater.UserId = user.ID;
 
+
+                regionalWater.Prodcapa = waterUtility.Prodcapa;
+                regionalWater.Purification = waterUtility.Purification;
+                regionalWater.Reservwire = waterUtility.Reservwire;
+                regionalWater.Mainpresure = waterUtility.Mainpresure;
+                regionalWater.Distributionkm = waterUtility.Distributionkm;
+                regionalWater.Noemployees = waterUtility.Noemployees;
+                regionalWater.Source = waterUtility.Source;
+                regionalWater.Establisheddate = waterUtility.Establisheddate;
+                regionalWater.Kmfromaa = waterUtility.Kmfromaa;
+
                 _unitofwork.userRepository.Create(user);
 
                 await _unitofwork.waterUtilityRepository.Create(regionalWater);

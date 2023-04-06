@@ -16,10 +16,14 @@ namespace DAFwebAPI.Entities
         [NotMapped]
         public IFormFile? Photo {get;set;}
 
-        public SponcerLevel SponcerLevel { get; set; }
+        public SponcerLevel ? SponcerLevel { get; set; }
 
         public string? Description { get; set; }
-   
+
+        public SupportType SupportType { get; set; }
+
+
+
     }
 
     public enum SponcerLevel
@@ -28,5 +32,11 @@ namespace DAFwebAPI.Entities
         Diamond,
         Gold,
         Silver
+    }
+
+    public enum SupportType
+    {
+        Sponser,
+        Partnership
     }
 }

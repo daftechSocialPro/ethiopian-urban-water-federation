@@ -1,25 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\kirubel\\Office Projects\\DAFTech Socail\\Ethiopian Urban Water Federation\\ethiopian-urban-water-federation\\API\\DAFwebAPI.csproj": {}
+    "C:\\Users\\lilis\\OneDrive\\Documents\\ethiopian-urban-water-federation\\API\\DAFwebAPI.csproj": {}
   },
   "projects": {
-    "E:\\kirubel\\Office Projects\\DAFTech Socail\\Ethiopian Urban Water Federation\\ethiopian-urban-water-federation\\API\\DAFwebAPI.csproj": {
+    "C:\\Users\\lilis\\OneDrive\\Documents\\ethiopian-urban-water-federation\\API\\DAFwebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\kirubel\\Office Projects\\DAFTech Socail\\Ethiopian Urban Water Federation\\ethiopian-urban-water-federation\\API\\DAFwebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\lilis\\OneDrive\\Documents\\ethiopian-urban-water-federation\\API\\DAFwebAPI.csproj",
         "projectName": "DAFwebAPI",
-        "projectPath": "E:\\kirubel\\Office Projects\\DAFTech Socail\\Ethiopian Urban Water Federation\\ethiopian-urban-water-federation\\API\\DAFwebAPI.csproj",
-        "packagesPath": "C:\\Users\\Naol\\.nuget\\packages\\",
-        "outputPath": "E:\\kirubel\\Office Projects\\DAFTech Socail\\Ethiopian Urban Water Federation\\ethiopian-urban-water-federation\\API\\obj\\",
+        "projectPath": "C:\\Users\\lilis\\OneDrive\\Documents\\ethiopian-urban-water-federation\\API\\DAFwebAPI.csproj",
+        "packagesPath": "C:\\Users\\lilis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lilis\\OneDrive\\Documents\\ethiopian-urban-water-federation\\API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Naol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\lilis\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,6 +53,12 @@
               "version": "[6.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
@@ -107,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

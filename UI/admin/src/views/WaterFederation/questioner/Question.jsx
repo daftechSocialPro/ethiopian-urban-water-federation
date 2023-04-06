@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   CForm,
   CFormInput,
@@ -45,11 +46,24 @@ function Question({ setIsLodding }) {
   const [question, setQuestion] = useState('')
   const [answerType, setAnswerType] = useState('')
   const [numberOfRows, setNumberOfRows] = useState(0)
+  const [numberOfChoise, setNumberOfChoise] = useState(0)
   const [includeDashboard, setIncludeDashboard] = useState(false)
   const [includeReport, setIncludeReport] = useState(false)
+  const navigate = useNavigate()
+  const answerTypes = ['Text', 'Number', 'choose']
 
-  const answerTypes = ['Text', 'Number']
+  const [choises,setChoises] =useState([])
 
+  const navigateToChoose = (item) => {
+
+    navigate('/choose', {
+      state: {
+
+      }
+    }
+    )
+
+  }
   useEffect(() => {
     axios
       .get(`${urlQuestion}?questionerId=${questionerId}`)
@@ -70,6 +84,7 @@ function Question({ setIsLodding }) {
     formData.set('includeDashboard', includeDashboard)
     formData.set('includeReport', includeReport)
     formData.set('questionerId', questionerId)
+    formData.set('numberOfChoise', numberOfChoise)
     formData.set('numberOfRows', numberOfRows)
 
     const form = event.currentTarget
@@ -102,6 +117,8 @@ function Question({ setIsLodding }) {
     }
   }
 
+
+
   const handleUpdate = async (event) => {
     event.preventDefault()
 
@@ -113,6 +130,7 @@ function Question({ setIsLodding }) {
     formData.set('includeReport', includeReport)
     formData.set('questionerId', questionerId)
     formData.set('numberOfRows', numberOfRows)
+    formData.set('numberOfChoise', numberOfChoise)
     formData.set('id', selectedQuestion.id)
 
     const form = event.currentTarget
@@ -144,14 +162,17 @@ function Question({ setIsLodding }) {
     }
   }
 
+
+  const [formValues, setFormValues] = useState({});
+  const handleChange = (e) => {
+
+    console.log(formValues.choises)
+    setFormValues({ ...formValues, [e.target.id]: e.target.value });
+  };
+ 
+
   return (
     <>
-
-
-
-          
-
-
       <CModal size="xl" visible={addvisibleXL} onClose={() => setAddVisibleXL(false)}>
         <CModalHeader
           style={{
@@ -223,6 +244,18 @@ function Question({ setIsLodding }) {
                                   />
                                 </CCol>
                               )}
+                              {answerType == 2 && (
+                                <CCol xs="3">
+                                  <CFormInput
+                                    type="number"
+                                    label="Number of choise"
+                                    placeholder=""
+                                    required
+                                    value={numberOfChoise}
+                                    onChange={(e) => setNumberOfChoise(e.target.value)}
+                                  />
+                                </CCol>
+                              )}
 
                               <CCol xs="3">
                                 <MDBRow>
@@ -247,6 +280,37 @@ function Question({ setIsLodding }) {
                                   </MDBCol>
                                 </MDBRow>
                               </CCol>
+
+                              <div className="card">
+
+                                {(function () {
+                                  var rows = [], i = 0;
+                                  while (++i <= numberOfChoise) {
+                                    rows.push(
+                                      <CCol xs="12" key={i}>
+                                        <CFormTextarea
+                                          type="text"
+                                          label={`Choise ${i}`}
+                                          rows={3}
+                                          placeholder="Choise ...."
+                                          required
+                                          value={formValues.choises}
+                                         onChange={(e) => {
+                                          
+                                          handleChange(e)}}
+                                          //console.log(e.target.value)}}
+                                        />
+                                      </CCol>
+                                    )
+                                  }
+                                  return rows;
+                                })([], 0, 10)}
+
+                              </div>
+
+
+
+
 
                               <CCol xs="2">
                                 <CButton

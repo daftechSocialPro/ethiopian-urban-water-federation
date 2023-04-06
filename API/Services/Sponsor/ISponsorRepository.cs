@@ -1,4 +1,6 @@
-﻿namespace DAFwebAPI.Services.Sponsor
+﻿using DAFwebAPI.Entities;
+
+namespace DAFwebAPI.Services.Sponsor
 {
     public interface ISponsorRepository
     {
@@ -8,5 +10,6 @@
         Task Update(DAFwebAPI.Entities.Sponsor research);
 
         Task<List<DAFwebAPI.Entities.Sponsor>> GetAll();
+        Task<List<DAFwebAPI.Entities.Sponsor>> GetAllBYSupportTYpe(SupportType supportType);
     }
 }

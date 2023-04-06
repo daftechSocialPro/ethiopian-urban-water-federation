@@ -270,6 +270,9 @@ namespace DAFwebAPI.Migrations
                     b.Property<bool>("IncludeReport")
                         .HasColumnType("boolean");
 
+                    b.Property<int>("NumberOfChoise")
+                        .HasColumnType("integer");
+
                     b.Property<int>("NumberOfRows")
                         .HasColumnType("integer");
 
@@ -428,7 +431,10 @@ namespace DAFwebAPI.Migrations
                     b.Property<string>("Logo")
                         .HasColumnType("text");
 
-                    b.Property<int>("SponcerLevel")
+                    b.Property<int?>("SponcerLevel")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SupportType")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("createdAt")
@@ -542,20 +548,47 @@ namespace DAFwebAPI.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
+                    b.Property<string>("Distributionkm")
+                        .HasColumnType("text");
+
                     b.Property<string>("Email")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Establisheddate")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Kmfromaa")
                         .HasColumnType("text");
 
                     b.Property<string>("Logo")
                         .HasColumnType("text");
 
+                    b.Property<string>("Mainpresure")
+                        .HasColumnType("text");
+
                     b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Noemployees")
                         .HasColumnType("text");
 
                     b.Property<string>("Phone")
                         .HasColumnType("text");
 
+                    b.Property<string>("Prodcapa")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Purification")
+                        .HasColumnType("text");
+
                     b.Property<Guid>("RegionalWaterFederationId")
                         .HasColumnType("uuid");
+
+                    b.Property<string>("Reservwire")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Source")
+                        .HasColumnType("text");
 
                     b.Property<Guid?>("UserId")
                         .HasColumnType("uuid");

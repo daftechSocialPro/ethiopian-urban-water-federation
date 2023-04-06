@@ -24,11 +24,20 @@ namespace DAFwebAPI.Controllers
         }
         [HttpGet]
 
-        public async Task<List<Sponsor>> GetAll()
+        public async Task<List<Sponsor>> GetAll(SupportType supportType)
         {
 
 
             return await _unitofwork.sponsorRepository.GetAll();
+        }
+
+        [HttpGet("bySupportType")]
+
+        public async Task<List<Sponsor>> GetAllBySupportType(SupportType supportType)
+        {
+
+
+            return await _unitofwork.sponsorRepository.GetAllBYSupportTYpe(supportType);
         }
 
 

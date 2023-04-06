@@ -1,4 +1,5 @@
 ﻿using DAFwebAPI.Data;
+using DAFwebAPI.Entities;
 using DAFwebAPI.Helpers;
 using Microsoft.EntityFrameworkCore;
 
@@ -52,6 +53,14 @@ namespace DAFwebAPI.Services.Sponsor
 
             return await _context.Sponsors.ToListAsync();
         }
+        public async Task<List<DAFwebAPI.Entities.Sponsor>> GetAllBYSupportTYpe(SupportType supportType)
+        {
+
+
+
+            return await _context.Sponsors.Where(x => x.SupportType == supportType).ToListAsync();
+        }
+
 
         public async Task Update(DAFwebAPI.Entities.Sponsor sponsor)
         {
@@ -64,6 +73,7 @@ namespace DAFwebAPI.Services.Sponsor
                 sponsor1.AmharicCompanyName = sponsor.AmharicCompanyName;
                 sponsor1.Description = sponsor.Description;
                 sponsor1.SponcerLevel = sponsor.SponcerLevel;
+                sponsor1.SupportType= sponsor.SupportType;
 
 
                 if (sponsor.Photo != null)

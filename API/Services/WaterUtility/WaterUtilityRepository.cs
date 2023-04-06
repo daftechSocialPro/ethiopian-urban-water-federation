@@ -68,6 +68,18 @@ namespace DAFwebAPI.Services.WaterUtility
 
 
 
+                waterUtility1.Prodcapa = waterUtility.Prodcapa;
+                waterUtility1.Purification = waterUtility.Purification;
+                waterUtility1.Reservwire = waterUtility.Reservwire;
+                waterUtility1.Mainpresure = waterUtility.Mainpresure;
+                waterUtility1.Distributionkm = waterUtility.Distributionkm;
+                waterUtility1.Noemployees = waterUtility.Noemployees;
+                waterUtility1.Source = waterUtility.Source;
+                waterUtility1.Establisheddate = waterUtility.Establisheddate;
+                waterUtility1.Kmfromaa = waterUtility.Kmfromaa;
+
+
+
                 if (waterUtility.Photo != null)
                 {
                     var image = waterUtility.Photo;

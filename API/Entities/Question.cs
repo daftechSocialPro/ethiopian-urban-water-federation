@@ -14,6 +14,8 @@
 
         public int NumberOfRows { get; set; }
 
+        public int NumberOfChoise { get; set; }
+
         public virtual Questioner? Questioner { get; set; }
 
         public Guid QuestionerId { get; set; }
@@ -24,6 +26,8 @@
     public enum AnswerType
     {
         Text,
-        Number
+        Number,
+        Choise
+
     }
 }
