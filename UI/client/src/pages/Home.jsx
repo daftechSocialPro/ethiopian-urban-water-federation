@@ -1,18 +1,26 @@
-import React from "react";
+import React,{useRef} from "react";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.min.css";
 import "owl.carousel/dist/assets/owl.theme.default.min.css";  
 import axios from "axios";
 import { useState } from "react";
-import { assetUrl, urlForum, urlNews, urlSponsor } from "../endpoints";
+import { assetUrl, urlForum, urlNews, urlSponsor, urlSubscriber } from "../endpoints";
 import dateformat from "dateformat";
 import { useEffect } from "react";
 import DOMPurify from "dompurify";
 import { useTranslation } from 'react-i18next'
 import {Link, useNavigate} from 'react-router-dom'
+
+import { Toast } from 'primereact/toast';
+
+
 function Home() {
 
- 
+  const toast = useRef(null);
+
+  const showToast = (type,summary,detail) => {
+      toast.current.show({severity:type, summary: summary, detail:detail, life: 3000});
+  }
 
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -176,8 +184,26 @@ function Home() {
     return `${assetUrl}/${item}`;
   };
 
+  const [subscribe, setSubscribe]= useState('');
+
+ const subscribeEmail=()=>{
+        if(subscribe!= ''){
+          axios.post(urlSubscriber, {Email:subscribe
+          }).then((res)=>{
+            setSubscribe('')
+           showToast('success','Success',res.data)
+          }).catch(()=>{
+            setSubscribe('')
+            showToast('error','Error',"Something went wrong or Emial already Subscribed")
+          })
+        }
+  }
+
+
   return (
     <>
+
+<Toast ref={toast} />
       <section
         className="slider-one slider-two"
         style={
@@ -505,12 +531,12 @@ function Home() {
                 {t("Subscibe.3")} <br /> {t("Subscibe.2")}
                 </h2>
               </div>
-              <form action="#" className="mc-form newsletter-one__form">
-                <input type="email" placeholder= {t("Subscibe.5")} />
-                <button type="submit" className="newsletter-one__form__btn">
+              <div className="mc-form newsletter-one__form">
+                <input type="email"  value={subscribe} onChange={(e)=>setSubscribe(e.target.value)} placeholder= {t("Subscibe.5")} />
+                <button type="submit" onClick={subscribeEmail} className="newsletter-one__form__btn">
                   {t("Subscibe.4")}
                 </button>
-              </form>
+              </div>
               <div className="mc-response"></div>
             </div>
           </div>
@@ -592,6 +618,12 @@ function Home() {
               <div className="swiper-slide">
                 <img
                   src="/assets/images/testimonals/daniel.png"
+                  style={{ width: "60px", height: "60px" }}
+                />
+              </div>
+              <div className="swiper-slide">
+                <img
+                  src="/assets/images/testimonals/muktar.png"
                   style={{ width: "60px", height: "60px" }}
                 />
               </div>
