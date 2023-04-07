@@ -46,7 +46,7 @@ namespace DAFwebAPI.Migrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid>("createdBy")
+                    b.Property<Guid?>("createdBy")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("updatedAt")
@@ -98,7 +98,7 @@ namespace DAFwebAPI.Migrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid>("createdBy")
+                    b.Property<Guid?>("createdBy")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("updatedAt")
@@ -132,7 +132,7 @@ namespace DAFwebAPI.Migrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid>("createdBy")
+                    b.Property<Guid?>("createdBy")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("updatedAt")
@@ -170,7 +170,7 @@ namespace DAFwebAPI.Migrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid>("createdBy")
+                    b.Property<Guid?>("createdBy")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("updatedAt")
@@ -207,7 +207,7 @@ namespace DAFwebAPI.Migrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid>("createdBy")
+                    b.Property<Guid?>("createdBy")
                         .HasColumnType("uuid");
 
                     b.Property<bool>("isApproved")
@@ -241,7 +241,7 @@ namespace DAFwebAPI.Migrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid>("createdBy")
+                    b.Property<Guid?>("createdBy")
                         .HasColumnType("uuid");
 
                     b.Property<string>("title")
@@ -285,7 +285,7 @@ namespace DAFwebAPI.Migrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid>("createdBy")
+                    b.Property<Guid?>("createdBy")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("updatedAt")
@@ -310,7 +310,7 @@ namespace DAFwebAPI.Migrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid>("createdBy")
+                    b.Property<Guid?>("createdBy")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("updatedAt")
@@ -351,7 +351,7 @@ namespace DAFwebAPI.Migrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid>("createdBy")
+                    b.Property<Guid?>("createdBy")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("updatedAt")
@@ -402,7 +402,7 @@ namespace DAFwebAPI.Migrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid>("createdBy")
+                    b.Property<Guid?>("createdBy")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("updatedAt")
@@ -440,7 +440,7 @@ namespace DAFwebAPI.Migrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid>("createdBy")
+                    b.Property<Guid?>("createdBy")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("updatedAt")
@@ -449,6 +449,33 @@ namespace DAFwebAPI.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Sponsors");
+                });
+
+            modelBuilder.Entity("DAFwebAPI.Entities.Subscriber", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("createdAt")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<Guid?>("createdBy")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("updatedAt")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.ToTable("Subscribers");
                 });
 
             modelBuilder.Entity("DAFwebAPI.Entities.User", b =>
@@ -478,7 +505,7 @@ namespace DAFwebAPI.Migrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid>("createdBy")
+                    b.Property<Guid?>("createdBy")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("updatedAt")
@@ -528,7 +555,7 @@ namespace DAFwebAPI.Migrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid>("createdBy")
+                    b.Property<Guid?>("createdBy")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("updatedAt")
@@ -596,7 +623,7 @@ namespace DAFwebAPI.Migrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid>("createdBy")
+                    b.Property<Guid?>("createdBy")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("updatedAt")

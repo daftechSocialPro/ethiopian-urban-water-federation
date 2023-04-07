@@ -41,6 +41,8 @@ namespace DAFwebAPI.Services
 
         IForumRepository forumRepository { get; }
 
+        ISubscriberServices subscriberService { get; }
+
         Task SaveChanges();
     }
 }

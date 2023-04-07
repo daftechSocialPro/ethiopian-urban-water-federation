@@ -42,11 +42,17 @@ namespace DAFwebAPI.Data
 
         public DbSet<Forum> Forums { get; set; }
 
+       public DbSet<Subscriber> Subscribers { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
             modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasIndex(e => e.Email).IsUnique();
+            });
+            modelBuilder.Entity<Subscriber>(entity =>
             {
                 entity.HasIndex(e => e.Email).IsUnique();
             });

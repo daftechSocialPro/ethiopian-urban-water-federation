@@ -7,7 +7,7 @@ namespace DAFwebAPI.Entities
         
         public Guid ID { get; set; }
 
-        public Guid createdBy { get; set; }
+        public Guid? createdBy { get; set; }
 
         public DateTime createdAt { get; set; }
 

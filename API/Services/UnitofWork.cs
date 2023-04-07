@@ -35,7 +35,9 @@ namespace DAFwebAPI.Services
             dashboradRepository =new DashboarRepository(db);
             sponsorRepository = new SponsorRepository(db);
             forumRepository= new ForumRepository(db);
-          
+            subscriberService= new SubscriberService(db);
+
+
         }
       
         public IUserRepository userRepository {get;set;}
@@ -63,6 +65,8 @@ namespace DAFwebAPI.Services
         public ISponsorRepository sponsorRepository { get;set;}
 
         public IForumRepository forumRepository { get;set;} 
+
+        public ISubscriberServices subscriberService { get;set;}  
         public async Task SaveChanges()
         {
             try
