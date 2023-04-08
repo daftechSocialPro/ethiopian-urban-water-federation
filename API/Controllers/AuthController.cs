@@ -3,6 +3,7 @@ using DAFwebAPI.Services;
 using DAFwebAPI.Dtos;
 using DAFwebAPI.Entities;
 using DAFwebAPI.Helpers;
+using Microsoft.AspNetCore.Cors;
 
 namespace DAFwebAPI.Controllers
 {

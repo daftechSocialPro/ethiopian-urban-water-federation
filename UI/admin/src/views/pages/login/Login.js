@@ -35,6 +35,8 @@ const Login = ({ setIsLoggedIn, setIsLodding }) => {
       .post(`${urlusers}/login`, {
         email: email,
         password: password,
+      }, {
+        withCredentials: true
       })
 
       .then((res) => {
