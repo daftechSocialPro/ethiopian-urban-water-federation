@@ -3,6 +3,9 @@ import { useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { assetUrl, urlSponsor } from "../endpoints";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.min.css";
+import "owl.carousel/dist/assets/owl.theme.default.min.css";  
 import dateformat from "dateformat";
 function NewsDetail() {
   const location = useLocation();
@@ -12,8 +15,48 @@ function NewsDetail() {
     location.state.newsList && location.state.newsList
   );
   const [sponser, setSponser]=useState([])
+  const [partenerShip,setPartnerShip] = useState([])
   const  [searchParm,setSearchParam]= useState('')
+  const option6 = {
+    container: "#sponsor-carousel-1",
+    loop: true,
+    autoplay: true,
+    dots: false,
+    items: 2,
+    gutter: 30,
+    mouseDrag: true,
+    touch: "true",
+    nav: false,
 
+    controls: false,
+    responsive: {
+      0: {
+        items: 2,
+        gutter: 30,
+        margin: 30,
+      },
+      576: {
+        items: 3,
+        gutter: 30,
+        margin: 30,
+      },
+      768: {
+        items: 4,
+        gutter: 30,
+        margin: 30,
+      },
+      992: {
+        items: 5,
+        gutter: 50,
+        margin: 40,
+      },
+      1200: {
+        items: 5,
+        gutter: 140,
+        margin: 50,
+      },
+    },
+  };
 
 useEffect(()=>{
 
@@ -30,6 +73,12 @@ useEffect(()=>{
 }, [])
 
 
+useEffect(()=>{
+
+  axios.get(urlSponsor+"/bySupportType?supportType=1").then((res)=>
+    setPartnerShip(res.data)
+  )
+},[])
 
   const getImage = (item) => {
     return `${assetUrl}/${item}`;
@@ -119,15 +168,29 @@ useEffect(()=>{
                 </div>
               </div>
 
-              {sponser.map((item, index) => {
+              {sponser.slice(0, 2).map((item, index) => {
               return (
-                <div className="item" style={{marginLeft:"25%"}}  >
+                <div className="item" key={index} style={{marginLeft:"25%"}}  >
                   <img style={{height:"200px", width:"200px"}} src={getImage(item.logo)} alt="" />
                 </div>
               )
             })}
             </div>
           </div>
+        </div>
+      </section>
+      <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
+        <div className="container">
+      {partenerShip.length &&    <OwlCarousel className="owl-theme " {...option6}>
+
+            {partenerShip.map((item,index)=>{
+              return(
+                <div className="item" key={index}>
+                <img src={getImage(item.logo)} alt="" />
+              </div>
+              )
+            })}
+          </OwlCarousel>}
         </div>
       </section>
     </>
