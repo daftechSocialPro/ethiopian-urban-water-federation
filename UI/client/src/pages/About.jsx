@@ -81,47 +81,47 @@ function About() {
   };
   const [data] = useState([
     {
-      label: 'General Council',
+      label: `${t('Organizational.4')}`,
       expanded: true,
       children: [
 
         {
-          label: 'Directors’ Board',
+          label: `${t('Organizational.5')}`,
           expanded: true,
           children: [
             {
-              label: 'Managing Director',
+              label: `${t('Organizational.6')}`,
               expanded: true,
               children: [
                 {
-                  label: 'Finance and Administration'
+                  label: `${t('Organizational.7')}`,
                 },
                 {
-                  label: 'Vice Manager',
+                  label:`${t('Organizational.8')}`,
                   expanded: true,
                   children: [
                     {
-                      label: 'IWRM Team '
+                      label:`${t('Organizational.9')}`
                     },
                     {
-                      label: 'Research Training & monitoring and Evaluation Team '
+                      label:`${t('Organizational.10')}`
                     },
                     {
-                      label: 'ITC Team '
+                      label: `${t('Organizational.11')}`
                     },
                     {
-                      label: 'PR & Communications Team'
+                      label: `${t('Organizational.12')}`
                     },
                     {
-                      label: 'Water Supply Team'
+                      label: `${t('Organizational.13')}`
                     },
                     {
-                      label: 'Sanitation Team'
+                      label: `${t('Organizational.14')}`
                     }
                   ]
                 },
                 {
-                  label: 'Legal Advisor'
+                  label: `${t('Organizational.15')}`
                 }
               ]
             }
@@ -129,7 +129,7 @@ function About() {
           ]
         },
         {
-          label: 'Audit Committee ',
+          label: `${t('Organizational.16')}`,
 
         },
 
@@ -256,9 +256,9 @@ function About() {
           <div className="sec-title text-center ">
            
             <h3 className="sec-title__title">
-              Organizational Structure
+            {t("Organizational.1")}
             </h3>
-            <p className="sec-title__tagline">Our Organizational Structure</p>
+            <p className="sec-title__tagline">{t("Organizational.2")}</p>
           </div>
 
 

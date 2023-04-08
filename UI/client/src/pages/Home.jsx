@@ -706,19 +706,14 @@ function Home() {
                     </div>
                     <div className="testimonials-two__card__content">
                       <p className="testimonials-two__card__text">
-                        VEI implements peer supported partnerships between water
-                        operators worldwide, aiming to share knowledge and
-                        skills to make the utilities stronger, healthier, and
-                        more resilient. We believe that everybody in the world
-                        deserves proper, adequate, and sustainable water
-                        services delivery.
+                      {t("testimonials.7")}
                       </p>
                       <h3 className="testimonials-two__card__title">
-                           Petros
+                      {t("testimonials.8")}
                       </h3>
 
                       <span className="testimonials-two__card__designation">
-                        Founder
+                      {t("testimonials.9")}
                       </span>
                     </div>
                     <i className="paroti-icon-quote testimonials-two__card__icon"></i>

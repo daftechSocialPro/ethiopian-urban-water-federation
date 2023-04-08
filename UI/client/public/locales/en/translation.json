@@ -32,6 +32,9 @@
     "contactus1":{
         "1":"Contact with us"
     },
+    "link":{
+        "1":"Links"
+    },
     "love":{
         "1":"Love to hear from you"
     },
@@ -85,6 +88,30 @@
         "4":"DISCOVER MORE",
         "5":"Years of work experiance"
     },
+    "Organizational":{
+        "1":" Organizational Structure",
+        "2":"Our Organizational Structure",
+        "4":"General Council",
+        "5":"Directors’ Board",
+        "6":"Managing Director",
+        "7":"Finance and Administration",
+        "8":"Vice Manager",
+        "9":"IWRM Team",
+        "10":"Research Training & monitoring and Evaluation Team",
+        "11":"ITC Team",
+        "12":"PR & Communications Team",
+        "13":"Water Supply Team",
+        "14":"Sanitation Team",
+        "15":"Legal Advisor",
+        "16":"Audit Committee "
+      
+
+        
+      
+    },
+
+
+
     "vision": {
         "1": "Change everything",
         "2": "OUR VISSION",
@@ -131,8 +158,10 @@
         "3":"  Director General of EUWF",
         "4":"VEI implements peer supported partnerships between wateroperators worldwide, aiming to share knowledge andskills to make the utilities stronger, healthier, andmore resilient. We believe that everybody in the worlddeserves proper, adequate, and sustainable waterservices delivery.",
         "5":"Daniel Truneh",
-        "6":" VEI REGIONAL DIRECTOR , EAST AND NORHERN AFRICA"
-
+        "6":" VEI REGIONAL DIRECTOR , EAST AND NORHERN AFRICA",
+        "7": "VEI implements peer supported partnerships between wateroperators worldwide, aiming to share knowledge andskills to make the utilities stronger, healthier, and more resilient. We believe that everybody in the worlddeserves proper, adequate, and sustainable water services delivery.",
+        "8" : "Petros",
+        "9" :"Founder"
     },
     "total":{
         "1":"Total Campaigns ",
