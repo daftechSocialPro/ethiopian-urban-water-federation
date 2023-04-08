@@ -24,13 +24,12 @@ function Footer() {
             <div className="site-footer__widget">
               <h3 className="site-footer__widget__title">{t("link.1")}</h3>
               <ul className="list-unstyled site-footer__widget__links">
-                <li><a href="#"> {t("home.1")}</a></li>
-                <li><a href="#">{t("service.1")}</a></li>
-                <li><a href="#">{t("news.1")}</a></li>
-                <li><a href="#">{t("memberutilites.1")}</a></li>
-                <li><a href="#">{t("contactus.1")}</a></li>
-                <li><a href="#">{t("publication.1")}</a></li>
-                <li><a href="#">{t("vaccancy.1")}</a></li>
+                <li><a href="/"> {t("home.1")}</a></li>
+                <li><a href="/about">{t("aboutus.1")}</a></li>
+                <li><a href="/news">{t("news.1")}</a></li>
+                <li><a href="/waterutility">{t("memberutilites.1")}</a></li>
+                <li><a href="/contact">{t("contactus.1")}</a></li>
+                <li><a href="/researches">{t("publication.1")}</a></li>
               </ul>
             </div>
           </div>

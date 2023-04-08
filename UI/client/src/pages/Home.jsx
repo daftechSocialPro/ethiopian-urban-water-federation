@@ -27,12 +27,7 @@ function Home() {
 
   const [partenerShip,setPartnerShip] = useState([])
 
-  useEffect(()=>{
 
-    axios.get(urlSponsor+"/bySupportType?supportType=1").then((res)=>{
-      setPartnerShip(res.data)
-    })
-  },[])
 
 
   const navigateNewsDetial =(item)=>{
@@ -177,6 +172,13 @@ function Home() {
       })
       .catch((err) => console.error(err));
   }, []);
+
+  useEffect(()=>{
+
+    axios.get(urlSponsor+"/bySupportType?supportType=1").then((res)=>
+      setPartnerShip(res.data)
+    )
+  },[])
 
 
 
@@ -445,10 +447,10 @@ function Home() {
             <p className="sec-title__tagline">
             {t("donating.1")}
             </p>
-            <h2 className="sec-title__title">
+            <h5 className="sec-title__title">
             {t("donating.2")}<br />
               <span>{t("donating.3")}</span> {t("donating.4")}
-            </h2>
+            </h5>
           </div>
           <Link to="waterutility" className="thm-btn cta-one__btn">
             <span> {t("donating.5")}</span>
@@ -728,58 +730,16 @@ function Home() {
 
       <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
         <div className="container">
-          <OwlCarousel className="owl-theme " {...option6}>
+      {partenerShip.length &&    <OwlCarousel className="owl-theme " {...option6}>
 
             {partenerShip.map((item,index)=>{
               return(
-                <div className="item">
+                <div className="item" key={index}>
                 <img src={getImage(item.logo)} alt="" />
               </div>
               )
             })}
-            {/* <div className="item">
-              <img src="/assets/images/partner/s1.png" alt="" />
-            </div>
-            <div className="item">
-              <img src="/assets/images/partner/s2.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s3.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s4.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s5.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s6.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s7.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s8.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s9.png" alt="" />
-            </div>
-            <div className="item">
-              <img src="/assets/images/partner/s10.png" alt="" />
-            </div>
-            <div className="item">
-              <img src="/assets/images/partner/s11.png" alt="" />
-            </div>
-            <div className="item">
-              <img src="/assets/images/partner/s12.png" alt="" />
-            </div>
-            <div className="item">
-              <img src="/assets/images/partner/s13.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s14.png" alt="" />
-            </div> */}
-          </OwlCarousel>
+          </OwlCarousel>}
         </div>
       </section>
     </>

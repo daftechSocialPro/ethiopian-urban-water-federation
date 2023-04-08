@@ -94,7 +94,7 @@ function Header() {
             <li className={location.pathname === "/news" ? "current" : ""}>
               <Link to="/news">{t("news.1")}</Link>
             </li>
-            <li className={location.pathname === "/team" ? "current" : ""}>
+            <li className={location.pathname === "/waterutility" ? "current" : ""}>
               <Link to="/waterutility">{t("memberutilites.1")}</Link>
             </li>
             <li className={location.pathname === "/contact" ? "current" : ""}>
@@ -103,36 +103,6 @@ function Header() {
             <li className={location.pathname === "/researches" ? "current" : ""}>
               <Link to="/researches">{t("publication.1")}</Link>
             </li>
-
-            {/* <li
-              className={
-                location.pathname === "/vaccancy" ||
-                location.pathname === "/researches"
-                  ? "menu-item-has-children active"
-                  : "menu-item-has-children"
-              }
-            >
-              <a href="#"> {t("others.1")}</a>
-              <ul>
-                <li
-                  className={
-                    location.pathname === "/researches" ? "active" : ""
-                  }
-                >
-                  <Link to="/vaccancy">{t("vaccancy.1")}</Link>
-                </li>
-                <li>
-                  <Link
-                    className={
-                      location.pathname === "/vaccancy" ? "active" : ""
-                    }
-                    to="/researches"
-                  >
-                    {t("publication.1")}
-                  </Link>
-                </li>
-              </ul>
-            </li> */}
           </ul>
 
           {/* <div className="main-menu__right">
