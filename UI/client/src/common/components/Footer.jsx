@@ -22,7 +22,7 @@ function Footer() {
           <div className="col-sm-12 col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-duration="1500ms"
             data-wow-delay="100ms">
             <div className="site-footer__widget">
-              <h3 className="site-footer__widget__title">Links</h3>
+              <h3 className="site-footer__widget__title">{t("link.1")}</h3>
               <ul className="list-unstyled site-footer__widget__links">
                 <li><a href="/"> {t("home.1")}</a></li>
                 <li><a href="/about">{t("aboutus.1")}</a></li>
