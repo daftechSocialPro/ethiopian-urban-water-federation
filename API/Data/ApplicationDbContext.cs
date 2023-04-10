@@ -14,9 +14,9 @@ namespace DAFwebAPI.Data
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<BoardMember> BoardMembers { get; set; }  
-        
-        public DbSet<News> News { get; set; }   
+        public DbSet<BoardMember> BoardMembers { get; set; }
+
+        public DbSet<News> News { get; set; }
 
         public DbSet<Contact> Contacts { get; set; }
 
@@ -25,7 +25,7 @@ namespace DAFwebAPI.Data
         public DbSet<Research> Researchs { get; set; }
 
         public DbSet<Region> Regions { get; set; }
-        public DbSet<RegionalWaterFederation> RegionalWaterFederations { get; set; }        
+        public DbSet<RegionalWaterFederation> RegionalWaterFederations { get; set; }
         public DbSet<WaterUtility> waterUtilities { get; set; }
 
 
@@ -42,8 +42,9 @@ namespace DAFwebAPI.Data
 
         public DbSet<Forum> Forums { get; set; }
 
-       public DbSet<Subscriber> Subscribers { get; set; }
+        public DbSet<Subscriber> Subscribers { get; set; }
 
+        public DbSet<Choices> Choices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -57,5 +58,5 @@ namespace DAFwebAPI.Data
                 entity.HasIndex(e => e.Email).IsUnique();
             });
         }
-        }
+    }
 }

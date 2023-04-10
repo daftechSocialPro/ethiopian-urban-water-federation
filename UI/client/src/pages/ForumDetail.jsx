@@ -30,6 +30,14 @@ useEffect(()=>{
   };
 
 
+  const filterdStyle = ( index ) => {
+    const buttonStyle = {
+      backgroundColor: index%2===0 ? 'white' : '',
+     
+     
+    };
+    return buttonStyle;
+  }
   return (
     <>
       <section
@@ -74,7 +82,7 @@ useEffect(()=>{
               <div className="sidebar">
                 <div className="sidebar__single sidebar__single--search">
                   <form action="#">
-                    <input type="text"  value={searchParm} onChange={(e)=>setSearchParam(e.target.value)}  placeholder="Search here.." />
+                    <input type="text" className="searhcInput"  value={searchParm} onChange={(e)=>setSearchParam(e.target.value)}  placeholder="Search here.." />
                     <button type="submit">
                       <i className="paroti-icon-magnifying-glass"></i>
                     </button>
@@ -84,17 +92,17 @@ useEffect(()=>{
                   <h3 className="sidebar__title">Recent Fourms</h3>
                   <ul className="list-unstyled sidebar__post">
                     {filterdList.slice(0, 4).map((item, index) => (
-                      <li key={index}>
+                      <li key={index} style={filterdStyle(index)}>
                         <a onClick={()=>setForum(item)}>
                           <img
                             style={{ maxWidth: "70px" }}
                             src={getImage(item.img)}
                             alt=""
                           />
-                          <span className="sidebar__post__meta">
+                          {/* <span className="sidebar__post__meta">
                             <i className="fa fa-comments"></i>
                             02 comments
-                          </span>
+                          </span> */}
                           <span className="sidebar__post__title">{item.title}</span>
                         </a>
                       </li>

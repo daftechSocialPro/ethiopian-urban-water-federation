@@ -10,6 +10,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.1",
+    "classnames": "^2.3.2",
     "dateformat": "^5.0.3",
     "dompurify": "^2.4.1",
     "i18next": "^22.4.6",

@@ -32,7 +32,7 @@ namespace DAFwebAPI.Controllers
         }
         [HttpGet]
 
-        public async Task<List<Questions>> GetAll(Guid questionerId)
+        public async Task<List<QuestionDto>> GetAll(Guid questionerId)
         {
 
 
@@ -117,7 +117,7 @@ namespace DAFwebAPI.Controllers
         [HttpPost]
 
 
-        public async Task<ActionResult> Post([FromForm] Questions questions)
+        public async Task<ActionResult> Post([FromForm] QuestionDto questions)
         {
 
             try
@@ -150,7 +150,7 @@ namespace DAFwebAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update([FromForm] Questions questions)
+        public async Task<ActionResult> Update([FromForm] QuestionDto questions)
         {
 
             try

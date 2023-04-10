@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.min.css";
 import "owl.carousel/dist/assets/owl.theme.default.min.css";
@@ -8,10 +8,18 @@ import { assetUrl, urlNews, urlSponsor } from "../endpoints";
 import { useNavigate } from 'react-router-dom';
 import dateformat from 'dateformat';
 import { useTranslation } from 'react-i18next';
+
+import Pagination from '../components/Pagination'
+
+let PageSize = 6
+
 function News() {
   const [news, setNews] = useState([]);
   const [sponser, setSponser] = useState([])
   const { t } = useTranslation()
+
+  const [currentPage, setCurrentPage] = useState(1)
+
 
   const navigate = useNavigate()
   // eyanagerkeng nberawo lmn dnnew  react-reduc x yatenahut  ena mn yeshalal 
@@ -37,6 +45,14 @@ function News() {
       })
       .catch((err) => console.error(err));
   }, []);
+
+
+  const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize
+    const lastPageIndex = firstPageIndex + PageSize
+    return news.slice(firstPageIndex, lastPageIndex)
+  }, [currentPage, news])
+
 
 
   const search = (item) => {
@@ -127,7 +143,7 @@ function News() {
         <div className="container">
           <div className="row gutter-y-30">
 
-            {news.map((item, index) =>
+            {currentTableData.map((item, index) =>
               <div key={index} className="col-sm-12 col-md-6 col-lg-4">
                 <div className="blog-card">
                   <div className="blog-card__image">
@@ -140,14 +156,14 @@ function News() {
                     <ul className="blog-card__meta list-unstyled">
                       <li>
                         <i className="fa fa-user"></i>
-                        <a href="#">by {item.waterFederation.fullName}</a>
+                        <a onClick={() => navigateNewsDetial(item)} >by {item.waterFederation.fullName}</a>
                       </li>
-                      <li>
+                      {/* <li>
                         <i className="fa fa-comments"></i>
                         <a href="#">02 comments</a>
-                      </li>
+                      </li> */}
                     </ul>
-                    <h3 className="blog-card__title"><a href="blog-details.html">{item.title}</a></h3>
+                    <h3 className="blog-card__title"><a onClick={() => navigateNewsDetial(item)}>{item.title}</a></h3>
                     <a onClick={() => navigateNewsDetial(item)} className="blog-card__links">
                       <i className="fa fa-angle-double-right"></i>
                       Read More</a>
@@ -156,16 +172,29 @@ function News() {
               </div>
             )}
 
+<Pagination
+                  className="pagination-bar"
+                  currentPage={currentPage}
+                  totalCount={news.length}
+                  pageSize={PageSize}
+                  onPageChange={(page) => setCurrentPage(page)}
+                />
+
           </div>
         </div>
       </section>
+      <section className="sec-pad-top sec-pad-bottom donation-two">
+        </section>
+
+
+
       <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
         <div className="container">
           <OwlCarousel className="owl-theme " {...option6}>
 
             {sponser.map((item, index) => {
               return (
-                <div className="item">
+                <div className="item" key={index}>
                   <img src={getImage(item.logo)} alt="" />
                 </div>
               )

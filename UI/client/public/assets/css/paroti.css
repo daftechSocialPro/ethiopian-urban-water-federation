@@ -46,6 +46,9 @@
   --paroti-light: #8fa6aa;
 }
 
+.searhcInput::placeholder {
+  color: white!important;
+}
 /*
   // Common
 */

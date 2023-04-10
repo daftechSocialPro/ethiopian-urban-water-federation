@@ -3,6 +3,9 @@ import { useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { assetUrl, urlSponsor } from "../endpoints";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.min.css";
+import "owl.carousel/dist/assets/owl.theme.default.min.css";  
 import dateformat from "dateformat";
 function NewsDetail() {
   const location = useLocation();
@@ -12,8 +15,48 @@ function NewsDetail() {
     location.state.newsList && location.state.newsList
   );
   const [sponser, setSponser]=useState([])
+  const [partenerShip,setPartnerShip] = useState([])
   const  [searchParm,setSearchParam]= useState('')
+  const option6 = {
+    container: "#sponsor-carousel-1",
+    loop: true,
+    autoplay: true,
+    dots: false,
+    items: 2,
+    gutter: 30,
+    mouseDrag: true,
+    touch: "true",
+    nav: false,
 
+    controls: false,
+    responsive: {
+      0: {
+        items: 2,
+        gutter: 30,
+        margin: 30,
+      },
+      576: {
+        items: 3,
+        gutter: 30,
+        margin: 30,
+      },
+      768: {
+        items: 4,
+        gutter: 30,
+        margin: 30,
+      },
+      992: {
+        items: 5,
+        gutter: 50,
+        margin: 40,
+      },
+      1200: {
+        items: 5,
+        gutter: 140,
+        margin: 50,
+      },
+    },
+  };
 
 useEffect(()=>{
 
@@ -30,10 +73,28 @@ useEffect(()=>{
 }, [])
 
 
+useEffect(()=>{
+
+  axios.get(urlSponsor+"/bySupportType?supportType=1").then((res)=>
+    setPartnerShip(res.data)
+  )
+},[])
 
   const getImage = (item) => {
     return `${assetUrl}/${item}`;
   };
+
+
+  const filterdStyle = ( index ) => {
+    const buttonStyle = {
+      backgroundColor: index%2===0 ? 'white' : '',
+     
+     
+    };
+    return buttonStyle;
+  }
+
+
 
   return (
     <>
@@ -90,7 +151,7 @@ useEffect(()=>{
               <div className="sidebar">
                 <div className="sidebar__single sidebar__single--search">
                   <form action="#">
-                    <input type="text"  value={searchParm} onChange={(e)=>setSearchParam(e.target.value)}  placeholder="Search here.." />
+                    <input type="text" className="searhcInput" value={searchParm} onChange={(e)=>setSearchParam(e.target.value)}  placeholder="Search here.." />
                     <button type="submit">
                       <i className="paroti-icon-magnifying-glass"></i>
                     </button>
@@ -100,17 +161,17 @@ useEffect(()=>{
                   <h3 className="sidebar__title">Recent posts</h3>
                   <ul className="list-unstyled sidebar__post">
                     {filterdList.slice(0, 4).map((item, index) => (
-                      <li>
+                      <li key={index} style={filterdStyle(index)}>
                         <a onClick={()=>setNews(item)}>
                           <img
                             style={{ maxWidth: "70px" }}
                             src={getImage(item.img)}
                             alt=""
                           />
-                          <span className="sidebar__post__meta">
+                          {/* <span className="sidebar__post__meta">
                             <i className="fa fa-comments"></i>
                             02 comments
-                          </span>
+                          </span> */}
                           <span className="sidebar__post__title">{item.title}</span>
                         </a>
                       </li>
@@ -119,15 +180,32 @@ useEffect(()=>{
                 </div>
               </div>
 
-              {sponser.map((item, index) => {
+              {sponser.slice(0, 2).map((item, index) => {
               return (
-                <div className="item" style={{marginLeft:"25%"}}  >
-                  <img style={{height:"200px", width:"200px"}} src={getImage(item.logo)} alt="" />
+                <div className="item" key={index}  style={{marginLeft:"25%"}}   >
+                  <img style={{width:"100%"}} src={getImage(item.logo)} alt="" />
                 </div>
               )
             })}
             </div>
           </div>
+        </div>
+      </section>
+      <section className="sec-pad-top sec-pad-bottom donation-two">
+        </section>
+
+      <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
+        <div className="container">
+      {partenerShip.length &&    <OwlCarousel className="owl-theme " {...option6}>
+
+            {partenerShip.map((item,index)=>{
+              return(
+                <div className="item" key={index}>
+                <img src={getImage(item.logo)} alt="" />
+              </div>
+              )
+            })}
+          </OwlCarousel>}
         </div>
       </section>
     </>

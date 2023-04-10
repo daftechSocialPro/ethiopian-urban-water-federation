@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import OwlCarousel from "react-owl-carousel";
-
+import { urlSponsor, assetUrl} from "../endpoints";
 import { OrganizationChart } from 'primereact/organizationchart'
 import { useTranslation } from 'react-i18next'
 import { urlContact } from "../endpoints";
@@ -19,7 +19,17 @@ function About() {
       })
       .catch((err) => console.log(err))
   }, [])
+  const getImage = (item) => {
+    return `${assetUrl}/${item}`;
+  };
+  const [partenerShip,setPartnerShip] = useState([])
 
+  useEffect(()=>{
+
+    axios.get(urlSponsor+"/bySupportType?supportType=1").then((res)=>{
+      setPartnerShip(res.data)
+    })
+  },[])
 
   const { t } = useTranslation()
   const option3 = {
@@ -352,52 +362,7 @@ function About() {
         </div>
       </section>
 
-      <section className="funfact-one funfact-one--m-margin-top">
-        <div className="container">
-          <div className="funfact-one__inner wow fadeInUp">
-            <div className="funfact-one__item">
-              <h3 className="count-box funfact-one__title">
-                <span
-                  data-stop="4850"
-                  data-speed="1500"
-                  className="count-text"
-                ></span>
-              </h3>
-              <p className="funfact-one__text">{t("total.1")}</p>
-            </div>
-            <div className="funfact-one__item">
-              <h3 className="count-box funfact-one__title">
-                <span
-                  data-stop="3456"
-                  data-speed="1500"
-                  className="count-text"
-                ></span>
-              </h3>
-              <p className="funfact-one__text">{t("total.2")}</p>
-            </div>
-            <div className="funfact-one__item">
-              <h3 className="count-box funfact-one__title">
-                <span
-                  data-stop="480"
-                  data-speed="1500"
-                  className="count-text"
-                ></span>
-              </h3>
-              <p className="funfact-one__text">{t("total.3")}</p>
-            </div>
-            <div className="funfact-one__item">
-              <h3 className="count-box funfact-one__title">
-                <span
-                  data-stop="2068"
-                  data-speed="1500"
-                  className="count-text"
-                ></span>
-              </h3>
-              <p className="funfact-one__text">{t("total.4")}</p>
-            </div>
-          </div>
-        </div>
-      </section>
+    
 
       <section className="sec-pad-top sec-pad-bottom testimonials-one my-5">
         <div
@@ -497,50 +462,17 @@ function About() {
 
       <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
         <div className="container">
-          <OwlCarousel className="owl-theme " {...option6}>
-            <div className="item">
-              <img src="/assets/images/partner/s1.png" alt="" />
-            </div>
-            <div className="item">
-              <img src="/assets/images/partner/s2.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s3.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s4.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s5.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s6.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s7.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s8.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s9.png" alt="" />
-            </div>
-            <div className="item">
-              <img src="/assets/images/partner/s10.png" alt="" />
-            </div>
-            <div className="item">
-              <img src="/assets/images/partner/s11.png" alt="" />
-            </div>
-            <div className="item">
-              <img src="/assets/images/partner/s12.png" alt="" />
-            </div>
-            <div className="item">
-              <img src="/assets/images/partner/s13.png" alt="" />
-            </div>{" "}
-            <div className="item">
-              <img src="/assets/images/partner/s14.png" alt="" />
-            </div>
-          </OwlCarousel>
+        {partenerShip.length && <OwlCarousel className="owl-theme " {...option6}>
+          {partenerShip.map((item,index)=>{
+              return(
+                <div className="item" key={index}>
+                <img src={getImage(item.logo)} alt="" />
+              </div>
+              )
+            })}
+            
+
+          </OwlCarousel>}
         </div>
       </section>
 

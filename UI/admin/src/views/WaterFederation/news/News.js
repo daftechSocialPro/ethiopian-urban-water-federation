@@ -31,6 +31,7 @@ import { cilPencil, cilObjectGroup } from '@coreui/icons'
 import { HubConnectionBuilder, LogLevel, HttpTransportType } from '@microsoft/signalr'
 import { customToast } from 'src/components/customToast'
 import Pagination from 'src/components/Pagination'
+
 let PageSize = 3
 
 function News({ user }) {

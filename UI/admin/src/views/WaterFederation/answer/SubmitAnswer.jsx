@@ -23,29 +23,30 @@ function SubmitAnswer({ user, setIsLodding }) {
   const [quesitons, setQuestions] = useState([])
   const [answer,setAnswer] =useState([])
 
-  const [answers, setAnswers] = useState([
-    { questionerId: '', questionId: '', answers: null, userId: null },
-    { questionerId: '', questionId: '', answers: null, userId: null },
-    { questionerId: '', questionId: '', answers: null, userId: null },
-  ])
+  const [answers, setAnswers] = useState([])
+  const [answerss,setAnswerss]=useState([])
 
-  const handleInputChange = (index, event, questionId) => {
-    //    values.push ({
-    //       QuestionerId: questioner.id,
-    //       quesitonId: quesitonId,
-    //       answers: value,
-    //       userId: user.id,
-    //     })
+  const handleInputChange = (index,event, questionId) => {
+    event.preventDefault()
+    
 
-    console.log('index', index)
-    const values = [...answers]
-    const updatedValue = event.target.name
-    values[index][updatedValue] = event.target.value
-    values[index]['questionId'] = questionId
-    values[index]['questionerId'] = questioner.id
-    values[index]['userId'] = user.id
+    const answe = [...answers]
+    const answee = [...answerss]
 
-    setAnswers(values)
+    answee[index] = {
+      'QuestionerId': questioner.id,
+      'QuestionId': questionId,
+      'answers': event.target.value,
+      'userId': user.id
+    }
+   
+    answe[index] = event.target.value
+    
+    setAnswers(answe)
+    setAnswerss(answee)
+    
+
+
   }
 
   useEffect(() => {
@@ -61,26 +62,32 @@ function SubmitAnswer({ user, setIsLodding }) {
   useEffect(() => {
     axios
       .get(`${urlQuestioner}/snswers?questionerId=${questioner.id}`)
-      .then((res) => setAnswer(res.data))
+      .then((res) => {setAnswer(res.data)
+      
+      console.log("answer",res.data)
+      
+      })
       .catch((err) => console.error(err))
   }, [])
 
   const handleChange = (event) => {
     event.preventDefault()
 
-    var bodyFormData = new FormData()
-    bodyFormData.append('answers', JSON.stringify(answers))
+    
+
+    console.log(answerss)
     setIsLodding(true)
     axios
-      .post(`${urlQuestion}/submitanswer?answers=${JSON.stringify(answers)}`)
+      .post(`${urlQuestion}/submitanswer?answers=${JSON.stringify(answerss)}`)
       .then((res) => {
         setIsLodding(false)
+        window.location.reload()
 
         customToast('Questioner Submitted Successfully', 0)
       })
       .catch((err) => console.error(err))
   }
-
+ 
   return (
     <MDBRow>
       <MDBCol lg="12">
@@ -97,11 +104,13 @@ function SubmitAnswer({ user, setIsLodding }) {
                   <CCardBody>
                {answer.length===0&&     <CForm className="row g-3 needs-validation" validated onSubmit={handleChange}>
                       {quesitons.map((item, index) => (
-                        <>
+                        <div key={index}>
                           {item.answerType == 0 && (
                             <MDBRow key={item.id} style={{ marginTop: '20px' }}>
                               <MDBCol sm="12">
-                                <MDBCardText style={{ fontSize: '24px' }}>
+                                <MDBCardText style={{ fontSize: '24px',
+                               fontWeight: 'bold',
+                               marginBottom: '10px', }}>
                                   {`${index + 1}. ${item.question} ?`}
                                 </MDBCardText>
                               </MDBCol>
@@ -110,10 +119,11 @@ function SubmitAnswer({ user, setIsLodding }) {
                                   type="text"
                                   placeholder="answer..."
                                   required
-                                  name="answers"
+                                 
                                   rows={item.numberOfRows}
-                                  // value={position}
-                                  onChange={(event) => handleInputChange(index, event, item.id)}
+                                  value={answers[index]}
+                                  onChange={(event) => handleInputChange( index,event, item.id)}
+                                  
                                 />
                               </MDBCol>
                             </MDBRow>
@@ -122,7 +132,9 @@ function SubmitAnswer({ user, setIsLodding }) {
                           {item.answerType == 1 && (
                             <MDBRow key={item.id} style={{ marginTop: '10px' }}>
                               <MDBCol sm="12">
-                                <MDBCardText style={{ fontSize: '24px' }}>
+                                <MDBCardText style={{ fontSize: '24px',
+                               fontWeight: 'bold',
+                               marginBottom: '10px', }}>
                                   {' '}
                                   {`${index + 1}. ${item.question} ?`}
                                 </MDBCardText>
@@ -132,14 +144,51 @@ function SubmitAnswer({ user, setIsLodding }) {
                                   type="number"
                                   placeholder="answer..."
                                   required
-                                  name="answers"
-                                  // value={position}
-                                  onChange={(event) => handleInputChange(index, event, item.id)}
+                                  defaultValue={0}
+                                  // // value={position}
+                                  // onChange={(event) => handleInputChange( index,event, item.id)}
+
+                                  value={answers[index]}
+                                  onChange={(event) => handleInputChange( index,event, item.id)}
+                                  
                                 />
                               </MDBCol>
                             </MDBRow>
                           )}
-                        </>
+                            {item.answerType == 2 && (
+                            <MDBRow key={item.id} style={{ marginTop: '10px' }}>
+                              <MDBCol sm="12">
+                                <MDBCardText style={{ fontSize: '24px',
+                               fontWeight: 'bold',
+                               marginBottom: '10px', }}>
+                                  {' '}
+                                  {`${index + 1}. ${item.question} ?`}
+                                </MDBCardText>
+                              </MDBCol>
+                              {item.choices &&
+                                item.choices.map((choice, inde) => (
+                                  <div
+                                    style={{
+                                      fontSize: '18px',
+                                      marginBottom: '20px',
+                                    }}
+                                    key={inde}
+                                  >
+                                    <input type="radio" 
+                                    name='choice'
+                                    value={choice}
+                                    checked={answers[index] === choice}
+                                    onChange={(event) => handleInputChange( index,event, item.id)}
+                                    
+                                    ></input> &nbsp;
+                                    <label style={{ marginRight: '10px' }}>
+                                       {choice}
+                                    </label>
+                                  </div>
+                                ))}
+                            </MDBRow>
+                          )}
+                        </div>
                       ))}
                       <CCol
                         sm={12}
@@ -196,6 +245,29 @@ function SubmitAnswer({ user, setIsLodding }) {
                               <MDBCol sm="3" style={{ marginTop: '20px' }}>
                                 <CFormInput
                                   type="number"
+                                  placeholder="answer..."
+                                  required
+                                  name="answers"
+                                  readOnly
+                                  value={item.answers}
+                                  // value={position}
+                                 
+                                />
+                              </MDBCol>
+                            </MDBRow>
+                          )}
+                          
+                          {item.questions.answerType == 2 && (
+                            <MDBRow key={item.id} style={{ marginTop: '10px' }}>
+                              <MDBCol sm="12">
+                                <MDBCardText style={{ fontSize: '24px' }}>
+                                  {' '}
+                                  {`${index + 1}. ${item.questions.question} ?`}
+                                </MDBCardText>
+                              </MDBCol>
+                              <MDBCol sm="3" style={{ marginTop: '20px' }}>
+                                <CFormInput
+                                  type="text"
                                   placeholder="answer..."
                                   required
                                   name="answers"

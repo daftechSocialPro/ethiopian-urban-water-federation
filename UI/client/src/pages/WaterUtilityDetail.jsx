@@ -24,6 +24,15 @@ useEffect(()=>{
     return `${assetUrl}/${item}`;
   };
 
+  const filterdStyle = ( index ) => {
+    const buttonStyle = {
+      backgroundColor: index%2===0 ? 'white' : '',
+     
+     
+    };
+    return buttonStyle;
+  }
+
   return (
     <>
       <section
@@ -152,7 +161,7 @@ useEffect(()=>{
                     <div className="sidebar">
                       <div className="sidebar__single sidebar__single--search">
                         <form action="#">
-                          <input type="text" value={searchParm} onChange={(e)=>setSearchParam(e.target.value)} placeholder="Search here.." />
+                          <input type="text" className="searhcInput" value={searchParm} onChange={(e)=>setSearchParam(e.target.value)} placeholder="Search here.." />
                           <button type="submit">
                             <i className="paroti-icon-magnifying-glass"></i>
                           </button>
@@ -162,7 +171,7 @@ useEffect(()=>{
                         <h3 className="sidebar__title text-center">Water Utilitys</h3>
                         <ul className="list-unstyled sidebar__post">
                           {filterdWaterUtilityList.slice(0, 3).map((item, index) => (
-                            <li key={index}>
+                            <li key={index} style={filterdStyle(index)}>
                               <a onClick={()=>setwaterutility(item)}>
                                 <img
                                   style={{ maxWidth: "50px" }}

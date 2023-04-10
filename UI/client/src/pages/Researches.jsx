@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { assetUrl, urlresearch } from "../endpoints";
 import dateFormat from "dateformat";
 import { useTranslation } from "react-i18next";
+import Pagination from '../components/Pagination'
+
+let PageSize = 2
+
 function Researches() {
   const { t } = useTranslation()
   const [research, setresearch] = useState([]);
   const [filterdList, setfilterdreserchsList] =useState([]);
   const  [searchParm,setSearchParam]= useState('')
+  const [currentPage, setCurrentPage] = useState(1)
+
   useEffect(()=>{
 
     setfilterdreserchsList(
@@ -23,10 +29,26 @@ function Researches() {
       .get(urlresearch)
       .then((res) => {
         setresearch(res.data);
-setfilterdreserchsList(res.data)
+        setfilterdreserchsList(res.data)
       })
       .catch((err) => console.error(err));
   }, []);
+
+  const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize
+    const lastPageIndex = firstPageIndex + PageSize
+    return research.slice(firstPageIndex, lastPageIndex)
+  }, [currentPage, research])
+
+  const filterdStyle = ( index ) => {
+    const buttonStyle = {
+      backgroundColor: index%2===0 ? 'white' : '',
+     
+     
+    };
+    return buttonStyle;
+  }
+
   return (
     <>
       <section
@@ -53,10 +75,10 @@ setfilterdreserchsList(res.data)
             <div className="col-lg-8">
               <div className="blog-details__comments">
                 <h3 className="blog-details__sec__title">
-                  {research.length}{t("publication1.1")}
+                  {research.length} {t("publication1.1")}
                 </h3>
                 <ul className="list-unstyled blog-details__comments__list">
-                  {research.map((item, index) => (
+                  {currentTableData.map((item, index) => (
                     <li key={index}>
                       <img
                         src={getImage(item.authorImagePath)}
@@ -85,14 +107,22 @@ setfilterdreserchsList(res.data)
                       </a>
                     </li>
                   ))}
+            
                 </ul>
+                <Pagination
+                  className="pagination-bar"
+                  currentPage={currentPage}
+                  totalCount={research.length}
+                  pageSize={PageSize}
+                  onPageChange={(page) => setCurrentPage(page)}
+                />
               </div>
             </div>
             <div className="col-lg-4">
               <div className="sidebar">
                 <div className="sidebar__single sidebar__single--search">
                   <form action="#">
-                    <input type="text" value={searchParm} onChange={(e)=>setSearchParam(e.target.value)} placeholder={t("search.1")} />
+                    <input type="text" className="searhcInput" value={searchParm} onChange={(e)=>setSearchParam(e.target.value)} placeholder={t("search.1")} />
                     <button type="submit">
                       <i className="paroti-icon-magnifying-glass"></i>
                     </button>
@@ -102,7 +132,7 @@ setfilterdreserchsList(res.data)
                   <h3 className="sidebar__title">{t("recent.1")} </h3>
                   <ul className="list-unstyled sidebar__post">
                     {filterdList.slice(0, 4).map((item, index) => (
-                      <li key={index}>
+                      <li key={index} style={filterdStyle(index)} >
                         <a href="#">
                           <img
                             style={{ maxWidth: "50px" }}

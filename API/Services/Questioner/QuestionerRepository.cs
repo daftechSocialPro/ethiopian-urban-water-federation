@@ -58,7 +58,7 @@ namespace DAFwebAPI.Services.Questioner
                 var user = _context.Users.Find(userId);
                 var answers = new List<DAFwebAPI.Entities.Answer>();
 
-                if (user.UserType == UserType.RegionalFederation)
+                if (user.UserType == UserType.RegionalFederation )
                 {
 
                     var RegionalFedId = _context.RegionalWaterFederations.Where(x => x.UserId == userId).FirstOrDefault().ID;
