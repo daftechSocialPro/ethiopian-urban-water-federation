@@ -1,4 +1,5 @@
-﻿using DAFwebAPI.Entities;
+﻿using DAFwebAPI.Dtos;
+using DAFwebAPI.Entities;
 using DAFwebAPI.Helpers;
 using DAFwebAPI.Migrations;
 using DAFwebAPI.Services;
@@ -34,7 +35,7 @@ namespace DAFwebAPI.Controllers
 
         [HttpGet("snswers")]
 
-        public async Task<List<Answer>> GetAnswers(Guid questionerId)
+        public  List<GetAnswersDto> GetAnswers(Guid questionerId)
         {
 
 
@@ -47,7 +48,7 @@ namespace DAFwebAPI.Controllers
 
 
 
-            return await _unitofwork.questionerRepostitory.IsQuestionerSubmitted(userId, questionerId);
+            return  _unitofwork.questionerRepostitory.IsQuestionerSubmitted(userId, questionerId);
         }
 
 

@@ -23,6 +23,8 @@ const Forum = React.lazy(() => import('./views/WaterFederation/forum/Forum'))
 const ForumEdit = React.lazy(() => import('./views/WaterFederation/forum/ForumEdit'))
 
 const ContactUs = React.lazy(() => import('./views/WaterFederation/Contact'))
+const Subcriber = React.lazy(() => import('./views/WaterFederation/Subscribers'))
+
 
 const Region = React.lazy(() => import('./views/WaterFederation/region/Region'))
 
@@ -95,6 +97,9 @@ const routes = [
 
   //contact
   { path: '/contact', name: 'Contact Us', element: ContactUs },
+  { path: '/subscriber', name: 'Subscribers List', element: Subcriber },
+
+  
 
   //Region
   { path: '/region', name: 'Region', element: Region },

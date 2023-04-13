@@ -12,7 +12,8 @@ export const urlQuestioner = `${baseURL}/api/questioner`;
 export const urlQuestion = `${baseURL}/api/question`;
 export const urlDashoard = `${baseURL}/api/dashborad`;
 export const urlSponsor = `${baseURL}/api/sponsor`;
-export const urlForum = `${baseURL}/api/forum`
+export const urlForum = `${baseURL}/api/forum`;
+export const urlSubscriber = `${baseURL}/api/Subscriber`
 
 
 export const assetUrl = baseURL;

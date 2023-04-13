@@ -12,11 +12,12 @@ import {
   CTableHead,
   CTableHeaderCell,
   CTableRow,
-  CButton ,
+  CButton,
   CModal,
   CModalBody,
   CModalHeader,
-  CModalTitle
+  CModalTitle,
+  CForm,
 } from '@coreui/react'
 import { MDBCol, MDBRow, MDBCard, MDBCardText, MDBCardBody } from 'mdb-react-ui-kit'
 import { urlQuestioner } from 'src/endpoints'
@@ -25,27 +26,32 @@ import dateformat from 'dateformat'
 import WidgetsDropdown from '../widgets/WidgetsDropdown'
 const Dashboard = ({ user }) => {
   const [Questioners, setQuestioners] = useState([])
-  const [selectedQuestioner,setSelectedQuestioner]=useState([])
-  const [answer,setAnswer]=useState([])
-  const [viewVissibleXL,setViewVissibleXL]=useState(false)
+  const [selectedQuestioner, setSelectedQuestioner] = useState([])
+  const [answer, setAnswer] = useState([])
+  const [viewVissibleXL, setViewVissibleXL] = useState(false)
 
   const forwhoms = ['Regional Association', 'Water Utility']
   const questionerStatus = ['Inactive', 'Active', 'Closed']
 
+  const [selectedUser, setSelectedUser] = useState(null)
 
-  useEffect(() => {
+  const handleUserClick = (event, user) => {
+    event.stopPropagation()
+    console.log(user)
+    setSelectedUser(user)
+  }
+
+  const handleAnswerClicked = (item) => {
+    setViewVissibleXL(true)
+    setSelectedQuestioner(item)
+
     axios
-      .get(`${urlQuestioner}/snswers?questionerId=${selectedQuestioner.id}`)
-      .then((res) => {setAnswer(res.data)
-      
-      console.log("answer",res.data)
-      
+      .get(`${urlQuestioner}/snswers?questionerId=${item.id}`)
+      .then((res) => {
+        setAnswer(res.data)
       })
       .catch((err) => console.error(err))
-  }, [selectedQuestioner])
-
-
-
+  }
 
   useEffect(() => {
     axios
@@ -54,9 +60,54 @@ const Dashboard = ({ user }) => {
       .catch((err) => console.error(err))
   }, [])
 
+  const getUserQuestionsAndAnswers = () => {
+    if (!answer) return []
+
+    if (!selectedUser) {
+      return answer.map((item,index) => (
+
+       
+        <MDBCol key={index} sm="12">
+          <MDBCardText 
+         onClick={(e) => handleUserClick(e, item)}          
+         style={{ fontSize: '24px',
+         fontWeight: 'bold',
+         marginBottom: '10px', }}>       
+            {`${index + 1}. ${item.name}`}
+          </MDBCardText>
+        </MDBCol>
+      
+      ))
+    } else {
+
+      const selectedUserData = answer.find((user) => user.name === selectedUser.name)
+       
+      return selectedUserData.answers.map((qa,index) => (
+        <MDBCol key={index} sm="12">
+        <MDBCardText 
+           
+       style={{ fontSize: '22px',
+       fontWeight: 'bold',
+       marginLeft: '10px',
+       marginBottom:'10px' }}>       
+          {`${index + 1}. ${qa.question} ?`}
+        </MDBCardText>
+        <MDBCardText 
+             
+       style={{ fontSize: '18px',
+      
+       marginLeft: '20px',
+       marginBottom:'10px' }}>       
+          {`${qa.answer}`}
+        </MDBCardText>
+      </MDBCol>
+      ))
+    }
+  }
+
   return (
     <>
-      <WidgetsDropdown  />
+      <WidgetsDropdown />
       <CModal size="xl" visible={viewVissibleXL} onClose={() => setViewVissibleXL(false)}>
         <CModalHeader
           style={{
@@ -64,8 +115,8 @@ const Dashboard = ({ user }) => {
             color: '#fff',
           }}
         >
-          <CModalTitle>
-            <strong> </strong> <small>Choices</small>{' '}
+          <CModalTitle onClick={()=>setSelectedUser(null)}>
+            <strong>{selectedQuestioner.title} - {selectedUser && selectedUser.name} </strong> <small>Answers</small>{' '}
           </CModalTitle>
         </CModalHeader>
         <CModalBody>
@@ -73,86 +124,15 @@ const Dashboard = ({ user }) => {
             <MDBRow>
               <MDBCol lg="12">
                 <MDBCard className="mb-4">
-                {answer.length>0&&     <CForm className="row g-3 needs-validation" validated onSubmit={handleChange}>
-                      {answer.map((item, index) => (
-                        <>
-                          {item.questions.answerType == 0 && (
-                            <MDBRow key={index} style={{ marginTop: '20px' }}>
-                              <MDBCol sm="12">
-                                <MDBCardText style={{ fontSize: '24px' }}>
-                                  {`${index + 1}. ${item.questions.question} ?`}
-                                </MDBCardText>
-                              </MDBCol>
-                              <MDBCol sm="12" style={{ marginTop: '20px' }}>
-                                <CFormTextarea
-                                  type="text"
-                                  
-                                  required
-                                  name="answers"
-                                  rows={item.questions.numberOfRows}
-                                  readOnly
-                                  value={item.answers}
-                                 
-                                />
-                              </MDBCol>
-                            </MDBRow>
-                          )}
+                  
+                   
+                    <MDBRow  style={{ marginTop: '20px' }}>
+                         {getUserQuestionsAndAnswers()}
+                      </MDBRow>
 
-                          {item.questions.answerType == 1 && (
-                            <MDBRow key={item.id} style={{ marginTop: '10px' }}>
-                              <MDBCol sm="12">
-                                <MDBCardText style={{ fontSize: '24px' }}>
-                                  {' '}
-                                  {`${index + 1}. ${item.questions.question} ?`}
-                                </MDBCardText>
-                              </MDBCol>
-                              <MDBCol sm="3" style={{ marginTop: '20px' }}>
-                                <CFormInput
-                                  type="number"
-                                  placeholder="answer..."
-                                  required
-                                  name="answers"
-                                  readOnly
-                                  value={item.answers}
-                                  // value={position}
-                                 
-                                />
-                              </MDBCol>
-                            </MDBRow>
-                          )}
-                          
-                          {item.questions.answerType == 2 && (
-                            <MDBRow key={item.id} style={{ marginTop: '10px' }}>
-                              <MDBCol sm="12">
-                                <MDBCardText style={{ fontSize: '24px' }}>
-                                  {' '}
-                                  {`${index + 1}. ${item.questions.question} ?`}
-                                </MDBCardText>
-                              </MDBCol>
-                              <MDBCol sm="3" style={{ marginTop: '20px' }}>
-                                <CFormInput
-                                  type="text"
-                                  placeholder="answer..."
-                                  required
-                                  name="answers"
-                                  readOnly
-                                  value={item.answers}
-                                  // value={position}
-                                 
-                                />
-                              </MDBCol>
-                            </MDBRow>
-                          )}
-                        </>
-                      ))}
-                      <CCol
-                        sm={12}
-                        className="d-flex justify-content-end "
-                        style={{ marginTop: '10px' }}
-                      >
                      
-                      </CCol>
-                    </CForm>}
+                
+               
                 </MDBCard>
               </MDBCol>
             </MDBRow>
@@ -188,12 +168,10 @@ const Dashboard = ({ user }) => {
                       <CTableDataCell>{questionerStatus[item.status]}</CTableDataCell>
 
                       <CTableDataCell>
-                      
                         <CButton
                           className="text-right "
                           onClick={() => {
-                            setViewVissibleXL(true)
-                            setSelectedQuestioner(item)
+                            handleAnswerClicked(item)
                           }}
                           style={{
                             backgroundColor: '#1e4356',

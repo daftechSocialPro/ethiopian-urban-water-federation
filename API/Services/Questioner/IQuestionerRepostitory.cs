@@ -1,4 +1,6 @@
-﻿namespace DAFwebAPI.Services.Questioner
+﻿using DAFwebAPI.Dtos;
+
+namespace DAFwebAPI.Services.Questioner
 {
     public interface IQuestionerRepostitory
     {
@@ -12,7 +14,7 @@
         Task<List<DAFwebAPI.Entities.Questioner>> GetByUserId(Guid userId);
 
 
-        Task<List<DAFwebAPI.Entities.Answer>> IsQuestionerSubmitted(Guid userId, Guid QuestionerId);
+        List<GetAnswersDto> IsQuestionerSubmitted(Guid userId, Guid QuestionerId);
 
     }
 }

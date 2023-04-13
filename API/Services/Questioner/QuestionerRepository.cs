@@ -1,6 +1,8 @@
 ﻿using DAFwebAPI.Data;
+using DAFwebAPI.Dtos;
 using DAFwebAPI.Entities;
 using DAFwebAPI.Helpers;
+using DAFwebAPI.Migrations;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAFwebAPI.Services.Questioner
@@ -50,33 +52,133 @@ namespace DAFwebAPI.Services.Questioner
         }
 
 
-        public async Task<List<DAFwebAPI.Entities.Answer>>  IsQuestionerSubmitted(Guid userId, Guid QuestionerId)
+        public List<GetAnswersDto>  IsQuestionerSubmitted(Guid userId, Guid QuestionerId)
         {
 
             try
             {
                 var user = _context.Users.Find(userId);
-                var answers = new List<DAFwebAPI.Entities.Answer>();
 
+                List<GetAnswersDto> result = new List<GetAnswersDto>();
                 if (user.UserType == UserType.RegionalFederation )
                 {
 
                     var RegionalFedId = _context.RegionalWaterFederations.Where(x => x.UserId == userId).FirstOrDefault().ID;
-                    var answer = _context.Answers.Include(x=>x.RegionalWaterFederation).Include(x=>x.Questioner).Include(x=>x.Questions).Where(x=>x.QuestionerId==QuestionerId && x.RegionalWaterFederationId==RegionalFedId).ToList();
+                    var query = from us in _context.RegionalWaterFederations.Where(x=>x.ID== RegionalFedId)
+                                join an in _context.Answers on us.ID equals an.RegionalWaterFederationId
+                                join question in _context.Questions on an.QuestionsId equals question.ID
+                                where question.QuestionerId == QuestionerId
+                                select new { RegionalWaterFederation = us, Answer = an, Question = question };
 
-                    answers = answer;
+                    var groupedQuery = (query.AsEnumerable()
+                                            .GroupBy(x => x.RegionalWaterFederation)
+                                            .Select(g => new GetAnswersDto
+                                            {
+                                                Name = g.Key.Name,
+                                                Answers = g.Select(x => new QuestionAnswerDto
+                                                {
+                                                    QuestionId = x.Question.ID,
+                                                    Question = x.Question.Question,
+                                                    AnswerId = x.Answer.ID,
+                                                    Answer = x.Answer.Answers
+                                                }).ToList()
+                                            })).ToList();
+
+             
+                    return groupedQuery;
+                }
+                if (user.UserType == UserType.WaterUtility)
+                {
+
+                    var waterutilId = _context.waterUtilities.Where(x => x.UserId == userId).FirstOrDefault().ID;
+                    var query = from us in _context.waterUtilities.Where(x=>x.ID== waterutilId)
+                                join an in _context.Answers on us.ID equals an.WaterUtilityId
+                                join question in _context.Questions on an.QuestionsId equals question.ID
+                                where question.QuestionerId == QuestionerId
+                                select new { RegionalWaterFederation = us, Answer = an, Question = question };
+
+                    var groupedQuery = (query.AsEnumerable()
+                                            .GroupBy(x => x.RegionalWaterFederation)
+                                            .Select(g => new GetAnswersDto
+                                            {
+                                                Name = g.Key.Name,
+                                                Answers = g.Select(x => new QuestionAnswerDto
+                                                {
+                                                    QuestionId = x.Question.ID,
+                                                    Question = x.Question.Question,
+                                                    AnswerId = x.Answer.ID,
+                                                    Answer = x.Answer.Answers
+                                                }).ToList()
+                                            })).ToList();
+
+                    return groupedQuery;
                 }
                 if (user.UserType == UserType.WaterFederation)
                 {
-                    var WaterUtilityId = _context.waterUtilities.Where(x => x.UserId == userId).FirstOrDefault().ID;
-              
-                    var answer = _context.Answers.Include(x => x.WaterUtility).Include(x => x.Questioner).Include(x => x.Questions).Where(x => x.QuestionerId == QuestionerId && x.WaterUtilityId == WaterUtilityId).ToList();
 
-                    answers = answer;
+                    var questioneeer = _context.Questioners.Find(QuestionerId);
+
+                    if (questioneeer != null && questioneeer.ForWhom == UserType.RegionalFederation)
+                    {
+
+                        var query = from us in _context.RegionalWaterFederations
+                                    join an in _context.Answers on us.ID equals an.RegionalWaterFederationId
+                                    join question in _context.Questions on an.QuestionsId equals question.ID
+                                    where question.QuestionerId == QuestionerId
+                                    select new { RegionalWaterFederation = us, Answer = an, Question = question };
+
+                        var groupedQuery = (query.AsEnumerable()
+                                                .GroupBy(x => x.RegionalWaterFederation)
+                                                .Select(g => new GetAnswersDto
+                                                {
+                                                    Name = g.Key.Name,
+                                                    Answers = g.Select(x => new QuestionAnswerDto
+                                                    {
+                                                        QuestionId = x.Question.ID,
+                                                        Question = x.Question.Question,
+                                                        AnswerId = x.Answer.ID,
+                                                        Answer = x.Answer.Answers
+                                                    }).ToList()
+                                                })).ToList();
+
+                        return groupedQuery;
+                    }
+                    if (questioneeer != null && questioneeer.ForWhom == UserType.WaterUtility)
+                    {
+
+                        var query = from us in _context.waterUtilities
+                                    join an in _context.Answers on us.ID equals an.WaterUtilityId
+                                    join question in _context.Questions on an.QuestionsId equals question.ID
+                                    where question.QuestionerId == QuestionerId
+                                    select new { RegionalWaterFederation = us, Answer = an, Question = question };
+
+                        var groupedQuery = (query.AsEnumerable()
+                                                .GroupBy(x => x.RegionalWaterFederation)
+                                                .Select(g => new GetAnswersDto
+                                                {
+                                                    Name = g.Key.Name,
+                                                    Answers = g.Select(x => new QuestionAnswerDto
+                                                    {
+                                                        QuestionId = x.Question.ID,
+                                                        Question = x.Question.Question,
+                                                        AnswerId = x.Answer.ID,
+                                                        Answer = x.Answer.Answers
+                                                    }).ToList()
+                                                })).ToList();
+
+                        return groupedQuery;
+
+                    }
+
+
+
+
                 }
 
 
-               return answers;
+
+                return result;
+              
             }
             catch (Exception ex)
             {
