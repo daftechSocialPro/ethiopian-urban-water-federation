@@ -77,6 +77,7 @@ namespace DAFwebAPI.Services.WaterUtility
                 waterUtility1.Source = waterUtility.Source;
                 waterUtility1.Establisheddate = waterUtility.Establisheddate;
                 waterUtility1.Kmfromaa = waterUtility.Kmfromaa;
+                waterUtility1.WebLink= waterUtility.WebLink;
 
 
 

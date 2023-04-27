@@ -28,15 +28,21 @@ export default function SponsorCreate({ user, setIsLodding }) {
   const [description, setDescription] = useState('')
   const [companyName, setCompanyName] = useState('')
   const [amharicCompanyName, setAmharicCompanyName] = useState('')
+  const [weblink,setWebLink]=useState('')
   const [sponcerLevel, setSponcerLevel] = useState('')
   const [sponcerType, setSponcerType] = useState('')
   const [type, setType]= useState('')
   const SponsorLevels = ['Platinum', 'Diamond', 'Gold', 'Silver']
+  const [file, setFile] = useState('')
 
   const navigate = useNavigate()
 
   const photoInputHandler = (event) => {
     setImg(event.target.files[0])
+  }
+
+  const fileInputHandler = (event) => {
+    setFile(event.target.files[0])
   }
 
   const handleSubmit = async (event) => {
@@ -46,11 +52,13 @@ export default function SponsorCreate({ user, setIsLodding }) {
 
     //user)
     formData.append('Photo', img)
+    formData.append('Brocher', file)
     formData.set('companyName', companyName)
     formData.set('amharicCompanyName', amharicCompanyName)
     formData.set('sponcerLevel', sponcerLevel)
     formData.set('Description', description)
     formData.set('SupportType', type)
+    formData.set('WebLink',weblink)
 
 
     console.log(formData)
@@ -196,6 +204,39 @@ export default function SponsorCreate({ user, setIsLodding }) {
                         </MDBCol>
                       </MDBRow>
                       <hr />
+                      <MDBRow>
+                        <MDBCol sm="3">
+                          <MDBCardText>Company Website</MDBCardText>
+                        </MDBCol>
+                        <MDBCol sm="9">
+                          <CFormInput
+                            type="url"
+                            placeholder="http://example.com"
+                            
+                            value={weblink}
+                            onChange={(e) => setWebLink(e.target.value)}
+                          />
+                        </MDBCol>
+                      </MDBRow>
+                      <hr />
+                      
+                      <MDBRow>
+                        <MDBCol sm="3">
+                          <MDBCardText>Brocher</MDBCardText>
+                        </MDBCol>
+                        <MDBCol sm="9">
+                          <CFormInput
+                            type="file"
+                            size="sm"
+                            onChange={fileInputHandler}
+                            required
+                            id="formFileLg"
+                          />
+                        </MDBCol>
+                      </MDBRow>
+
+                      <hr />
+                
                       <MDBRow>
                         <MDBCol sm="3">
                           <MDBCardText>Type </MDBCardText>

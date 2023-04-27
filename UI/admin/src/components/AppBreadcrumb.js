@@ -26,10 +26,14 @@ const AppBreadcrumb = () => {
         })
       return currentPathname
     })
+   
     return breadcrumbs
   }
+  
 
   const breadcrumbs = getBreadcrumbs(currentLocation)
+  
+       
 
   return (
     <CBreadcrumb className="m-0 ms-2">

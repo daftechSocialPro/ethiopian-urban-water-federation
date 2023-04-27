@@ -156,6 +156,17 @@ function RegionalFederation({ user }) {
                     <hr />
                     <MDBRow>
                       <MDBCol sm="3">
+                        <MDBCardText>Web Link</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="9">
+                        <MDBCardText className="text-muted">
+                          {regionalwaterfederation && regionalwaterfederation.webLink}
+                        </MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                    <hr />
+                    <MDBRow>
+                      <MDBCol sm="3">
                         <MDBCardText>Region</MDBCardText>
                       </MDBCol>
                       <MDBCol sm="9">

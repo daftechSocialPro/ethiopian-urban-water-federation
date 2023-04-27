@@ -45,7 +45,7 @@ function WaterUtilityUpdate({ user, setIsLodding }) {
   const [prodcapa, setProdcap]= useState(waterutility.prodcapa)
   const [regionalWaterFederationId, setRegionalWaterFederationId] = useState(waterutility.regionalWaterFederationId)
   const [regionalFederations, setRegionalFederations] = useState([])
-
+  const [weblink, setWebLink] =useState(waterutility.webLink)
 
   
   const sources =["Surface","Spring","Settel"]
@@ -93,6 +93,7 @@ function WaterUtilityUpdate({ user, setIsLodding }) {
     formData.set('reservwire',reservwire)
     formData.set('Purification',purification)
     formData.set('prodcapa', prodcapa)
+    formData.set('WebLink',weblink)
     const form = event.currentTarget
     if (form.checkValidity() === false) {
       event.stopPropagation()
@@ -251,6 +252,22 @@ function WaterUtilityUpdate({ user, setIsLodding }) {
                             
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
+                          />
+                        </MDBCol>
+                      </MDBRow>
+                      <hr />
+                      <MDBRow>
+                        <MDBCol sm="3">
+                          <MDBCardText>Web Link</MDBCardText>
+                        </MDBCol>
+                        <MDBCol sm="9">
+                          <CFormInput
+                            type="url"
+                            placeholder="http://example.com"
+                            required
+                            
+                            value={weblink}
+                            onChange={(e) => setWebLink(e.target.value)}
                           />
                         </MDBCol>
                       </MDBRow>

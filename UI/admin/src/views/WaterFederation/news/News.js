@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react'
 
 import axios from 'axios'
 import moment from 'moment'
-
+import "./toggle.css";
 import { useNavigate } from 'react-router-dom'
 import {
   CCard,
@@ -34,12 +34,57 @@ import Pagination from 'src/components/Pagination'
 
 let PageSize = 3
 
-function News({ user }) {
+function News({ user ,setIsLodding }) {
   const [news, setNews] = useState([])
   const [visibleXL, setVisibleXL] = useState(false)
   const [ne, setNe] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
+  //const [toggle, setToggle] = useState(false);
 
+  const handleToggle = (item) => {
+    
+   // setToggle(!toggle);
+   handleSubmit(item)
+  
+  };
+
+  const handleSubmit = async (item) => {      
+    setIsLodding(true)  
+    //event.preventDefault()  
+    const formData = new FormData();  
+    //formData.append("Photo", img);
+    formData.set("title", item.title);
+    formData.set("subTitle", item.subTitle);
+    formData.set("description", item.description);
+    formData.set("ID",item.id)
+    formData.set("isApproved",!item.isApproved)       
+
+ 
+    try {
+
+      await axios.put(urlNews, formData).
+      then((res) => {
+        setIsLodding(false)
+       
+        customToast("News Successfully update", 0)
+      
+        window.location.reload()
+
+      }
+      ).catch((err) => {
+        setIsLodding(false)
+        customToast(err,1)
+        console.error(err)
+      })
+
+    }
+    catch (error) {
+      setIsLodding(false)
+      customToast(error, 1)
+      console.error(error)
+
+    }
+  }
   const naviagate = useNavigate()
 
   let connection = null
@@ -69,6 +114,7 @@ function News({ user }) {
         user.userRole === 1
           ? setNews(res.data.filter((x) => x.userId === user.id))
           : setNews(res.data)
+          console.log(res.data)
       })
       .catch((err) => console.error(err))
   }
@@ -77,6 +123,7 @@ function News({ user }) {
     e.preventDefault()
     naviagate('/news/create')
   }
+  
 
   const getDate = (item) => {
     const startDate = moment(item)
@@ -199,12 +246,35 @@ function News({ user }) {
                         <CCardBody>
                           <CCardTitle>{item.title}</CCardTitle>
                           <CCardText>{item.subTitle}</CCardText>
-                          <CCardText>
+                          <div className='row'>
+                            <div className='col-8'>
+                            <CCardText>
                             <small className="text-medium-emphasis">
                               created {getDate(item.createdAt)} ago <br />
                               {/* updated {item.updatedAt!="-infinity"&&getDate(item.updatedAt)} ago */}
                             </small>
                           </CCardText>
+                            </div>
+                       {user.userType===0 &&   <div className='col-4'>
+                            <div className="toggle-container">
+      <input
+        type="checkbox"
+        className="toggle-checkbox"
+        checked={item.isApproved}
+        onChange={()=>{
+          
+          handleToggle(item)}}
+        id={`toggle${item.id} `}
+      />
+      <label className="toggle-label" htmlFor={`toggle${item.id} `}>
+        <span className="toggle-button" />
+      </label>
+    </div>
+                            </div>}
+                         
+  
+                          </div>
+                        
                           <div className="d-flex justify-content-between">
                             <CCardLink
                               style={{ color: '#1e4356', cursor: 'pointer', textDecoration: 'none' }}

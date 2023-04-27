@@ -36,6 +36,7 @@ namespace DAFwebAPI.Entities
 
         public string? Kmfromaa { get; set; }
 
+        public string? WebLink { get; set; }
 
         public virtual RegionalWaterFederation? RegionalWaterFederation { get; set; }
         public Guid RegionalWaterFederationId { get; set; }

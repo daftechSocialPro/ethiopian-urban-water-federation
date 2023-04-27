@@ -35,6 +35,7 @@ function RegionalFederationUpdate({ user, setIsLodding }) {
   const [email, setEmail] = useState(regionalfederation.email)
   const [phone, setPhone] = useState(regionalfederation.phone)
   const [regionId, setRegionId] = useState(regionalfederation.regionId)
+  const [weblink, setWebLink]= useState(regionalfederation.webLink)
   const [regions, setRegions] = useState([])
 
   useEffect(() => {
@@ -63,7 +64,7 @@ function RegionalFederationUpdate({ user, setIsLodding }) {
     formData.set('description', description)
     formData.set('regionId', regionId)
     formData.set('ID', regionalfederation.id)
-
+    formData.set('WebLink', weblink)
     const form = event.currentTarget
     if (form.checkValidity() === false) {
       event.stopPropagation()
@@ -221,6 +222,20 @@ function RegionalFederationUpdate({ user, setIsLodding }) {
                             required
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
+                          />
+                        </MDBCol>
+                      </MDBRow>
+                      <hr />
+                      <MDBRow>
+                        <MDBCol sm="3">
+                          <MDBCardText>Web Link</MDBCardText>
+                        </MDBCol>
+                        <MDBCol sm="9">
+                          <CFormInput
+                            type="url"
+                            placeholder="http://example.com"
+                            value={weblink}
+                            onChange={(e) => setWebLink(e.target.value)}
                           />
                         </MDBCol>
                       </MDBRow>

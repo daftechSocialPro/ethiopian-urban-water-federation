@@ -42,6 +42,7 @@ function News() {
       .get(urlNews)
       .then((res) => {
         setNews(res.data);
+        console.log('newsdata', res.data)
       })
       .catch((err) => console.error(err));
   }, []);
@@ -144,7 +145,7 @@ function News() {
           <div className="row gutter-y-30">
 
             {currentTableData.map((item, index) =>
-              <div key={index} className="col-sm-12 col-md-6 col-lg-4">
+         <div key={index} className="col-sm-12 col-md-6 col-lg-4">
                 <div className="blog-card">
                   <div className="blog-card__image">
                     <img src={getImage(item.img)} alt="" />
@@ -192,10 +193,11 @@ function News() {
         <div className="container">
           <OwlCarousel className="owl-theme " {...option6}>
 
-            {sponser.map((item, index) => {
+            {sponser.length && sponser.map((item, index) => {
               return (
                 <div className="item" key={index}>
-                  <img src={getImage(item.logo)} alt="" />
+                  <a href={item.webLink}> <img src={getImage(item.logo)} alt="" /></a>
+                 
                 </div>
               )
             })}

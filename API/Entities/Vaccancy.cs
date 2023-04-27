@@ -1,5 +1,6 @@
 ﻿namespace DAFwebAPI.Entities
 {
+
     public class Vaccancy :Common
     {
         
@@ -7,9 +8,9 @@
        
         public string? AmharicTitle { get; set; }
       
-        public DateTime FromDateTime { get; set; }
+        public string FromDateTime { get; set; }
     
-        public DateTime ToDateTime { get; set; }
+        public string ToDateTime { get; set; }
 
         public string? Description { get; set; }
   
@@ -20,6 +21,9 @@
         public string? Company { get; set; }  
       
         public string? Email { get; set; }
+
+        public virtual User? User { get; set; }
+        public Guid? UserId { get; set; }
 
     }
 }

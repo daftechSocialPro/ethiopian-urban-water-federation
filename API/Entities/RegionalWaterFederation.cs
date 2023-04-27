@@ -21,6 +21,8 @@ namespace DAFwebAPI.Entities
         public virtual Region? Region { get; set; }  
         public Guid RegionId { get; set; }
 
+        public string? WebLink { get; set; }
+
 
         public virtual User? User { get; set; }
         public Guid  ?  UserId { get; set; }

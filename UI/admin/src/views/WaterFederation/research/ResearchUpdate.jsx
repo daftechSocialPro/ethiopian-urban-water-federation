@@ -61,8 +61,16 @@ function ResearchUpdate({ user, setIsLodding }) {
     const formData = new FormData()
 
     //user)
+if (file ){
+  formData.append('ResearchFile', file)
+}
+else{
+  formData.append('ResearchFile', getImage(research.ResearchFilePath))
+}
+
+
     formData.append('AutherImage', img)
-    formData.append('ResearchFile', file)
+   
     formData.set('author', author)
     formData.set('title', title)
     formData.set('description', description)

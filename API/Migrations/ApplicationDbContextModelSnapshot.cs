@@ -377,6 +377,9 @@ namespace DAFwebAPI.Migrations
                     b.Property<Guid?>("UserId")
                         .HasColumnType("uuid");
 
+                    b.Property<string>("WebLink")
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
 
@@ -451,6 +454,9 @@ namespace DAFwebAPI.Migrations
                     b.Property<string>("AmharicCompanyName")
                         .HasColumnType("text");
 
+                    b.Property<string>("BrocherPath")
+                        .HasColumnType("text");
+
                     b.Property<string>("CompanyName")
                         .HasColumnType("text");
 
@@ -465,6 +471,9 @@ namespace DAFwebAPI.Migrations
 
                     b.Property<int>("SupportType")
                         .HasColumnType("integer");
+
+                    b.Property<string>("WebLink")
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
@@ -572,14 +581,19 @@ namespace DAFwebAPI.Migrations
                     b.Property<string>("FilePath")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("FromDateTime")
-                        .HasColumnType("timestamp without time zone");
+                    b.Property<string>("FromDateTime")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Title")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("ToDateTime")
-                        .HasColumnType("timestamp without time zone");
+                    b.Property<string>("ToDateTime")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
@@ -591,6 +605,8 @@ namespace DAFwebAPI.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Vaccancies");
                 });
@@ -648,6 +664,9 @@ namespace DAFwebAPI.Migrations
 
                     b.Property<Guid?>("UserId")
                         .HasColumnType("uuid");
+
+                    b.Property<string>("WebLink")
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("timestamp without time zone");
@@ -762,6 +781,15 @@ namespace DAFwebAPI.Migrations
                         .HasForeignKey("UserId");
 
                     b.Navigation("Region");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DAFwebAPI.Entities.Vaccancy", b =>
+                {
+                    b.HasOne("DAFwebAPI.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });

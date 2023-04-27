@@ -17,15 +17,33 @@ namespace DAFwebAPI.Services.News
         }
 
 
-        public async Task<List<DAFwebAPI.Entities.News>> getAll()
+        public async Task<List<DAFwebAPI.Entities.News>> getAll(Guid userId)
         {
+            if (userId == Guid.Empty)
+            {
+                return await _context.News.Include(x => x.WaterFederation).OrderByDescending(x => x.createdAt).Where(x => x.isApproved).ToListAsync();
+            }
+            else
+            {
+                var user = _context.Users.Find(userId);
+                if (user != null && user.UserType == Entities.UserType.WaterFederation)
+                {
+                    return await _context.News.Include(x => x.WaterFederation).OrderByDescending(x => x.createdAt).ToListAsync();
+                }
+                else
+                {
+                    return await _context.News.Include(x => x.WaterFederation).OrderByDescending(x => x.createdAt).Where(x=>x.WaterFederationId == userId).ToListAsync();
+                }
+            }
+      
 
-            List<DAFwebAPI.Entities.News> news = await _context.News.Include(x => x.WaterFederation).OrderByDescending(x => x.createdAt).ToListAsync();
 
 
 
 
-            return news;
+
+
+
         }
         public async Task Create(DAFwebAPI.Entities.News news)
         {
@@ -69,6 +87,7 @@ namespace DAFwebAPI.Services.News
                     newss.Title = news.Title;
                     newss.SubTitle = news.SubTitle;
                     newss.Description = news.Description;
+                    newss.isApproved = news.isApproved;
                     newss.updatedAt = DateTime.UtcNow;
 
                     if (news.Photo != null)

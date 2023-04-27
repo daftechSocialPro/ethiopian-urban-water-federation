@@ -14,6 +14,6 @@ export const urlDashoard = `${baseURL}/api/dashborad`;
 export const urlSponsor = `${baseURL}/api/sponsor`;
 export const urlForum = `${baseURL}/api/forum`;
 export const urlSubscriber = `${baseURL}/api/Subscriber`
-
-
+export const urlMinister = `${baseURL}/api/MinisterRole`
+export const urlVaccancy = `${baseURL}/api/Vaccancy`
 export const assetUrl = baseURL;

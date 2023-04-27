@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { assetUrl, urlSponsor } from "../endpoints";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.min.css";
 import "owl.carousel/dist/assets/owl.theme.default.min.css";  
 import dateformat from "dateformat";
+import './style.css'
 function NewsDetail() {
   const location = useLocation();
   const [news, setNews] = useState(location.state.news && location.state.news);
@@ -148,7 +149,7 @@ useEffect(()=>{
       
             </div>
             <div className="col-lg-4">
-              <div className="sidebar">
+              <div className="sidebar mb-4">
                 <div className="sidebar__single sidebar__single--search">
                   <form action="#">
                     <input type="text" className="searhcInput" value={searchParm} onChange={(e)=>setSearchParam(e.target.value)}  placeholder="Search here.." />
@@ -182,8 +183,10 @@ useEffect(()=>{
 
               {sponser.slice(0, 2).map((item, index) => {
               return (
-                <div className="item" key={index}  style={{marginLeft:"25%"}}   >
-                  <img style={{width:"100%"}} src={getImage(item.logo)} alt="" />
+                <div className="item containerr" key={index}  style={{marginLeft:"25%"}}   >
+                  <img className="imgg" style={{width:"100%"}} src={getImage(item.logo)} alt="" />
+                  <div class="overlay"><div class="buttonn"><a href={getImage(item.brocherPath)} target="_blank"> View Brocher </a></div></div>
+                
                 </div>
               )
             })}
@@ -193,7 +196,6 @@ useEffect(()=>{
       </section>
       <section className="sec-pad-top sec-pad-bottom donation-two">
         </section>
-
       <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
         <div className="container">
       {partenerShip.length &&    <OwlCarousel className="owl-theme " {...option6}>

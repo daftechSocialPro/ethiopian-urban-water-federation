@@ -16,7 +16,7 @@ import { urlWaterUtility } from '../endpoints';
 import Button from '@mui/material/Button';
 import { useTranslation } from "react-i18next";
 
-
+import './vacancy.css'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     
@@ -75,7 +75,7 @@ export default function WaterUtilitys() {
 
 
         { id: 'name', label: 'Name', minWidth: 190 },
-        { id: 'email', label: 'Email', minWidth: 100 },
+      
         {
             id: 'phone',
             label: 'Phone',
@@ -113,12 +113,21 @@ export default function WaterUtilitys() {
             align: 'right',
 
         },
+        {
+            id: 'webLink',
+            label: 'Website Link',
+            minWidth: 100,
+            align: 'right',
+            
+
+        },
 
         {
             id: 'action',
             label: '',
             minWidth: 100,
             align: 'right',
+
 
         },
 
@@ -199,6 +208,7 @@ export default function WaterUtilitys() {
 
                                                     return (
                                                         <StyledTableCell  key={column.id}>
+                                                          
                                                            
                                                            {column.id==='name'&& <img style={{borderRadius:'50%',height:'50px', marginRight:"5px"}} src={getImage(row['logo'])} alt=' '/>}
                                                             {column.id != "action" ? value : <Button variant="outlined" onClick={()=>navigateWaterUtilityDetial(row,waterUtility)}>Details</Button>}

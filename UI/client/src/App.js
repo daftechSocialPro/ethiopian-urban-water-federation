@@ -33,6 +33,7 @@ function App() {
           <Route path="vaccancy" element={<Vaccancy/>} />
           <Route path="waterutility/detail" element={<WaterUtilityDetail/>}/>
           <Route path="forum" element={<ForumDetail/>}/>
+          <Route path="vaccancy" element={<Vaccancy/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

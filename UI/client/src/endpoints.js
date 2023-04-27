@@ -8,7 +8,7 @@ export const urlForum = `${baseURL}/api/forum`;
 export const urlWaterUtility = `${baseURL}/api/waterutility`;
 export const urlSponsor = `${baseURL}/api/sponsor`;
 export const urlSubscriber = `${baseURL}/api/Subscriber`;
-
+export const urlVaccancy = `${baseURL}/api/Vaccancy`;
 
 
 export const assetUrl = baseURL;

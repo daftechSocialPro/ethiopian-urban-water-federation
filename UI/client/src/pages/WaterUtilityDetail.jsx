@@ -70,10 +70,6 @@ useEffect(()=>{
                     <div className="row">
                       <div className="col-6">
                         <ul className="blog-card__meta list-unstyled" style={{ display: "block", marginLeft: "120px" }}>
-                          <li >
-                            <i className="fa fa-envelope" ></i>
-                            <a href="#">{waterutility.email}</a>
-                          </li>
                           <li>
                             <i className="fa fa-phone"></i>
                             <a href="#">{waterutility.phone}</a>
@@ -93,6 +89,10 @@ useEffect(()=>{
                           <li>
                             <i className="fa fa-car"></i>
                             <a href="#"> from {waterutility.source}</a>
+                          </li>
+                          <li >
+                            <i className="fa fa-envelope" ></i>
+                            <a href="#">{waterutility.webLink}</a>
                           </li>
 
                         </ul>

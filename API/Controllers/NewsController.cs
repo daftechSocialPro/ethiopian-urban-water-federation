@@ -29,8 +29,19 @@ namespace DAFwebAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<List<News>>> Get()
         {
+            Guid userId = Guid.NewGuid();
+            var jwt = Request.Cookies["jwt"];
+            if (jwt != null)
+            {
+                var token = _jwtService.verify(jwt);
+                userId = Guid.Parse(token.Issuer);
+            }
+            else
+            {
+                userId = Guid.Empty;
+            }
 
-            return await _unitofwork.newsRepository.getAll();
+            return await _unitofwork.newsRepository.getAll(userId);
 
         }
 

@@ -10,6 +10,7 @@ using DAFwebAPI.Services.Region;
 using DAFwebAPI.Services.RegionalFederation;
 using DAFwebAPI.Services.Research;
 using DAFwebAPI.Services.Sponsor;
+using DAFwebAPI.Services.Vaccancy;
 using DAFwebAPI.Services.WaterUtility;
 
 namespace DAFwebAPI.Services
@@ -36,6 +37,7 @@ namespace DAFwebAPI.Services
             sponsorRepository = new SponsorRepository(db);
             forumRepository= new ForumRepository(db);
             subscriberService= new SubscriberService(db);
+            vaccancyRepository= new VaccancyRepository(db);
 
 
         }
@@ -66,7 +68,9 @@ namespace DAFwebAPI.Services
 
         public IForumRepository forumRepository { get;set;} 
 
-        public ISubscriberServices subscriberService { get;set;}  
+        public ISubscriberServices subscriberService { get;set;}
+        
+        public IVaccancyRepository vaccancyRepository { get;set;}
         public async Task SaveChanges()
         {
             try

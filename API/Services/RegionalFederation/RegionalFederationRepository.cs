@@ -59,6 +59,7 @@ namespace DAFwebAPI.Services.RegionalFederation
                 regionfed.Phone = regionalWaterFederation.Phone;
                 regionfed.Description = regionalWaterFederation.Description;
                 regionfed.RegionId = regionalWaterFederation.RegionId;
+                regionfed.WebLink= regionalWaterFederation.WebLink;
 
 
                 if (regionalWaterFederation.Photo != null)

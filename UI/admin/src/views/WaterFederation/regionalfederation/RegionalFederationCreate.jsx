@@ -32,7 +32,7 @@ export default function RegionalFederationCreate({ user, setIsLodding }) {
   const [regionId, setRegionId] = useState('')
   const [regions, setRegions] = useState([])
   const [password, setPassword] = useState('')
-
+  const [weblink, setWeblink]= useState('')
   useEffect(() => {
     axios
       .get(urlRegion)
@@ -59,7 +59,7 @@ export default function RegionalFederationCreate({ user, setIsLodding }) {
     formData.set('password', password)
     formData.set('description', description)
     formData.set('regionId', regionId)
-
+    formData.set('WebLink',weblink)
     const form = event.currentTarget
     if (form.checkValidity() === false) {
       event.stopPropagation()
@@ -227,6 +227,22 @@ export default function RegionalFederationCreate({ user, setIsLodding }) {
                             required
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
+                          />
+                        </MDBCol>
+                      </MDBRow>
+
+                      <hr />
+                      <MDBRow>
+                        <MDBCol sm="3">
+                          <MDBCardText>Web Link</MDBCardText>
+                        </MDBCol>
+                        <MDBCol sm="9">
+                          <CFormInput
+                            type="url"
+                            placeholder="http://example.com"
+                           
+                            value={weblink}
+                            onChange={(e) => setWeblink(e.target.value)}
                           />
                         </MDBCol>
                       </MDBRow>

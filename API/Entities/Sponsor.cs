@@ -22,6 +22,14 @@ namespace DAFwebAPI.Entities
 
         public SupportType SupportType { get; set; }
 
+        public string? WebLink { get; set; }
+
+        [NotMapped]
+        public IFormFile? Brocher { get; set; }
+
+        public string? BrocherPath { get; set; }
+
+
 
 
     }

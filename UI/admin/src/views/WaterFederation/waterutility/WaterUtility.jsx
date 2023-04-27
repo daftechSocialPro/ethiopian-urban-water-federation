@@ -148,6 +148,17 @@ function WaterUtility({ user }) {
                     <hr /> 
                     <MDBRow>
                       <MDBCol sm="3">
+                        <MDBCardText>Web Link</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="9">
+                        <MDBCardText className="text-muted">
+                          {waterUtility && waterUtility.webLink}
+                        </MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                    <hr /> 
+                    <MDBRow>
+                      <MDBCol sm="3">
                         <MDBCardText>KM from AA</MDBCardText>
                       </MDBCol>
                       <MDBCol sm="9">

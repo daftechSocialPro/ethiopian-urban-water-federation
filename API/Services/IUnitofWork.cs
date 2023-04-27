@@ -9,6 +9,7 @@ using DAFwebAPI.Services.Question;
 using DAFwebAPI.Services.Questioner;
 using DAFwebAPI.Services.RegionalFederation;
 using DAFwebAPI.Services.Sponsor;
+using DAFwebAPI.Services.Vaccancy;
 using DAFwebAPI.Services.WaterUtility;
 
 namespace DAFwebAPI.Services
@@ -42,6 +43,8 @@ namespace DAFwebAPI.Services
         IForumRepository forumRepository { get; }
 
         ISubscriberServices subscriberService { get; }
+
+        IVaccancyRepository vaccancyRepository { get; }
 
         Task SaveChanges();
     }

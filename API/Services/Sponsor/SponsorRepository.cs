@@ -1,6 +1,7 @@
 ﻿using DAFwebAPI.Data;
 using DAFwebAPI.Entities;
 using DAFwebAPI.Helpers;
+using DAFwebAPI.Migrations;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAFwebAPI.Services.Sponsor
@@ -31,6 +32,18 @@ namespace DAFwebAPI.Services.Sponsor
 
                     await image.SaveAsAsync(savingPath);
                     sponsor.Logo = "Assets/Sponsor_upload_photo/" + sponsor.ID + fileExtension;
+                }
+                if (sponsor.Brocher != null)
+                {
+                    var image = sponsor.Brocher;
+                    var photoinfo = new FileInfo(Path.GetFileName(image.FileName));
+                    var fileExtension = photoinfo.Extension;
+                    var savingPath = Path.Combine(Path.GetDirectoryName("./Assets/Brosher_file/"), sponsor.ID.ToString() + fileExtension);
+
+
+
+                    await image.SaveAsAsync(savingPath);
+                    sponsor.BrocherPath = "Assets/Brosher_file/" + sponsor.ID + fileExtension;
                 }
 
                 await _context.Sponsors.AddAsync(sponsor);
@@ -74,6 +87,7 @@ namespace DAFwebAPI.Services.Sponsor
                 sponsor1.Description = sponsor.Description;
                 sponsor1.SponcerLevel = sponsor.SponcerLevel;
                 sponsor1.SupportType= sponsor.SupportType;
+                sponsor1.WebLink= sponsor.WebLink;
 
 
                 if (sponsor.Photo != null)
@@ -86,6 +100,24 @@ namespace DAFwebAPI.Services.Sponsor
                     await image.SaveAsAsync(savingPath);
                     sponsor1.Logo = "Assets/Sponsor_upload_photo/" + sponsor.ID + fileExtension;
                 }
+                if (sponsor.Brocher != null)
+                {
+                    var image = sponsor.Brocher;
+                    var photoinfo = new FileInfo(Path.GetFileName(image.FileName));
+                    var fileExtension = photoinfo.Extension;
+                    var savingPath = Path.Combine(Path.GetDirectoryName("./Assets/Brosher_file/"), sponsor.ID.ToString() + fileExtension);
+
+                    if (File.Exists(savingPath))
+                    {
+                        File.Delete(savingPath);
+                    }
+
+                    await image.SaveAsAsync(savingPath);
+                    sponsor1.BrocherPath = "Assets/Brosher_file/" + sponsor.ID.ToString() + fileExtension;
+                }
+
+
+               
 
 
 

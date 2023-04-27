@@ -132,6 +132,17 @@ function Sponsor({ user }) {
                       </MDBCol>
                     </MDBRow>
                     <hr />
+                    <MDBRow>
+                      <MDBCol sm="3">
+                        <MDBCardText>Company Website</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="9">
+                        <MDBCardText className="text-muted">
+                          {sponsor && sponsor.webLink}
+                        </MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                    <hr />
 
                     <MDBRow>
                       <MDBCol sm="3">
