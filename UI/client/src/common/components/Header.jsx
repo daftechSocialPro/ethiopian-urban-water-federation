@@ -77,8 +77,6 @@ function Header() {
           <a href="index.html" className="main-header__logo">
             <img
               src="/assets/images/logo-dark.png"
-              width="200"
-              height="60"
               alt=""
             />
           </a>
@@ -86,32 +84,150 @@ function Header() {
           <ul className="main-menu__list">
             <li className={location.pathname === "/" ? " current" : ""}>
               <Link to="/">{t("home.1")}</Link>
-            </li>
-            <li className={location.pathname === "/about" ? "current" : ""}>
-              <Link to="/about">{t("aboutus.1")}</Link>
-            </li>
-
-            <li className={location.pathname === "/news" ? "current" : ""}>
-              <Link to="/news">{t("news.1")}</Link>
-            </li>
-            <li className={location.pathname === "/team" ? "current" : ""}>
-              <Link to="/team">{t("memberutilites.1")}</Link>
-            </li>
-            <li className={location.pathname === "/contact" ? "current" : ""}>
-              <Link to="/contact">{t("contactus.1")}</Link>
-            </li>
-
+            </li>         
             <li
               className={
-                location.pathname === "/vaccancy" ||
-                location.pathname === "/researches"
+                location.pathname === "/whoweare" ||
+                location.pathname === "/vision" ||
+                location.pathname === "/valueobjective" ||
+                location.pathname === "/chairmanmessage"
                   ? "menu-item-has-children active"
                   : "menu-item-has-children"
               }
             >
-              <a href="#"> {t("others.1")}</a>
+              <a href="#">{t("aboutus.1")}</a>
               <ul>
                 <li
+                  className={
+                    location.pathname === "/whoweare" ? "active" : ""
+                  }
+                >
+                  <Link to="/whoweare"> Who We Are</Link>
+                </li>
+                <li>
+                  <Link
+                    className={
+                      location.pathname === "/vision" ? "active" : ""
+                    }
+                    to="/vision"
+                  >
+                    Vision
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={
+                      location.pathname === "/valueobjective" ? "active" : ""
+                    }
+                    to="/valueobjective"
+                  >
+                    Core Values & Objectives
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={
+                      location.pathname === "/chairmanmessage" ? "active" : ""
+                    }
+                    to="/chairmanmessage"
+                  >
+                    Chairman's Message
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li
+              className={
+                location.pathname === "/events" ||
+                location.pathname === "/training" 
+                
+                  ? "menu-item-has-children active"
+                  : "menu-item-has-children"
+              }
+            >
+              <a href="#">Services</a>
+              <ul>
+              <li className={location.pathname === "/events" ? "current" : ""}>
+              <Link to="/events">Events</Link>
+            </li>
+                <li>
+                  <Link
+                    className={
+                      location.pathname === "/training" ? "active" : ""
+                    }
+                    to="/training"
+                  >
+                    Trainings & Capacity Building
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li className={location.pathname === "/news" ? "current" : ""}>
+              <Link to="/news">{t("news.1")}</Link>
+            </li>
+            <li
+              className={
+                location.pathname === "/orgstract" ||
+                location.pathname === "/team"
+                  ? "menu-item-has-children active"
+                  : "menu-item-has-children"
+              }
+            >
+              <a href="#">Team</a>
+              <ul>
+                <li
+                  className={
+                    location.pathname === "/orgstract" ? "active" : ""
+                  }
+                >
+                  <Link to="/orgstract">Organization Structure</Link>
+                </li>
+                <li>
+                  <Link
+                    className={
+                      location.pathname === "/team" ? "active" : ""
+                    }
+                    to="/team"
+                  >
+                    Members Profile
+                  </Link>
+                </li>
+                <li className={location.pathname === "/team" ? "current" : ""}>
+              <Link to="/team">{t("memberutilites.1")}</Link>
+            </li>
+              </ul>
+            </li>
+            <li
+              className={
+                location.pathname === "/gallery" ||
+                location.pathname === "/newsandevents"
+                  ? "menu-item-has-children active"
+                  : "menu-item-has-children"
+              }
+            >
+              <a href="#">Media</a>
+              <ul>
+                <li
+                  className={
+                    location.pathname === "/gallery" ? "active" : ""
+                  }
+                >
+                  <Link to="/gallery">Photo Gallery</Link>
+                </li>
+                <li>
+                  <Link
+                    className={
+                      location.pathname === "/newsandevents"? "active" : ""
+                    }
+                    to="/newsandevents"
+                  >
+                    News & Events
+                  </Link>
+                </li>
+              </ul>
+            </li>
+          
+            <li
                   className={
                     location.pathname === "/researches" ? "active" : ""
                   }
@@ -128,7 +244,8 @@ function Header() {
                     {t("publication.1")}
                   </Link>
                 </li>
-              </ul>
+                <li className={location.pathname === "/contact" ? "current" : ""}>
+              <Link to="/contact">{t("contactus.1")}</Link>
             </li>
           </ul>
 

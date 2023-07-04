@@ -30,16 +30,11 @@
 */
 :root {
   --paroti-font: 'Manrope', sans-serif;
-  --paroti-base: #5887c8;
-  --paroti-base-rgb: 222, 82, 18;
-  --paroti-primary: #5887c8;
-  --paroti-primary-rgb: 19, 137, 153;
-  --paroti-secondary: #cda9fc;
-  --paroti-secondary-rgb: 253, 190, 68;
-  --paroti-black: #375c8f;
-  --paroti-black-rgb: 20, 64, 71;
-  --paroti-dark: #0c3266;
-  --paroti-dark-rgb: 0, 44, 51;
+  --paroti-base: #00b7f1;
+  --paroti-primary: #00b7f1;
+  --paroti-secondary: #3cb64c;
+  --paroti-black: #007cc3;
+  --paroti-dark: #007cc3 ;
   --paroti-text: #768385;
   --paroti-gray: #f1f6f7;
   --paroti-border: #dde8ea;
@@ -1142,7 +1137,14 @@ h6 {
 .main-header__btn + .main-header__btn {
   margin-left: 30px;
 }
-
+.main-header__logo img{
+  width: 110px;
+  height: 100px;
+  margin: 10px;
+}
+.main-header__logo{
+  margin-left: 40px;
+}
 .main-header__toggler {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -1165,7 +1167,11 @@ h6 {
   transition: all 500ms ease;
   margin-left: 30px;
 }
-
+/* .menu-item-has-children ul li a{
+  text-transform: uppercase;
+  font-size: 6px;
+ 
+} */
 @media (min-width: 1200px) {
   .main-header__toggler {
     display: none;
@@ -1313,7 +1319,7 @@ h6 {
 
 .topbar__social {
   margin-left: auto;
-  background-color: #285088;
+  background-color: #007cc3;
   padding: 5px 40px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1455,7 +1461,7 @@ h6 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-left: 155px;
+    margin-left: 27px;
   }
 }
 
@@ -1482,6 +1488,7 @@ h6 {
   transition: all 500ms ease;
   display: block;
   padding: 3px 25px;
+  text-transform: uppercase;
 }
 
 .main-menu__list > li:hover > a, .main-menu__list > li.current > a {

@@ -10,7 +10,7 @@ function Footer() {
             data-wow-delay="000ms">
             <div className="site-footer__widget site-footer__widget__about">
               <a href="index.html" className="site-footer__widget__logo">
-                <img src="/assets/images/logo-light.png" width="200" height="60" alt=""/>
+                <img src="/assets/images/logo-white.png" width="110" height="100" alt=""/>
               </a>
               <p className="site-footer__widget__text">Haile G/Silassie Road, Ministry of Water &Energy Head Office ADDIS ABABA, ETHIOIA</p>
             </div>
@@ -58,7 +58,7 @@ function Footer() {
           <p className="site-footer__bottom__text">© Copyright <span className="dynamic-year"></span> by
             Layerdrops.com</p>
             <p className="site-footer__bottom__text">Developed By <span className="dynamic-year"></span> by
-            Kirubel Gizaw</p>
+            Dafetech Social ICT Solution</p>
           <div className="site-footer__social">
             <a href="#"><i className="fab fa-twitter"></i></a>
             <a href="#"><i className="fab fa-facebook"></i></a>
