@@ -17,7 +17,7 @@ import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import axios from 'axios'
 import { urlusers } from 'src/endpoints'
-import logo from 'src/assets/logo4.png'
+import logo from '../../../assets/logo4.png'
 import { customToast } from 'src/components/customToast'
 
 const Login = ({ setIsLoggedIn, setIsLodding }) => {
@@ -35,8 +35,6 @@ const Login = ({ setIsLoggedIn, setIsLodding }) => {
       .post(`${urlusers}/login`, {
         email: email,
         password: password,
-      }, {
-        withCredentials: true
       })
 
       .then((res) => {

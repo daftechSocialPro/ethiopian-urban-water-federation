@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import {
   CForm,
   CFormInput,
@@ -34,7 +33,6 @@ import { useLocation } from 'react-router-dom'
 function Question({ setIsLodding }) {
   const [addvisibleXL, setAddVisibleXL] = useState(false)
   const [updatevisibleXL, setUpdateVisibleXL] = useState(false)
-  const [choicevisibleXL, setChoiceVisibleXL] = useState(false)
 
   const [selectedQuestion, setSelectedQuestion] = useState([])
 
@@ -45,23 +43,13 @@ function Question({ setIsLodding }) {
   const questionerId = location.state.questionerId && location.state.questionerId
 
   const [question, setQuestion] = useState('')
-
-  const [selectedQuetion,setselectedQuestion ]=useState({})
-
-
-  const [answerType, setAnswerType] = useState(0)
+  const [answerType, setAnswerType] = useState('')
   const [numberOfRows, setNumberOfRows] = useState(0)
- 
   const [includeDashboard, setIncludeDashboard] = useState(false)
   const [includeReport, setIncludeReport] = useState(false)
-  const navigate = useNavigate()
-  const answerTypes = ['Text', 'Number', 'choose']
 
-  const navigateToChoose = (item) => {
-    navigate('/choose', {
-      state: {},
-    })
-  }
+  const answerTypes = ['Text', 'Number']
+
   useEffect(() => {
     axios
       .get(`${urlQuestion}?questionerId=${questionerId}`)
@@ -82,12 +70,7 @@ function Question({ setIsLodding }) {
     formData.set('includeDashboard', includeDashboard)
     formData.set('includeReport', includeReport)
     formData.set('questionerId', questionerId)
-    choices.forEach((choice) => {
-      formData.append('choices[]', choice)
-    })
     formData.set('numberOfRows', numberOfRows)
-
-    console.log(formData)
 
     const form = event.currentTarget
     if (form.checkValidity() === false) {
@@ -108,7 +91,6 @@ function Question({ setIsLodding }) {
         .catch((err) => {
           setIsLodding(false)
           setAddVisibleXL(false)
-          setChoices([])
           alert(err)
           console.error(err)
         })
@@ -116,7 +98,6 @@ function Question({ setIsLodding }) {
       setIsLodding(false)
       setAddVisibleXL(false)
       customToast(error, 1)
-      setChoices([])
       console.error(error)
     }
   }
@@ -132,9 +113,6 @@ function Question({ setIsLodding }) {
     formData.set('includeReport', includeReport)
     formData.set('questionerId', questionerId)
     formData.set('numberOfRows', numberOfRows)
-    choices.forEach((choice) => {
-      formData.append('choices[]', choice)
-    })
     formData.set('id', selectedQuestion.id)
 
     const form = event.currentTarget
@@ -166,28 +144,14 @@ function Question({ setIsLodding }) {
     }
   }
 
-  const [choices, setChoices] = useState([])
-
-  const handleChoiceChange = (event, index) => {
-    const newChoices = [...choices]
-    newChoices[index] = event.target.value
-    setChoices(newChoices)
-  }
-
-  const addChoice = () => {
-    setChoices([...choices, ''])
-  }
-
-  const removeChoice = (event, index) => {
-    event.preventDefault()
-
-    const newChoices = [...choices]
-    newChoices.splice(index, 1)
-    setChoices(newChoices)
-  }
-
   return (
     <>
+
+
+
+          
+
+
       <CModal size="xl" visible={addvisibleXL} onClose={() => setAddVisibleXL(false)}>
         <CModalHeader
           style={{
@@ -259,33 +223,6 @@ function Question({ setIsLodding }) {
                                   />
                                 </CCol>
                               )}
-                              {answerType == 2 && (
-                                <>
-                                  {/* <CCol xs="3">
-                                    <CFormInput
-                                      type="number"
-                                      label="Number of choise"
-                                      placeholder=""
-                                      required
-                                      value={numberOfChoise}
-                                      onChange={(e) => setNumberOfChoise(e.target.value)}
-                                    />
-                                  </CCol> */}
-                                  <CCol xs="3">
-                                    <CButton
-                                      className="mt-4"
-                                      style={{
-                                        backgroundColor: '#2eb85c',
-                                        color: '#fff',
-                                        borderColor: '#2eb85c',
-                                      }}
-                                      onClick={addChoice}
-                                    >
-                                      Add Choice
-                                    </CButton>
-                                  </CCol>
-                                </>
-                              )}
 
                               <CCol xs="3">
                                 <MDBRow>
@@ -311,39 +248,6 @@ function Question({ setIsLodding }) {
                                 </MDBRow>
                               </CCol>
 
-                              <div className="card">
-                                {answerType == 2 &&
-                                  choices.map((choice, index) => (
-                                    <div className="row p-2 b-1" key={index}>
-                                      <CCol xs="10" key={index}>
-                                        <CFormTextarea
-                                          type="text"
-                                          label={`Choise ${index + 1}`}
-                                          rows={3}
-                                          placeholder="Choise ...."
-                                          required
-                                          value={choice}
-                                          onChange={(event) => handleChoiceChange(event, index)}
-                                        />
-                                        <hr />
-                                      </CCol>
-                                      <CCol xs="2">
-                                        <CButton
-                                          className="mt-3"
-                                          style={{
-                                            backgroundColor: '#e74c3c',
-                                            color: '#fff',
-                                            borderColor: '#e74c3c',
-                                          }}
-                                          onClick={(e) => removeChoice(e, index)}
-                                        >
-                                          Remove Choice
-                                        </CButton>
-                                      </CCol>
-                                    </div>
-                                  ))}
-                              </div>
-
                               <CCol xs="2">
                                 <CButton
                                   style={{
@@ -368,6 +272,8 @@ function Question({ setIsLodding }) {
           </CCardBody>
         </CModalBody>
       </CModal>
+
+
 
       <CModal size="xl" visible={updatevisibleXL} onClose={() => setUpdateVisibleXL(false)}>
         <CModalHeader
@@ -441,25 +347,6 @@ function Question({ setIsLodding }) {
                                 </CCol>
                               )}
 
-{answerType == 2 && (
-                                <>
-                                 
-                                  <CCol xs="3">
-                                    <CButton
-                                      className="mt-4"
-                                      style={{
-                                        backgroundColor: '#2eb85c',
-                                        color: '#fff',
-                                        borderColor: '#2eb85c',
-                                      }}
-                                      onClick={addChoice}
-                                    >
-                                      Add Choice
-                                    </CButton>
-                                  </CCol>
-                                </>
-                              )}
-
                               <CCol xs="3">
                                 <MDBRow>
                                   <MDBCol sm="12">
@@ -484,39 +371,6 @@ function Question({ setIsLodding }) {
                                 </MDBRow>
                               </CCol>
 
-                              <div className="card">
-                                {answerType == 2 &&
-                                  choices.map((choice, index) => (
-                                    <div className="row p-2 b-1" key={index}>
-                                      <CCol xs="10" key={index}>
-                                        <CFormTextarea
-                                          type="text"
-                                          label={`Choise ${index + 1}`}
-                                          rows={3}
-                                          placeholder="Choise ...."
-                                          required
-                                          value={choice}
-                                          onChange={(event) => handleChoiceChange(event, index)}
-                                        />
-                                        <hr />
-                                      </CCol>
-                                      <CCol xs="2">
-                                        <CButton
-                                          className="mt-3"
-                                          style={{
-                                            backgroundColor: '#e74c3c',
-                                            color: '#fff',
-                                            borderColor: '#e74c3c',
-                                          }}
-                                          onClick={(e) => removeChoice(e, index)}
-                                        >
-                                          Remove Choice
-                                        </CButton>
-                                      </CCol>
-                                    </div>
-                                  ))}
-                              </div>
-
                               <CCol xs="2">
                                 <CButton
                                   style={{
@@ -529,73 +383,6 @@ function Question({ setIsLodding }) {
                                   Update
                                 </CButton>
                               </CCol>
-                            </CForm>
-                          </CCardBody>
-                        </CCard>
-                      </CCol>
-                    </CRow>
-                  </MDBCardBody>
-                </MDBCard>
-              </MDBCol>
-            </MDBRow>
-          </CCardBody>
-        </CModalBody>
-      </CModal>
-
-      <CModal size="xl" visible={choicevisibleXL} onClose={() => setChoiceVisibleXL(false)}>
-        <CModalHeader
-          style={{
-            backgroundColor: '#1e4356',
-            color: '#fff',
-          }}
-        >
-          <CModalTitle>
-            <strong> </strong> <small>Choices</small>{' '}
-          </CModalTitle>
-        </CModalHeader>
-        <CModalBody>
-          <CCardBody>
-            <MDBRow>
-              <MDBCol lg="12">
-                <MDBCard className="mb-4">
-                  <MDBCardBody>
-                    <CRow>
-                      <CCol xs={12}>
-                        <CCallout className="bg-white"></CCallout>
-                      </CCol>
-                      <CCol xs={12}>
-                        <CCard className="mb-4">
-                          <CCardBody>
-                            <CForm
-                              className="row g-3 needs-validation"
-                              validated
-                              onSubmit={handleSubmit}
-                            >
-                              <label
-                                style={{
-                                  fontSize: '24px',
-                                  fontWeight: 'bold',
-                                  marginBottom: '10px',
-                                }}
-                              >
-                                {selectedQuetion.question && selectedQuetion.question}
-                              </label>
-
-                              {selectedQuetion.choices &&
-                                selectedQuetion.choices.map((choice, index) => (
-                                  <div
-                                    style={{
-                                      fontSize: '18px',
-                                      marginBottom: '20px',
-                                    }}
-                                    key={index}
-                                  >
-                                    <input type="radio" name="answer" id="paris" value="paris"></input> &nbsp;
-                                    <label style={{ marginRight: '10px' }}>
-                                       {choice}
-                                    </label>
-                                  </div>
-                                ))}
                             </CForm>
                           </CCardBody>
                         </CCard>
@@ -657,7 +444,7 @@ function Question({ setIsLodding }) {
                       <CTableDataCell>{index + 1}</CTableDataCell>
                       <CTableDataCell>{item.question}</CTableDataCell>
                       <CTableDataCell>
-                        {answerTypes[item.answerType]}
+                        {answerTypes[item.answerType]}{' '}
                         {item.answerType == 0 ? `(${item.numberOfRows}) number of rows ` : ''}{' '}
                       </CTableDataCell>
                       <CTableDataCell>
@@ -673,8 +460,7 @@ function Question({ setIsLodding }) {
                           onClick={() => {
                             setUpdateVisibleXL(true)
                             setSelectedQuestion(item)
-                            setQuestion(item.question&&item.question)
-                            setChoices(item.choices)
+                            setQuestion(item.question)
                             setAnswerType(item.answerType)
                             setIncludeDashboard(item.includeDashboard)
                             setIncludeReport(item.includeReport)
@@ -688,25 +474,6 @@ function Question({ setIsLodding }) {
                         >
                           Update
                         </CButton>
-                        {item.choices.length > 0 && (
-                          <>
-                            &nbsp;| &nbsp;
-                            <CButton
-                              className="text-right "
-                              onClick={() => {
-                                setChoiceVisibleXL(true)
-                                setselectedQuestion(item)
-                              }}
-                              style={{
-                                backgroundColor: '#1e4356',
-                                color: '#fff',
-                                borderColor: '#1e4356',
-                              }}
-                            >
-                              choices
-                            </CButton>
-                          </>
-                        )}
                       </CTableDataCell>
                     </CTableRow>
                   ))}

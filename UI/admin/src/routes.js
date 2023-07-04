@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 
 const BoardMember = React.lazy(() => import('./views/WaterFederation/bordMember/BoardMember'))
@@ -10,14 +9,6 @@ const BoardMemberCreate = React.lazy(() =>
 const BoardMemberUpdate = React.lazy(() =>
   import('./views/WaterFederation/bordMember/BoardMemberUpdate'),
 )
-
-const Ministers = React.lazy(() => import('./views/WaterFederation/minister/Ministers'))
-const MinistersCreate = React.lazy(() =>
-  import('./views/WaterFederation/minister/MinisterCreate'),
-)
-// const BoardMemberUpdate = React.lazy(() =>
-//   import('./views/WaterFederation/bordMember/BoardMemberUpdate'),
-// )
 
 const Research = React.lazy(() => import('./views/WaterFederation/research/Research'))
 const ResearchCreate = React.lazy(() => import('./views/WaterFederation/research/ResearchCreate'))
@@ -32,8 +23,6 @@ const Forum = React.lazy(() => import('./views/WaterFederation/forum/Forum'))
 const ForumEdit = React.lazy(() => import('./views/WaterFederation/forum/ForumEdit'))
 
 const ContactUs = React.lazy(() => import('./views/WaterFederation/Contact'))
-const Subcriber = React.lazy(() => import('./views/WaterFederation/Subscribers'))
-
 
 const Region = React.lazy(() => import('./views/WaterFederation/region/Region'))
 
@@ -56,14 +45,10 @@ const WaterUtilityUpdate = React.lazy(() =>
 )
 
 const Vaccancy = React.lazy(() => import('./views/WaterFederation/vaccancy/Vaccancy'))
-const VaccancyCreate = React.lazy(() => import('./views/WaterFederation/vaccancy/VaccancyCreate'))
-
-const VaccancyUpdate = React.lazy(()=> import('./views/WaterFederation/vaccancy/VaccancyUpdate'))
 
 const Questioner = React.lazy(() => import('./views/WaterFederation/questioner/Quesioner'))
 
 const Question = React.lazy(() => import('./views/WaterFederation/questioner/Question'))
-
 
 const Answer = React.lazy(() => import('./views/WaterFederation/questioner/Answer'))
 
@@ -87,22 +72,12 @@ const routes = [
   { path: '/boardmember/create', name: 'Board Member Create', element: BoardMemberCreate },
   { path: '/boardmember/update', name: 'Board Member Update', element: BoardMemberUpdate },
 
-
-   // minister
-   { path: '/minister', name: 'Minister', element: Ministers },
-   { path: '/minister/create', name: 'Minister Create', element: MinistersCreate },
-
   //research
 
   //boardmember
   { path: '/research', name: 'Research', element: Research },
   { path: '/research/create', name: 'Research Create', element: ResearchCreate },
   { path: '/research/update', name: 'Research Update', element: ResearchUpdate },
-
-  //vaccancy
-  { path: '/vaccancy', name: 'Vaccancy', element: Vaccancy },
-  { path: '/vaccancy/create', name: 'Vaccancy Create', element: VaccancyCreate },
-  { path: '/vaccancy/update', name: 'Vaccancy Update', element: VaccancyUpdate },
 
   //news
   { path: '/news', name: 'News', element: News, exact: true },
@@ -119,9 +94,6 @@ const routes = [
 
   //contact
   { path: '/contact', name: 'Contact Us', element: ContactUs },
-  { path: '/subscriber', name: 'Subscribers List', element: Subcriber },
-
-  
 
   //Region
   { path: '/region', name: 'Region', element: Region },
@@ -179,7 +151,6 @@ const routes = [
     element: Question,
   },
 
-
   //Answer
   {
     path: '/answer',
@@ -196,8 +167,6 @@ const routes = [
    { path: '/sponsor', name: 'Sponsor', element: Sponsor },
    { path: '/sponsor/create', name: 'Sponsor Create', element: SponsorCreate },
    { path: '/sponsor/update', name: 'Sponsor Update', element: SponsorUpdate },
-
-  
  
 ]
 

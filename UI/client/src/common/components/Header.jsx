@@ -29,7 +29,7 @@ function Header() {
               </li>
               <li>
                 <i className="fa fa-mobile"></i>
-                <a href="tel:+1(307)776-0608">+(251)940-506-880</a>
+                <a href="tel:+1(307)776-0608">+(251) 940-506-880</a>
               </li>
             </ul>
             <div className="topbar__social">
@@ -91,25 +91,73 @@ function Header() {
               <Link to="/about">{t("aboutus.1")}</Link>
             </li>
 
-            <li className={location.pathname === "/news" || location.pathname==="/news/detail" ? "current" : ""}>
+            <li className={location.pathname === "/news" ? "current" : ""}>
               <Link to="/news">{t("news.1")}</Link>
             </li>
-            <li className={location.pathname === "/waterutility" || location.pathname==="/waterutility/detail" ? "current" : ""}>
-              <Link to="/waterutility">{t("memberutilites.1")}</Link>
+            <li className={location.pathname === "/team" ? "current" : ""}>
+              <Link to="/team">{t("memberutilites.1")}</Link>
             </li>
             <li className={location.pathname === "/contact" ? "current" : ""}>
               <Link to="/contact">{t("contactus.1")}</Link>
             </li>
-            
-            <li className={location.pathname === "/researches" ? "current" : ""}>
-              <Link to="/researches">{t("publication.1")}</Link>
-              </li>
-            <li className={location.pathname === "/vaccancy" ? "current" : ""}>
-              <Link to="/vaccancy">Vaccancy</Link>
+
+            <li
+              className={
+                location.pathname === "/vaccancy" ||
+                location.pathname === "/researches"
+                  ? "menu-item-has-children active"
+                  : "menu-item-has-children"
+              }
+            >
+              <a href="#"> {t("others.1")}</a>
+              <ul>
+                <li
+                  className={
+                    location.pathname === "/researches" ? "active" : ""
+                  }
+                >
+                  <Link to="/vaccancy">{t("vaccancy.1")}</Link>
+                </li>
+                <li>
+                  <Link
+                    className={
+                      location.pathname === "/vaccancy" ? "active" : ""
+                    }
+                    to="/researches"
+                  >
+                    {t("publication.1")}
+                  </Link>
+                </li>
+              </ul>
             </li>
           </ul>
 
-      
+          {/* <div className="main-menu__right">
+            <div className="main-menu__cta">
+              <div className="main-menu__cta__icon">
+                <i className="paroti-icon-volunteer"></i>
+              </div>
+              <div className="main-menu__cta__text">
+                <span>Join us now</span>
+                <a href="contact.html">Become a Volunteer</a>
+              </div>
+            </div>
+            <a href="donations-details.html" className="thm-btn thm-btn--two ">
+              <span>Donate Now</span>
+              <i className="fa fa-heart"></i>
+            </a>
+            <a href="#" className="main-header__btn search-toggler">
+              <i className="paroti-icon-magnifying-glass"></i>
+            </a>
+            <a href="donations.html" className="main-header__btn">
+              <i className="paroti-icon-shopping-cart"></i>
+            </a>
+            <a href="#" className="main-header__toggler mobile-nav__toggler">
+              <span></span>
+              <span></span>
+              <span></span>
+            </a>
+          </div> */}
         </div>
       </nav>
     </header>

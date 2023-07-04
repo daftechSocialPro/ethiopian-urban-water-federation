@@ -11,7 +11,6 @@ import 'simplebar/dist/simplebar.min.css'
 import navigation from '../_nav'
 import navigation2 from '../_nav2'
 import navigation3 from '../_nav3'
-import navigation4 from '../_nav4'
 
 const AppSidebar = ({user}) => {
   const dispatch = useDispatch()
@@ -40,7 +39,7 @@ const AppSidebar = ({user}) => {
       </CSidebarBrand>
       <CSidebarNav>
         <SimpleBar>
-          <AppSidebarNav items={ user.userType == 0 ? navigation: user.userType == 1? navigation2:user.userType == 2? navigation3 : navigation4} />
+          <AppSidebarNav items={ user.userType == 0 ? navigation: user.userType == 1? navigation2:navigation3} />
         </SimpleBar>
       </CSidebarNav>
       <CSidebarToggler

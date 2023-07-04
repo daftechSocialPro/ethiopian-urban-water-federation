@@ -1,0 +1,18 @@
+.container{
+    
+}
+.sec-title__title{
+    font-size: 26px;
+}
+.about-one__content {
+    margin-right: -200px;
+    padding-left: -400px;
+  }
+.image{
+    height: 329px !important;
+    width: 555px !important;
+}
+.page-header{
+    background-size: cover;
+    background-position: center;
+}

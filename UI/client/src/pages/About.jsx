@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React,{useState,useEffect} from "react";
 import OwlCarousel from "react-owl-carousel";
-import { urlSponsor, assetUrl} from "../endpoints";
-import { OrganizationChart } from 'primereact/organizationchart'
-import { useTranslation } from 'react-i18next'
+import {useTranslation} from 'react-i18next'
 import { urlContact } from "../endpoints";
 import axios from "axios";
-
-import './about.css'
 function About() {
   const [contact, setContact] = useState([])
 
@@ -15,23 +11,12 @@ function About() {
       .get(urlContact)
       .then((res) => {
         console.log(res.data)
-        setContact(res.data)
-      })
+        setContact(res.data)})
       .catch((err) => console.log(err))
   }, [])
-  const getImage = (item) => {
-    return `${assetUrl}/${item}`;
-  };
-  const [partenerShip,setPartnerShip] = useState([])
 
-  useEffect(()=>{
 
-    axios.get(urlSponsor+"/bySupportType?supportType=1").then((res)=>{
-      setPartnerShip(res.data)
-    })
-  },[])
-
-  const { t } = useTranslation()
+  const{t} =useTranslation()
   const option3 = {
     items: 1,
     margin: 0,
@@ -89,76 +74,6 @@ function About() {
       },
     },
   };
-  const [data] = useState([
-    {
-      label: `${t('Organizational.4')}`,
-      expanded: true,
-      children: [
-
-        {
-          label: `${t('Organizational.5')}`,
-          expanded: true,
-          children: [
-            {
-              label: `${t('Organizational.6')}`,
-              expanded: true,
-              children: [
-                {
-                  label: `${t('Organizational.7')}`,
-                },
-                {
-                  label:`${t('Organizational.8')}`,
-                  expanded: true,
-                  children: [
-                    {
-                      label:`${t('Organizational.9')}`
-                    },
-                    {
-                      label:`${t('Organizational.10')}`
-                    },
-                    {
-                      label: `${t('Organizational.11')}`
-                    },
-                    {
-                      label: `${t('Organizational.12')}`
-                    },
-                    {
-                      label: `${t('Organizational.13')}`
-                    },
-                    {
-                      label: `${t('Organizational.14')}`
-                    }
-                  ]
-                },
-                {
-                  label: `${t('Organizational.15')}`
-                }
-              ]
-            }
-
-          ]
-        },
-        {
-          label: `${t('Organizational.16')}`,
-
-        },
-
-
-      ]
-    }
-  ]);
-  // {
-  //   label: 'Directors’ Board',
-  //   expanded: true,
-  //   children: [
-  //       {
-  //           label: 'France'
-  //       },
-  //       {
-  //           label: 'Morocco'
-  //       }
-  //   ]
-  // },
 
   const option7 = {
     container: "#testimonials-one-carousel-1",
@@ -172,8 +87,6 @@ function About() {
     autoplaybuttonoutput: 'false',
     controls: false,
   };
-
-
   return (
     <>
       <section
@@ -183,14 +96,14 @@ function About() {
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
             <li>
-              <a href="index.html"> {t("home.1")}</a>
+              <a href="index.html">Home</a>
             </li>
             <li>
-              <span>{t("aboutus.1")}</span>
+              <span>About Us</span>
             </li>
           </ul>
 
-          <h2 className="page-header__title">{t("aboutus.1")}</h2>
+          <h2 className="page-header__title">About Us</h2>
         </div>
       </section>
       <section className="sec-pad-top sec-pad-bottom about-one">
@@ -238,48 +151,21 @@ function About() {
                   </li>
                 </ul> */}
                 <div className="about-one__tagline">
-                  {t("welcome.2")}
+                {t("welcome.2")}
                 </div>
                 <p className="about-one__text">
-                  {t("welcome.3")}
+                 {t("welcome.3")}
                 </p>
                 <div className="about-one__meta clearfix">
-                  <img src="/assets/images/testimonals/muktar.png" style={{ height: '91px' }} alt="" />
-                  <h3 className="about-one__name"> {t("testimonials.2")}</h3>
+                  <img src="/assets/images/testimonals/muktar.png" style={{height:'91px'}} alt="" />
+                  <h3 className="about-one__name"> Muktar Ahmed</h3>
 
-                  <p className="about-one__designation">{t("testimonials.3")}</p>
+                  <p className="about-one__designation"> Director General of EUWF</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <section className="sec-pad-top sec-pad-bottom testimonials-one " >
-        <div
-          className="testimonials-one__bg"
-          style={{
-            backgroundImage:
-              "url(/assets/images/backgrounds/testimonials-1-bg.jpg)",
-          }}
-        ></div>
-        <div className="testimonials-one__content">
-          <div className="sec-title text-center ">
-           
-            <h3 className="sec-title__title">
-            {t("Organizational.1")}
-            </h3>
-            <p className="sec-title__tagline">{t("Organizational.2")}</p>
-          </div>
-
-
-        </div>
-
-
-        <OrganizationChart value={data} />
-
-
-
-
       </section>
 
       <section className="sec-pad-top sec-pad-bottom donation-two">
@@ -287,11 +173,15 @@ function About() {
           <div className="row gutter-y-60">
             <div className="col-md-12 col-lg-4">
               <div className="sec-title">
-                <p className="sec-title__tagline">{t("vision.1")}</p>
-                <h2 className="sec-title__title">{t("vision.2")}</h2>
+                <p className="sec-title__tagline">Change everything</p>
+                <h2 className="sec-title__title">OUR VISSION</h2>
               </div>
               <p className="donation-two__text">
-                {t("vision.3")}
+                To become the first and competent association in east Africa by
+                providing support for water supply and Sanitation Utilities
+                through capacity building and provide training on new
+                technologies that will lead Water utilities for an outstanding
+                performance.
               </p>
             </div>
             <div className="col-md-12 col-lg-8">
@@ -300,21 +190,21 @@ function About() {
                   <div className="donation-card-two">
                     <div className="donation-card-two__bg"></div>
                     <h3 className="donation-card-two__title">
-                      <a href="donation-details.html">{t("corevalues.1")}</a>
+                      <a href="donation-details.html">Core Values</a>
                     </h3>
 
                     <ul className="list-unstyled about-two__list donation-card-two__title ">
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        {t("corevalues.2")}
+                        Act with Integrity.
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        {t("corevalues.3")}
+                        Strive for Excellence.
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        {t("corevalues.4")}
+                        Move for Innovations.
                       </li>
                     </ul>
 
@@ -332,21 +222,23 @@ function About() {
                   >
                     <div className="donation-card-two__bg"></div>
                     <h3 className="donation-card-two__title">
-                      <a href="donation-details.html">{t("objectives.1")}</a>
+                      <a href="donation-details.html">Objectives</a>
                     </h3>
 
                     <ul className="list-unstyled about-two__list">
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        {t("objectives.2")}
+                        Enhance the capacity of the EWF.
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        {t("objectives.3")}
+                        Ensure the financial sustainability of the Ethiopian
+                        Water Federation.
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        {t("objectives.4")}
+                        Promote members’ interests and create opportunities for
+                        their development.
                       </li>
                     </ul>
 
@@ -362,7 +254,52 @@ function About() {
         </div>
       </section>
 
-    
+      <section className="funfact-one funfact-one--m-margin-top">
+        <div className="container">
+          <div className="funfact-one__inner wow fadeInUp">
+            <div className="funfact-one__item">
+              <h3 className="count-box funfact-one__title">
+                <span
+                  data-stop="4850"
+                  data-speed="1500"
+                  className="count-text"
+                ></span>
+              </h3>
+              <p className="funfact-one__text">Total Campaigns</p>
+            </div>
+            <div className="funfact-one__item">
+              <h3 className="count-box funfact-one__title">
+                <span
+                  data-stop="3456"
+                  data-speed="1500"
+                  className="count-text"
+                ></span>
+              </h3>
+              <p className="funfact-one__text">Raised Funds</p>
+            </div>
+            <div className="funfact-one__item">
+              <h3 className="count-box funfact-one__title">
+                <span
+                  data-stop="480"
+                  data-speed="1500"
+                  className="count-text"
+                ></span>
+              </h3>
+              <p className="funfact-one__text">Satisfied Donors</p>
+            </div>
+            <div className="funfact-one__item">
+              <h3 className="count-box funfact-one__title">
+                <span
+                  data-stop="2068"
+                  data-speed="1500"
+                  className="count-text"
+                ></span>
+              </h3>
+              <p className="funfact-one__text">Happy Volunteers</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="sec-pad-top sec-pad-bottom testimonials-one my-5">
         <div
@@ -376,27 +313,27 @@ function About() {
         <div className="testimonials-one__gallery">
           <img
             src="/assets/images/resources/UserProfile.png"
-
+            
             className="float-bob-x"
             alt=""
           />
           <img
-            src="/assets/images/resources/UserProfile.png"
+           src="/assets/images/resources/UserProfile.png"
             className="float-bob-y"
             alt=""
           />
           <img
-            src="/assets/images/resources/UserProfile.png"
+           src="/assets/images/resources/UserProfile.png"
             className="float-bob-x"
             alt=""
           />
           <img
-            src="/assets/images/resources/UserProfile.png"
+             src="/assets/images/resources/UserProfile.png"
             className="float-bob-y"
             alt=""
           />
           <img
-            src="/assets/images/resources/UserProfile.png"
+             src="/assets/images/resources/UserProfile.png"
             className="float-bob-x"
             alt=""
           />
@@ -406,79 +343,106 @@ function About() {
             <div className="col-lg-5">
               <div className="testimonials-one__content">
                 <div className="sec-title">
-                  <p className="sec-title__tagline">{t("feedbacks.1")}</p>
+                  <p className="sec-title__tagline">Our feedbacks</p>
                   <h2 className="sec-title__title">
-                    {t("feedbacks.2")} <br />
-                    {t("feedbacks.3")}
+                    What they’re <br />
+                    talking about us
                   </h2>
                 </div>
                 <p className="testimonials-one__text">
                   Proin a lacus arcu. Nullam id dui eu orci maximus. <br />
                   Cras at auctor lectus, pretium tellus.
                 </p>
-
-
+                <a href="#" className="thm-btn testimonials-one__btn">
+                  <span>View all feedbacks</span>
+                </a>
               </div>
             </div>
             <div className="col-lg-7">
-              {contact.length && <OwlCarousel
+              <OwlCarousel
                 className="thm-tns__carousel"
                 id="testimonials-one-carousel-1"
                 {...option7}
               >
-                {contact.map((item, index) => {
-                  return (<div key={index} className="item">
-                    <div className="testimonials-card">
-                      <i className="paroti-icon-quote testimonials-card__icon"></i>
-                      {/* <img
-                        //  src="/assets/images/resources/UserProfile.png"
-                        style={{ maxWidth: '2px' }}
-                        className="testimonials-card__bg"
-                        alt=""
-                      /> */}
-                      <p className="testimonials-card__text">
-                        {item.message}
-                      </p>
-                      <div className="testimonials-card__meta clearfix" >
-                        <img src="/assets/images/resources/testi-1-1.png" style={{ "maxWidth": "50px" }} alt="" />
-                        <h3 className="testimonials-card__name">{item.name}</h3>
+                {contact.map((item,index)=>
+                  <div key={index} className="item">
+                  <div className="testimonials-card">
+                    <i className="paroti-icon-quote testimonials-card__icon"></i>
+                    <img
+                    //  src="/assets/images/resources/UserProfile.png"
+                      style={{maxWidth:'20px'}}
+                      className="testimonials-card__bg"
+                      alt=""
+                    />
+                    <p className="testimonials-card__text">
+                      {item.message}
+                    </p>
+                    <div className="testimonials-card__meta clearfix">
+                      <img src="/assets/images/resources/testi-1-1.png" alt="" />
+                      <h3 className="testimonials-card__name">{item.name}</h3>
 
-                        <p className="testimonials-card__designation">{item.subject}</p>
-                      </div>
+                      <p className="testimonials-card__designation">{item.subject}</p>
                     </div>
-                  </div>)
-
-                }
-
-
+                  </div>
+                </div>
+             
                 )}
-
-              </OwlCarousel>}
+              
+              </OwlCarousel>
             </div>
           </div>
         </div>
       </section>
 
-
+      
       <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
         <div className="container">
-        {partenerShip.length && <OwlCarousel className="owl-theme " {...option6}>
-          {partenerShip.map((item,index)=>{
-              return(
-                <div className="item" key={index}>
-                <img src={getImage(item.logo)} alt="" />
-              </div>
-              )
-            })}
-            
-
-          </OwlCarousel>}
+          <OwlCarousel className="owl-theme " {...option6}>
+            <div className="item">
+              <img src="/assets/images/partner/s1.png" alt="" />
+            </div>
+            <div className="item">
+              <img src="/assets/images/partner/s2.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s3.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s4.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s5.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s6.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s7.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s8.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s9.png" alt="" />
+            </div>
+            <div className="item">
+              <img src="/assets/images/partner/s10.png" alt="" />
+            </div>
+            <div className="item">
+              <img src="/assets/images/partner/s11.png" alt="" />
+            </div>
+            <div className="item">
+              <img src="/assets/images/partner/s12.png" alt="" />
+            </div>
+            <div className="item">
+              <img src="/assets/images/partner/s13.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s14.png" alt="" />
+            </div>
+          </OwlCarousel>
         </div>
       </section>
-
-
-
-
     </>
   );
 }

@@ -19,7 +19,7 @@ import {
   CButton,
   CFormInput,
   CFormLabel,
-  CFormSelect,
+  CFormSelect ,
   CForm,
 } from '@coreui/react'
 import { assetUrl, urlboardmember, urlSponsor } from '../../../endpoints'
@@ -29,7 +29,7 @@ function SponsorUpdate({ user, setIsLodding }) {
 
   const sponsor = location.state.sponsor
 
-  console.log("sponser update", sponsor)
+  console.log("sponser",sponsor)
 
   //bordMember)
 
@@ -38,49 +38,32 @@ function SponsorUpdate({ user, setIsLodding }) {
   const [companyName, setCompanyName] = useState(sponsor.companyName)
   const [amharicCompanyName, setAmharicCompanyName] = useState(sponsor.amharicCompanyName)
   const [sponcerLevel, setSponcerLevel] = useState(sponsor.sponcerLevel)
-  const [type, setType] = useState(sponsor.supportType)
-  const [weblink,setWebLink]= useState(sponsor.webLink)
+
   const SponsorLevels = ['Platinum', 'Diamond', 'Gold', 'Silver']
-  const Types = ["Sponser", "Partnership"]
+
   const navigate = useNavigate()
-  const [file, setFile] = useState('')
+
   const photoInputHandler = (event) => {
     setImg(event.target.files[0])
   }
-
-  const fileInputHandler = (event) => {
-   
-    setFile(event.target.files[0])
-  }
-
 
   const handleSubmit = async (event) => {
     event.preventDefault()
 
     const formData = new FormData()
 
-    if (file != ''){
-      formData.append('Brocher', file)
-    }
-    else{
-      formData.append('Brocher', getImage(sponsor.brocherPath))
-    }
-
+    //user)
     formData.append('Photo', img)
-  
     formData.set('companyName', companyName)
     formData.set('amharicCompanyName', amharicCompanyName)
     formData.set('sponcerLevel', sponcerLevel)
-    formData.set('Description', description)
+    formData.set('Description',description)
     formData.set('ID', sponsor.id)
-    formData.set('SupportType', type)
-    formData.set('WebLink', weblink)
-   
+
     const form = event.currentTarget
     if (form.checkValidity() === false) {
       event.stopPropagation()
     }
-    
     try {
       setIsLodding(true)
       axios.defaults.withCredentials = true
@@ -91,11 +74,10 @@ function SponsorUpdate({ user, setIsLodding }) {
           navigate('/sponsor')
           customToast('Sponsor Successfully updated', 0)
         })
-        
         .catch((err) => {
           setIsLodding(false)
           alert(err)
-          
+          console.error(err)
         })
     } catch (error) {
       setIsLodding(false)
@@ -103,7 +85,6 @@ function SponsorUpdate({ user, setIsLodding }) {
       console.error(error)
     }
   }
-  
 
   const modules = {
     toolbar: [
@@ -142,9 +123,7 @@ function SponsorUpdate({ user, setIsLodding }) {
   const getImage = (item) => {
     return `${assetUrl}/${item}`
   }
-  
 
-  
   return (
     <CRow>
       <CCol xs={12}>
@@ -223,69 +202,6 @@ function SponsorUpdate({ user, setIsLodding }) {
                       <hr />
                       <MDBRow>
                         <MDBCol sm="3">
-                          <MDBCardText>Web Link</MDBCardText>
-                        </MDBCol>
-                        <MDBCol sm="9">
-                          <CFormInput
-                            type="url"
-                            placeholder="http://example.com"
-                            
-                            value={weblink}
-                            onChange={(e) => setWebLink(e.target.value)}
-                          />
-                        </MDBCol>
-                      </MDBRow>
-                      <hr />
-                      <MDBRow>
-                        <MDBCol sm="3">
-                          <MDBCardText>Brocher</MDBCardText>
-                        </MDBCol>
-                        <MDBCol sm="4">
-                          <CFormInput
-                            type="file"
-                            size="sm"
-                            onChange={fileInputHandler}
-                            
-                            id="formFileLg"
-                          />
-                          </MDBCol>
-                           <MDBCol sm="5">
-                       <a    style={{
-                            backgroundColor: '#1e4356',
-                            color: '#fff',
-                            borderColor: '#fff',
-                            marginLeft:"5px",
-                            padding:'10px',
-                            borderRadius:'10px'
-                          }} href={sponsor && file ? URL.createObjectURL(file) : getImage(sponsor.brocherPath)}  target="_blank">Open File</a>
-                        
-
-                        </MDBCol>
-                      </MDBRow>
-                      <hr />
-                      <MDBRow>
-                        <MDBCol sm="3">
-                          <MDBCardText>Type </MDBCardText>
-                        </MDBCol>
-                        <MDBCol sm="9">
-                          <CFormSelect
-                            required
-                            value={type}
-                            onChange={(e) => setType(e.target.value)}
-                          >
-                            <option>--- Select Type ---</option>
-
-                            {Types.map((item, index) => (
-                              <option value={index} key={index}>
-                                {item}
-                              </option>
-                            ))}
-                          </CFormSelect>
-                        </MDBCol>
-                      </MDBRow>
-                      <hr />
-                      <MDBRow>
-                        <MDBCol sm="3">
                           <MDBCardText>Sponsor Level </MDBCardText>
                         </MDBCol>
                         <MDBCol sm="9">
@@ -304,7 +220,6 @@ function SponsorUpdate({ user, setIsLodding }) {
                           </CFormSelect>
                         </MDBCol>
                       </MDBRow>
-
 
                       <hr />
 

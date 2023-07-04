@@ -1,101 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
-import axios from "axios";
-import { useLocation, Link } from "react-router-dom";
-import { assetUrl, urlSponsor } from "../endpoints";
-import OwlCarousel from "react-owl-carousel";
-import "owl.carousel/dist/assets/owl.carousel.min.css";
-import "owl.carousel/dist/assets/owl.theme.default.min.css";  
+import { useLocation } from "react-router-dom";
+import { assetUrl } from "../endpoints";
 import dateformat from "dateformat";
-import './style.css'
 function NewsDetail() {
   const location = useLocation();
   const [news, setNews] = useState(location.state.news && location.state.news);
-  const [filterdList, setfilterdnewsList] =useState(location.state.newsList && location.state.newsList);
   const [newsList, setNewsList] = useState(
     location.state.newsList && location.state.newsList
   );
-  const [sponser, setSponser]=useState([])
-  const [partenerShip,setPartnerShip] = useState([])
-  const  [searchParm,setSearchParam]= useState('')
-  const option6 = {
-    container: "#sponsor-carousel-1",
-    loop: true,
-    autoplay: true,
-    dots: false,
-    items: 2,
-    gutter: 30,
-    mouseDrag: true,
-    touch: "true",
-    nav: false,
-
-    controls: false,
-    responsive: {
-      0: {
-        items: 2,
-        gutter: 30,
-        margin: 30,
-      },
-      576: {
-        items: 3,
-        gutter: 30,
-        margin: 30,
-      },
-      768: {
-        items: 4,
-        gutter: 30,
-        margin: 30,
-      },
-      992: {
-        items: 5,
-        gutter: 50,
-        margin: 40,
-      },
-      1200: {
-        items: 5,
-        gutter: 140,
-        margin: 50,
-      },
-    },
-  };
-
-useEffect(()=>{
-
-  setfilterdnewsList(
-  newsList.filter(news => news.title.toLowerCase().includes(searchParm.toLowerCase()))
-)
-},[searchParm])
-
-
-useEffect(()=>{
-  axios.get(urlSponsor + "/bySupportType?supportType=0").then((res) => {
-    setSponser(res.data)
-  })
-}, [])
-
-
-useEffect(()=>{
-
-  axios.get(urlSponsor+"/bySupportType?supportType=1").then((res)=>
-    setPartnerShip(res.data)
-  )
-},[])
+  console.log("news", news);
 
   const getImage = (item) => {
     return `${assetUrl}/${item}`;
   };
-
-
-  const filterdStyle = ( index ) => {
-    const buttonStyle = {
-      backgroundColor: index%2===0 ? 'white' : '',
-     
-     
-    };
-    return buttonStyle;
-  }
-
-
 
   return (
     <>
@@ -146,13 +64,111 @@ useEffect(()=>{
                   ></div>
                 </p>
               </div>
-      
+              <div className="blog-details__bottom">
+                <div className="blog-details__social">
+                  <a href="#">
+                    <i className="fab fa-twitter"></i>
+                  </a>
+                  <a href="#">
+                    <i className="fab fa-facebook"></i>
+                  </a>
+                  <a href="#">
+                    <i className="fab fa-pinterest"></i>
+                  </a>
+                  <a href="#">
+                    <i className="fab fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+              <div className="blog-details__author clearfix">
+                <img src="/assets/images/blog/blog-a-1.jpg" alt="" />
+                <h3 className="blog-details__author__name">Kevin martin</h3>
+                <p className="blog-details__author__bio">
+                  Cursus massa at urnaaculis estie. Sed aliquamellus vitae ultrs
+                  condmentum lightly believable. If you are going to use a of
+                  you need to be sure there isn't anything embarrassing.
+                </p>
+              </div>
+              <div className="blog-details__comments">
+                <h3 className="blog-details__sec__title">02 Comments</h3>
+                <ul className="list-unstyled blog-details__comments__list">
+                  <li>
+                    <img src="/assets/images/blog/blog-c-1.jpg" alt="" />
+                    <div className="blog-details__comments__meta">
+                      <h3 className="blog-details__comments__name">
+                        Christine Eve{" "}
+                      </h3>
+                      <p className="blog-details__comments__date">20 Aug, 2022</p>
+                    </div>
+                    <p className="blog-details__comments__text">
+                      Sending love. My nephews Nick and Anthony Salaber are your
+                      teammates, so I know the caliber person you are. Our whole
+                      family is sending our best to you and your family.
+                    </p>
+
+                    <a href="#" className="thm-btn blog-details__comments__btn">
+                      <span>Reply</span>
+                    </a>
+                  </li>
+                  <li>
+                    <img src="/assets/images/blog/blog-c-2.jpg" alt="" />
+                    <div className="blog-details__comments__meta">
+                      <h3 className="blog-details__comments__name">
+                        Christine Eve{" "}
+                      </h3>
+
+                      <p className="blog-details__comments__date">20 Aug, 2022</p>
+                    </div>
+                    <p className="blog-details__comments__text">
+                      Sending love. My nephews Nick and Anthony Salaber are your
+                      teammates, so I know the caliber person you are. Our whole
+                      family is sending our best to you and your family.
+                    </p>
+
+                    <a href="#" className="thm-btn blog-details__comments__btn">
+                      <span>Reply</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="blog-details__form">
+                <h3 className="blog-details__sec__title">Leave a comment</h3>
+                <form
+                  action="https://paroti-html.vercel.app/assets/inc/sendemail.php"
+                  className="contact-one__form contact-form-validated"
+                >
+                  <div className="row">
+                    <div className="col-md-6">
+                      <input type="text" placeholder="Your name" name="name" />
+                    </div>
+                    <div className="col-md-6">
+                      <input
+                        type="text"
+                        placeholder="Email address"
+                        name="email"
+                      />
+                    </div>
+                    <div className="col-md-12">
+                      <textarea
+                        name="message"
+                        placeholder="Write a message"
+                      ></textarea>
+                    </div>
+                    <div className="col-md-12">
+                      <button type="submit" className="thm-btn contact-one__btn">
+                        <span>Submit comment</span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <div className="result"></div>
+              </div>
             </div>
             <div className="col-lg-4">
-              <div className="sidebar mb-4">
+              <div className="sidebar">
                 <div className="sidebar__single sidebar__single--search">
                   <form action="#">
-                    <input type="text" className="searhcInput" value={searchParm} onChange={(e)=>setSearchParam(e.target.value)}  placeholder="Search here.." />
+                    <input type="text" placeholder="Search here.." />
                     <button type="submit">
                       <i className="paroti-icon-magnifying-glass"></i>
                     </button>
@@ -161,18 +177,18 @@ useEffect(()=>{
                 <div className="sidebar__single sidebar__single--posts">
                   <h3 className="sidebar__title">Recent posts</h3>
                   <ul className="list-unstyled sidebar__post">
-                    {filterdList.slice(0, 4).map((item, index) => (
-                      <li key={index} style={filterdStyle(index)}>
-                        <a onClick={()=>setNews(item)}>
+                    {newsList.slice(0, 4).map((item, index) => (
+                      <li>
+                        <a href="#">
                           <img
                             style={{ maxWidth: "70px" }}
                             src={getImage(item.img)}
                             alt=""
                           />
-                          {/* <span className="sidebar__post__meta">
+                          <span className="sidebar__post__meta">
                             <i className="fa fa-comments"></i>
                             02 comments
-                          </span> */}
+                          </span>
                           <span className="sidebar__post__title">{item.title}</span>
                         </a>
                       </li>
@@ -180,34 +196,8 @@ useEffect(()=>{
                   </ul>
                 </div>
               </div>
-
-              {sponser.slice(0, 2).map((item, index) => {
-              return (
-                <div className="item containerr" key={index}  style={{marginLeft:"25%"}}   >
-                  <img className="imgg" style={{width:"100%"}} src={getImage(item.logo)} alt="" />
-                  <div class="overlay"><div class="buttonn"><a href={getImage(item.brocherPath)} target="_blank"> View Brocher </a></div></div>
-                
-                </div>
-              )
-            })}
             </div>
           </div>
-        </div>
-      </section>
-      <section className="sec-pad-top sec-pad-bottom donation-two">
-        </section>
-      <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
-        <div className="container">
-      {partenerShip.length &&    <OwlCarousel className="owl-theme " {...option6}>
-
-            {partenerShip.map((item,index)=>{
-              return(
-                <div className="item" key={index}>
-                <img src={getImage(item.logo)} alt="" />
-              </div>
-              )
-            })}
-          </OwlCarousel>}
         </div>
       </section>
     </>

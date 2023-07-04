@@ -1,9 +1,6 @@
 {
     "address":{
-        "1":"Haile G/Silassie Road, ADDIS ABABA, Ethiopia"
-    },
-    "head":{
-        "1":" Ministry of Water &Energy Head Office "
+        "1":"Haile G/Silassie Road, ADDIS ABABA, ETHIOIA"
     },
     "english":{
         "1":"English"
@@ -17,9 +14,6 @@
     "aboutus":{
         "1":"About Us"
     },
-    "service":{
-        "1":"Services"
-    },
     "news":{
         "1":"News"
     },
@@ -29,49 +23,15 @@
     "contactus":{
         "1":"Contact Us"
     },
-    "contactus1":{
-        "1":"Contact with us"
-    },
-    "link":{
-        "1":"Links"
-    },
-    "love":{
-        "1":"Love to hear from you"
-    },
-    "name":{
-        "1":"Your Name"
-    },
-    "email":{
-        "1":"Email Address"
-    },"subject":{
-        "1":"Subject"
-    },
-    "message":{
-        "1":"Write Message"
-    },
-    "send":{
-        "1":"Send message"
-    },
     "others":{
         "1":"Others"
     },
-    
     "vaccancy":{
         "1":"Vaccancy"
     },
     "publication":{
-        "1":"Portable Libraries "
+        "1":"Publication"
     },
-    "publication1":{
-        "1":"Publication "
-    },
-    "search":{
-     "1":"Search here..."
-    },
-    "recent":{
-        "1":"Recent posts"
-       },
-    
     "ethiopianurbanwater": {
         "1": "Ethiopian Urban Water"
     },
@@ -87,94 +47,6 @@
         "3":"The Federation's mandate is to provide a platform for all Ethiopia utilities to advocate for issues relating to their development and sustainability, as well as capacity building and support for utilities.",
         "4":"DISCOVER MORE",
         "5":"Years of work experiance"
-    },
-    "Organizational":{
-        "1":" Organizational Structure",
-        "2":"Our Organizational Structure",
-        "4":"General Council",
-        "5":"Directors’ Board",
-        "6":"Managing Director",
-        "7":"Finance and Administration",
-        "8":"Vice Manager",
-        "9":"IWRM Team",
-        "10":"Research Training & monitoring and Evaluation Team",
-        "11":"ITC Team",
-        "12":"PR & Communications Team",
-        "13":"Water Supply Team",
-        "14":"Sanitation Team",
-        "15":"Legal Advisor",
-        "16":"Audit Committee "
-      
-
-        
-      
-    },
-
-
-
-    "vision": {
-        "1": "Change everything",
-        "2": "OUR VISSION",
-        "3": "To become the first and competent association in east Africa by providing support for water supply and Sanitation Utilities through capacity building and provide training on new technologies that will lead Water utilities for an outstanding performance."
-    },
-    
-    "corevalues": {
-        "1": "Core Values",
-        "2":"Act with Integrity.",
-        "3":"Strive for Excellence.",
-        "4":"Move for Innovations."
-    },
-    "objectives": {
-        "1": "Objectives",
-        "2":" Enhance the capacity of the EWF.",
-        "3":" Ensure the financial sustainability of the Ethiopian Water Federation.",
-        "4":"Promote members’ interests and create opportunities for their development."
-    },
-    "donating": {
-        "1": "",
-        "2":"",
-        "3":" ",
-        "4":"Water for All Securing a Sustainable Future.",
-        "5":"Water Utilities"
-    },
-    "Events":{
-        "1":"Ethiopian Water Federation",
-        "2":"Events & Forums"
-    },
-    "Subscibe":{
-        "1":"Ethiopain Urban Water Federation",
-        "3":" Subscibe to our ",
-        "2":"News letter",
-        "4":"Subscribe",
-        "5":"Enter your Email"
-    },
-    "blog":{
-        "1":"Watch our latest blogs",
-        "2":"Latest news & articles"
-    },
-    "testimonials":{
-        "1":"It is an honor to support and empower Ethiopian water supply and sanitation enterprises in their efforts to improve water supply and sanitation services. We are committed to providing exceptional assistance to Ethiopia's water utilities as they strive to provide sustainable, efficient, and effective water supply andsanitation services and become competent utilities inEast Africa. We will do this through capacity building,networking, and creating a platform for sharing best practices among the utilities.",
-        "2":" Muktar Ahmed",
-        "3":"  Director General of EUWF",
-        "4":"VEI implements peer supported partnerships between wateroperators worldwide, aiming to share knowledge andskills to make the utilities stronger, healthier, andmore resilient. We believe that everybody in the worlddeserves proper, adequate, and sustainable waterservices delivery.",
-        "5":"Daniel Truneh",
-        "6":" VEI REGIONAL DIRECTOR , EAST AND NORHERN AFRICA",
-        "7": "VEI implements peer supported partnerships between wateroperators worldwide, aiming to share knowledge andskills to make the utilities stronger, healthier, and more resilient. We believe that everybody in the worlddeserves proper, adequate, and sustainable water services delivery.",
-        "8" : "Petros",
-        "9" :"Founder"
-    },
-    "total":{
-        "1":"Total Campaigns ",
-        "2":"Raised Funds",
-        "3":"Satisfied Donors",
-        "4":"Happy Volunteers"
-    },
-    "feedbacks":{
-        "1":"Our feedbacks",
-        "2":"What they’re",
-        "3":"talking about us",
-        "4":"",
-        "5":"View all feedbacks"
     }
 
 }

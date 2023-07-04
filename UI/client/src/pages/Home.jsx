@@ -1,60 +1,19 @@
-import React,{useRef} from "react";
+import React from "react";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.min.css";
-import "owl.carousel/dist/assets/owl.theme.default.min.css";  
+import "owl.carousel/dist/assets/owl.theme.default.min.css";
 import axios from "axios";
 import { useState } from "react";
-import { assetUrl, urlForum, urlNews, urlSponsor, urlSubscriber } from "../endpoints";
+import { assetUrl, urlForum, urlNews } from "../endpoints";
 import dateformat from "dateformat";
 import { useEffect } from "react";
 import DOMPurify from "dompurify";
-import { useTranslation } from 'react-i18next'
-import {Link, useNavigate} from 'react-router-dom'
-
-import { Toast } from 'primereact/toast';
-
+import {useTranslation} from 'react-i18next'
 
 function Home() {
 
-  const toast = useRef(null);
+  const {t}  = useTranslation()
 
-  const showToast = (type,summary,detail) => {
-      toast.current.show({severity:type, summary: summary, detail:detail, life: 3000});
-  }
-
-  const { t } = useTranslation()
-  const navigate = useNavigate()
-
-  const [partenerShip,setPartnerShip] = useState([])
-
-
-
-
-  const navigateNewsDetial =(item)=>{
-
-    navigate('news/detail',{
-      state :{
-        news: item,
-        newsList:news
-      }
-    }
-    )
-    
-      }
-
-
-      const navigateForumDetial=(item, itemList)=>{
-
-        navigate('forum',{
-          state :{
-            forum: item,
-            forumList: itemList
-            
-          }
-        }
-        )
-      }
-    
 
   const option3 = {
     items: 1,
@@ -82,7 +41,7 @@ function Home() {
     gutter: 0,
     mouseDrag: true,
     touch: "true",
-    nav: false,
+    nav: true,
 
     controls: false,
     responsive: {
@@ -95,11 +54,11 @@ function Home() {
         gutter: 0,
       },
       768: {
-        items: 3,
+        items: 2,
         gutter: 30,
       },
       992: {
-        items: 3,
+        items: 2,
         //"gutter": 30,
         margin: 30,
       },
@@ -165,47 +124,16 @@ function Home() {
   useEffect(() => {
     axios
       .get(urlForum)
-      .then((res) => {
-
-        console.log("forum", res.data)
-        setForum(res.data)
-      })
+      .then((res) => setForum(res.data))
       .catch((err) => console.error(err));
   }, []);
-
-  useEffect(()=>{
-
-    axios.get(urlSponsor+"/bySupportType?supportType=1").then((res)=>
-      setPartnerShip(res.data)
-    )
-  },[])
-
-
 
   const getImage = (item) => {
     return `${assetUrl}/${item}`;
   };
 
-  const [subscribe, setSubscribe]= useState('');
-
- const subscribeEmail=()=>{
-        if(subscribe!= ''){
-          axios.post(urlSubscriber, {Email:subscribe
-          }).then((res)=>{
-            setSubscribe('')
-           showToast('success','Success',res.data)
-          }).catch(()=>{
-            setSubscribe('')
-            showToast('error','Error',"Something went wrong or Emial already Subscribed")
-          })
-        }
-  }
-
-
   return (
     <>
-
-<Toast ref={toast} />
       <section
         className="slider-one slider-two"
         style={
@@ -235,13 +163,13 @@ function Home() {
               ></div>
 
               <div className="container">
-                <p className="slider-one__text"> {t("ethiopianurbanwater.1")} </p>
+                <p className="slider-one__text"> Ethiopian Urban Water </p>
 
-                <h2 className="slider-one__title">{t("federation.1")}</h2>
+                <h2 className="slider-one__title">Federation</h2>
                 <div className="slider-one__btns">
-                  <Link to="about" className="thm-btn slider-one__btn" >
+                  <a href="about.html" className="thm-btn slider-one__btn">
                     <span>{t("welcome.4")}</span>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -256,13 +184,13 @@ function Home() {
               ></div>
 
               <div className="container">
-                <p className="slider-one__text">  {t("ethiopianurbanwater.1")} </p>
+                <p className="slider-one__text">    Ethiopian Urban Water </p>
 
-                <h2 className="slider-one__title">{t("federation.1")}</h2>
+                <h2 className="slider-one__title">Federation</h2>
                 <div className="slider-one__btns">
-                  <Link to="about" className="thm-btn slider-one__btn">
+                  <a href="about.html" className="thm-btn slider-one__btn">
                     <span>{t("welcome.4")}</span>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -278,13 +206,13 @@ function Home() {
               ></div>
 
               <div className="container">
-                <p className="slider-one__text">{t("ethiopianurbanwater.1")} </p>
+                <p className="slider-one__text">Ethiopian Urban Water </p>
 
-                <h2 className="slider-one__title">{t("federation.1")}</h2>
+                <h2 className="slider-one__title">Federation</h2>
                 <div className="slider-one__btns">
-                  <Link to="about" className="thm-btn slider-one__btn" >
+                  <a href="about.html" className="thm-btn slider-one__btn">
                     <span>{t("welcome.4")}</span>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -296,7 +224,7 @@ function Home() {
         <img
           src="/assets/images/shapes/about-4-1.png"
           className="about-two__shape-1 float-bob-x"
-          alt="about image"
+          alt=""
         />
         <div className="container">
           <div className="row gutter-y-60">
@@ -309,7 +237,7 @@ function Home() {
                   src="/assets/images/resources/4.png"
                   className="wow fadeInLeft"
                   data-wow-duration="1500ms"
-                  alt="about image"
+                  alt=""
                 />
                 <div className="about-two__image__caption">
                   <h3 className="about-two__image__caption__count count-box">
@@ -321,7 +249,7 @@ function Home() {
                     +100
                   </h3>
                   <p className="about-two__image__caption__text">
-                    {t("welcome.5")}
+                  {t("welcome.5")}
                   </p>
                 </div>
               </div>
@@ -330,21 +258,21 @@ function Home() {
               <div className="about-two__content">
                 <div className="sec-title">
                   <p className="sec-title__tagline">
-                    {t("welcome.1")}
+                  {t("welcome.1")}
                   </p>
                   <h2 className="sec-title__title">{t("whoweare.1")}</h2>
                 </div>
                 <p className="about-two__text">
-                  {t("welcome.2")}
+                 {t("welcome.2")}
                 </p>
                 <p className="about-two__text mt-3">
-                  {t("welcome.3")}
+                {t("welcome.3")}
                 </p>
 
                 <div className="about-two__btns mt-4">
-                  <Link to="about" className="thm-btn about-two__btn">
+                  <a href="about.html" className="thm-btn about-two__btn">
                     <span> {t("welcome.4")}</span>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -357,11 +285,15 @@ function Home() {
           <div className="row gutter-y-60">
             <div className="col-md-12 col-lg-4">
               <div className="sec-title">
-                <p className="sec-title__tagline">{t("vision.1")}</p>
-                <h2 className="sec-title__title">{t("vision.2")}</h2>
+                <p className="sec-title__tagline">Change everything</p>
+                <h2 className="sec-title__title">OUR VISSION</h2>
               </div>
               <p className="donation-two__text">
-              {t("vision.3")}
+                To become the first and competent association in east Africa by
+                providing support for water supply and Sanitation Utilities
+                through capacity building and provide training on new
+                technologies that will lead Water utilities for an outstanding
+                performance.
               </p>
             </div>
             <div className="col-md-12 col-lg-8">
@@ -370,21 +302,21 @@ function Home() {
                   <div className="donation-card-two">
                     <div className="donation-card-two__bg"></div>
                     <h3 className="donation-card-two__title">
-                      <a href="donation-details.html">{t("vision.1")}</a>
+                      <a href="donation-details.html">Core Values</a>
                     </h3>
 
                     <ul className="list-unstyled about-two__list donation-card-two__title ">
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        {t("corevalues.2")}  
+                        Act with Integrity.
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        {t("corevalues.3")}
+                        Strive for Excellence.
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        {t("corevalues.4")}
+                        Move for Innovations.
                       </li>
                     </ul>
 
@@ -402,21 +334,23 @@ function Home() {
                   >
                     <div className="donation-card-two__bg"></div>
                     <h3 className="donation-card-two__title">
-                      <a href="donation-details.html">{t("objectives.1")}</a>
+                      <a href="donation-details.html">Objectives</a>
                     </h3>
 
                     <ul className="list-unstyled about-two__list">
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        {t("objectives.2")}
+                        Enhance the capacity of the EWF.
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        {t("objectives.3")}
+                        Ensure the financial sustainability of the Ethiopian
+                        Water Federation.
                       </li>
                       <li>
                         <i className="fa fa-check-circle"></i>
-                        {t("objectives.4")}
+                        Promote members’ interests and create opportunities for
+                        their development.
                       </li>
                     </ul>
 
@@ -445,72 +379,63 @@ function Home() {
         <div className="container  text-center">
           <div className="sec-title">
             <p className="sec-title__tagline">
-            {t("donating.1")}
+              We’re here to support poor people
             </p>
-            <h5 className="sec-title__title">
-            {t("donating.2")}<br />
-              <span>{t("donating.3")}</span> {t("donating.4")}
-            </h5>
+            <h2 className="sec-title__title">
+              Fundraising for the people and <br />
+              <span>causes</span> you care about
+            </h2>
           </div>
-          <Link to="waterutility" className="thm-btn cta-one__btn">
-            <span> {t("donating.5")}</span>
-          </Link>
+          <a href="donations.html" className="thm-btn cta-one__btn">
+            <span>Start donating them</span>
+          </a>
         </div>
       </section>
 
       <section className="sec-pad-top sec-pad-bottom">
         <div className="container">
           <div className="sec-title ">
-            <p className="sec-title__tagline">{t("Events.1")}</p>
-            <h2 className="sec-title__title">{t("Events.2")}</h2>
+            <p className="sec-title__tagline">Ethiopian Water Federation</p>
+            <h2 className="sec-title__title">Events & Forums</h2>
           </div>
-          {/* {forum.map((item, index) => ( <h1>hello</h1>
-              ))}  */}
 
           <div className="donations-carousel">
-
-            {forum.length && <OwlCarousel className="owl-theme" {...option4}>
-              {forum.map((item, index) => {
-                return (
-                  <div className="item" key={index}>
-                    <div className="donations-card">
-                      <div className="donations-card__image">
-                        <img src={getImage(item.img)} alt="" />
-                        <div className="donations-card__category">
-                          <a onClick={()=>navigateForumDetial(item,forum)} >
-                            {item.isForumEvent === 1 ? "Events" : "Forums"}
-                          </a>
-                        </div>
+            <OwlCarousel className="owl-theme " {...option4}>
+              {forum.map((item, index) => (
+                <div className="item" key={index}>
+                  <div className="donations-card">
+                    <div className="donations-card__image">
+                      <img src={getImage(item.img)} alt="" />
+                      <div className="donations-card__category">
+                        <a href="#">
+                          {item.isForumEvent === 1 ? "Events" : "Forums"}
+                        </a>
                       </div>
-                      <div className="donations-card__content">
-                        <h3 className="donations-card__title">
-                          <a onClick={()=>navigateForumDetial(item,forum)}>{item.title}</a>
-                        </h3>
-                        <p className="donations-card__text"
+                    </div>
+                    <div className="donations-card__content">
+                      <h3 className="donations-card__title">
+                        <a href="donations-details.html">{item.title}</a>
+                      </h3>
+                      <p className="donations-card__text"
                           dangerouslySetInnerHTML={{
                             __html: `${DOMPurify.sanitize(
                               item.description
                             ).slice(0, 100)}...`,
                           }}
                         >
-                        </p>
+                      </p>
 
-                        <div className="donations-card__amount">
-                          <p>
-                            <span>{dateformat(item.createdAt, "mmm dS")}</span>
-                          </p>
-                          <p></p>
-                        </div>
+                      <div className="donations-card__amount">
+                        <p>
+                          <span>{dateformat(item.createdAt, "mmm dS")}</span>
+                        </p>
+                        <p></p>
                       </div>
                     </div>
                   </div>
-                )
-              }
-
-              )}
-            </OwlCarousel>}
-
-
+                </div>
+              ))}
+            </OwlCarousel>
           </div>
         </div>
       </section>
@@ -527,18 +452,18 @@ function Home() {
             <div className="col-lg-7">
               <div className="sec-title">
                 <p className="sec-title__tagline">
-                {t("Subscibe.1")}
+                  Ethiopain Urban Water Federation
                 </p>
                 <h2 className="sec-title__title">
-                {t("Subscibe.3")} <br /> {t("Subscibe.2")}
+                  Subscibe to our <br /> News letter
                 </h2>
               </div>
-              <div className="mc-form newsletter-one__form">
-                <input type="email"  value={subscribe} onChange={(e)=>setSubscribe(e.target.value)} placeholder= {t("Subscibe.5")} />
-                <button type="submit" onClick={subscribeEmail} className="newsletter-one__form__btn">
-                  {t("Subscibe.4")}
+              <form action="#" className="mc-form newsletter-one__form">
+                <input type="email" placeholder="Your email" />
+                <button type="submit" className="newsletter-one__form__btn">
+                  Subscribe
                 </button>
-              </div>
+              </form>
               <div className="mc-response"></div>
             </div>
           </div>
@@ -548,51 +473,51 @@ function Home() {
       <section className="sec-pad-top sec-pad-bottom">
         <div className="container">
           <div className="sec-title text-center">
-            <p className="sec-title__tagline">{t("blog.1")}</p>
-            <h2 className="sec-title__title">{t("blog.2")}</h2>
+            <p className="sec-title__tagline">Watch our latest blogs</p>
+            <h2 className="sec-title__title">Latest news & articles</h2>
           </div>
           <div className="blog-carousel">
-            {news.length && <OwlCarousel className="owl-theme" {...option4}>
-              {news.map((item, index) => {
-                return (<div key={index} className="item">
+            <OwlCarousel className="owl-theme" {...option4}>
+              {news.map((item, index) => (
+                <div key={index} className="item">
                   <div className="blog-card">
                     <div className="blog-card__image">
                       <img src={getImage(item.img)} alt="" />
                       <div className="blog-card__date">
-                        <span>{dateformat(item.createdAt, "d")}</span>{dateformat(item.createdAt, "mmm")}
+                      <span>{dateformat(item.createdAt,"d")}</span>{dateformat(item.createdAt,"mmm")}
                       </div>
                     </div>
                     <div className="blog-card__content">
                       <ul className="blog-card__meta list-unstyled">
                         <li>
                           <i className="fa fa-user"></i>
-                          <a onClick={()=>navigateNewsDetial(item)} >{item.waterFederation.fullName}</a>
+                          <a href="#">{item.waterFederation.fullName}</a>
                         </li>
-                        {/* <li>
+                        <li>
                           <i className="fa fa-comments"></i>
                           <a href="#">02 comments</a>
-                        </li> */}
+                        </li>
                       </ul>
                       <h3 className="blog-card__title">
-                        <a onClick={()=>navigateNewsDetial(item)} >{item.title}</a>
+                        <a href="blog-details.html">{item.title}</a>
                       </h3>
-                      <p className="donations-card__text"
-                        dangerouslySetInnerHTML={{
-                          __html: `${DOMPurify.sanitize(
-                            item.description
-                          ).slice(0, 100)}...`,
-                        }}
-                      >
+                        <p className="donations-card__text"
+                          dangerouslySetInnerHTML={{
+                            __html: `${DOMPurify.sanitize(
+                              item.description
+                            ).slice(0, 100)}...`,
+                          }}
+                        >
                       </p>
-                      <a onClick={()=>navigateNewsDetial(item)} className="blog-card__links">
+                      <a href="blog-details.html" className="blog-card__links">
                         <i className="fa fa-angle-double-right"></i>
                         Read More
                       </a>
                     </div>
                   </div>
-                </div>)
-              })}
-            </OwlCarousel>}
+                </div>
+              ))}
+            </OwlCarousel>
           </div>
         </div>
       </section>
@@ -623,12 +548,6 @@ function Home() {
                   style={{ width: "60px", height: "60px" }}
                 />
               </div>
-              <div className="swiper-slide">
-                <img
-                  src="/assets/images/testimonals/muktar.png"
-                  style={{ width: "60px", height: "60px" }}
-                />
-              </div>
             </div>{" "}
           </div>
           <div
@@ -652,14 +571,23 @@ function Home() {
                     </div>
                     <div className="testimonials-two__card__content">
                       <p className="testimonials-two__card__text">
-                      {t("testimonials.1")}
+                        It is an honor to support and empower Ethiopian water
+                        supply and sanitation enterprises in their efforts to
+                        improve water supply and sanitation services. We are
+                        committed to providing exceptional assistance to
+                        Ethiopia's water utilities as they strive to provide
+                        sustainable, efficient, and effective water supply and
+                        sanitation services and become competent utilities in
+                        East Africa. We will do this through capacity building,
+                        networking, and creating a platform for sharing best
+                        practices among the utilities.
                       </p>
                       <h3 className="testimonials-two__card__title">
-                      {t("testimonials.2")}
+                        Muktar Ahmed
                       </h3>
 
                       <span className="testimonials-two__card__designation">
-                      {t("testimonials.3")}
+                        Director General of EUWF
                       </span>
                     </div>
                     <i className="paroti-icon-quote testimonials-two__card__icon"></i>
@@ -680,42 +608,19 @@ function Home() {
                     </div>
                     <div className="testimonials-two__card__content">
                       <p className="testimonials-two__card__text">
-                      {t("testimonials.4")}
+                        VEI implements peer supported partnerships between water
+                        operators worldwide, aiming to share knowledge and
+                        skills to make the utilities stronger, healthier, and
+                        more resilient. We believe that everybody in the world
+                        deserves proper, adequate, and sustainable water
+                        services delivery.
                       </p>
                       <h3 className="testimonials-two__card__title">
-                      {t("testimonials.5")}
+                        Daniel Truneh
                       </h3>
 
                       <span className="testimonials-two__card__designation">
-                      {t("testimonials.6")}
-                      </span>
-                    </div>
-                    <i className="paroti-icon-quote testimonials-two__card__icon"></i>
-                  </div>
-                </div>
-                <div className="swiper-slide">
-                  <div className="testimonials-two__card">
-                    <div className="testimonials-two__card__image">
-                      <img
-                        src="/assets/images/testimonals/daniel.png"
-                        style={{
-                          borderRadius: "50%",
-                          width: "200px",
-                          height: "200px",
-                        }}
-                        alt=""
-                      />
-                    </div>
-                    <div className="testimonials-two__card__content">
-                      <p className="testimonials-two__card__text">
-                      {t("testimonials.7")}
-                      </p>
-                      <h3 className="testimonials-two__card__title">
-                      {t("testimonials.8")}
-                      </h3>
-
-                      <span className="testimonials-two__card__designation">
-                      {t("testimonials.9")}
+                        VEI REGIONAL DIRECTOR , EAST AND NORHERN AFRICA
                       </span>
                     </div>
                     <i className="paroti-icon-quote testimonials-two__card__icon"></i>
@@ -730,16 +635,50 @@ function Home() {
 
       <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
         <div className="container">
-      {partenerShip.length &&    <OwlCarousel className="owl-theme " {...option6}>
-
-            {partenerShip.map((item,index)=>{
-              return(
-                <div className="item" key={index}>
-                <img src={getImage(item.logo)} alt="" />
-              </div>
-              )
-            })}
-          </OwlCarousel>}
+          <OwlCarousel className="owl-theme " {...option6}>
+            <div className="item">
+              <img src="/assets/images/partner/s1.png" alt="" />
+            </div>
+            <div className="item">
+              <img src="/assets/images/partner/s2.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s3.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s4.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s5.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s6.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s7.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s8.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s9.png" alt="" />
+            </div>
+            <div className="item">
+              <img src="/assets/images/partner/s10.png" alt="" />
+            </div>
+            <div className="item">
+              <img src="/assets/images/partner/s11.png" alt="" />
+            </div>
+            <div className="item">
+              <img src="/assets/images/partner/s12.png" alt="" />
+            </div>
+            <div className="item">
+              <img src="/assets/images/partner/s13.png" alt="" />
+            </div>{" "}
+            <div className="item">
+              <img src="/assets/images/partner/s14.png" alt="" />
+            </div>
+          </OwlCarousel>
         </div>
       </section>
     </>
